@@ -16,10 +16,10 @@ class BukuController extends Controller
         $relation = 'genres'; 
 
         // LAZY LOADING
-        // $data['buku'] = Buku::SearchWithRelations($request, $relation, ['nama'])->paginator($request);
+        // $data['song'] = Buku::SearchWithRelations($request, $relation, ['nama'])->paginator($request);
 
         // EAGER LOADING
-        $data['buku'] = Buku::with($relation)
+        $data['song'] = Buku::with($relation)
         ->searchWithRelations($request, $relation, ['nama'])->paginator($request);
 
         return view('pertemuan2.buku.index', compact('data'));
@@ -35,39 +35,39 @@ class BukuController extends Controller
     {
         $validatedData = $request->validated();
         unset($validatedData['genre']);
-        $buku = Buku::create($validatedData);
-        $buku->genres()->attach($request->input('genre'));
+        $song = Buku::create($validatedData);
+        $song->genres()->attach($request->input('genre'));
 
-        return redirect()->route('crud-buku.index')->with('success', 'Buku "' . $buku->title . '" sukses ditambahkan.');
+        return redirect()->route('crud-song.index')->with('success', 'Buku "' . $song->title . '" sukses ditambahkan.');
     }
 
-    public function show(Buku $buku)
+    public function show(Buku $song)
     {
-        $data['buku'] = $buku;
+        $data['song'] = $song;
         return view('pertemuan2.buku.show', compact('data'));
     }
 
-    public function edit(Buku $buku) 
+    public function edit(Buku $song) 
     {
-        $data['buku'] = $buku;
-        $data['buku-genre'] = $buku->genres->pluck('id')->toArray();
+        $data['song'] = $song;
+        $data['buku-genre'] = $song->genres->pluck('id')->toArray();
         $data['genre'] = Genre::all();
         return view('pertemuan2.buku.edit', compact('data'));
     }
 
-    public function update(UpdateBukuRequest $request, Buku $buku)
+    public function update(UpdateBukuRequest $request, Buku $song)
     {
         $validatedData = $request->validated();
         unset($validatedData['genre']);
-        $buku->update($validatedData);
-        $buku->genres()->sync($request->input('genre'));
-        return redirect()->route('crud-buku.index', $buku->id)->with('success', 'buku "'.$buku->title.'" sukses diubah');
+        $song->update($validatedData);
+        $song->genres()->sync($request->input('genre'));
+        return redirect()->route('crud-song.index', $song->id)->with('success', 'buku "'.$song->title.'" sukses diubah');
     }
 
-    public function destroy(Buku $buku)
+    public function destroy(Buku $song)
     {
-        $buku->genres()->detach();
-        $buku->delete();
-        return redirect()->route('crud-buku.index')->with('success', 'Buku "' . $buku->title . '" sukses dihapus".');
+        $song->genres()->detach();
+        $song->delete();
+        return redirect()->route('crud-song.index')->with('success', 'Buku "' . $song->title . '" sukses dihapus".');
     }
 }

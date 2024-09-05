@@ -17,8 +17,8 @@ class Genre extends Model
         'nama',
     ];
     
-    public function bukus()
+    public function songs()
     {
-        return $this->belongsToMany(Buku::class, 'buku_genre', 'genre_id', 'buku_id'); // Explicitly define the pivot table name
+        return $this->belongsToMany(Song::class, 'song_genre', 'genre_id', 'song_id'); // Explicitly define the pivot table name
     }
 }

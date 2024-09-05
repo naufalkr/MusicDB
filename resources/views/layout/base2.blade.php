@@ -10,17 +10,17 @@
         </a>
         <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="{{ route('crud-buku.index') }}"
-                    class="nav-link {{ request()->routeIs('crud-buku.index') ? 'active' : '' }}">
+                <a href="{{ route('crud-song.index') }}"
+                    class="nav-link {{ request()->routeIs('crud-song.index') ? 'active' : '' }}">
                     <i class="fas fa-list nav-icon"></i>
-                    <p>List Buku</p>
+                    <p>List Song</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('crud-buku.create') }}"
-                    class="nav-link {{ request()->routeIs('crud-buku.create') ? 'active' : '' }}">
+                <a href="{{ route('crud-song.create') }}"
+                    class="nav-link {{ request()->routeIs('crud-song.create') ? 'active' : '' }}">
                     <i class="fas fa-plus-circle nav-icon"></i>
-                    <p>Tambah Buku</p>
+                    <p>Tambah Song</p>
                 </a>
             </li>
             <li class="nav-item">

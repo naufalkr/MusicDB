@@ -44,7 +44,7 @@
                     <tr>
                         <th>id</th>
                         <th>Nama Kategori</th>
-                        <th>Jumlah Buku</th>
+                        <th>Jumlah Song</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -59,7 +59,7 @@
                                     {{ Str::limit($kategori->nama, 20, '...') }}
                                 </a>
                             </td>
-                            <td>{{ count($kategori->bukus) }}</td>
+                            <td>{{ count($kategori->songs) }}</td>
                             <td class="d-flex">
                                 <a href="{{ route('crud-kategori.edit', $kategori->id) }}"
                                     class="btn btn-primary btn-sm mr-2">Edit</a>

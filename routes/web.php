@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BukuController;
+use App\Http\Controllers\SongController;
 use App\Http\Controllers\GenreController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +35,7 @@ Route::prefix('/pertemuan1')->group(function(){
 });
 
 Route::prefix('/pertemuan2')->group(function(){
-    Route::resource('/crud-buku', BukuController::class)->parameters(['crud-buku' => 'buku']);
+    Route::resource('/crud-song', SongController::class)->parameters(['crud-song' => 'song']);
     Route::resource('/crud-genre', GenreController::class)->parameters(['crud-genre' => 'genre']);
 });
 

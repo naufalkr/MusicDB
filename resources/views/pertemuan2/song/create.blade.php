@@ -2,11 +2,11 @@
 @push('styles')
     <link rel="stylesheet" href="/css/bootstrap-select.min.css">
 @endpush
-@section('title', 'Tambah Buku')
+@section('title', 'Add Song')
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('crud-buku.store') }}" method="POST">
+            <form action="{{ route('crud-song.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -115,8 +115,8 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Tambah Buku</button>
-                <a href="{{ route('crud-buku.index') }}" class="btn btn-warning">Kembali</a><a href="#"></a>
+                <button type="submit" class="btn btn-primary">Add Song</button>
+                <a href="{{ route('crud-song.index') }}" class="btn btn-warning">Kembali</a><a href="#"></a>
             </form>
         </div>
     </div>

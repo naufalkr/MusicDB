@@ -10,7 +10,7 @@ class GenreController
 {
     public function index(Request $request)
     {
-        $data['genre'] = $query = Genre::with('bukus')->search($request)->paginator($request);
+        $data['genre'] = $query = Genre::with('songs')->search($request)->paginator($request);
         return view('pertemuan2.genre.index', compact('data'));
     }
 

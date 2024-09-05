@@ -1,7 +1,7 @@
 @extends('layout.base')
 
 
-@section('title', 'List Buku')
+@section('title', 'List Song')
 
 @section('content')
 
@@ -17,7 +17,7 @@
             @endif
         </div>
         <div class="d-flex flex-column flex-md-row gap-2 mb-md-0 mb-2">
-            <form action="{{ route('crud-buku.index') }}" method="GET" class="mr-md-2 mr-0 mb-2 mb-md-0 flex-grow-1">
+            <form action="{{ route('crud-song.index') }}" method="GET" class="mr-md-2 mr-0 mb-2 mb-md-0 flex-grow-1">
                 <div class="input-group ">
                     <input type="text" name="search" class="form-control" id="search"
                         placeholder="id, title, artist, album, music_company, genre, description etc."
@@ -28,11 +28,11 @@
                 </div>
             </form>
             <div class="d-flex">
-                {{ $data['buku']->appends(['search' => request()->get('search'), 'limit' => request()->get('limit')])->links() }}
+                {{ $data['song']->appends(['search' => request()->get('search'), 'limit' => request()->get('limit')])->links() }}
                 <div class="ml-2">
-                    <a href="{{ route('crud-buku.create') }}" class="text-white">
+                    <a href="{{ route('crud-song.create') }}" class="text-white">
                         <button class="btn btn-success">
-                            Tambah Buku
+                            Tambah Song
                         </button>
                     </a>
                 </div>
@@ -40,7 +40,7 @@
 
         </div>
         <div class="overflow-auto">`
-            <table id="bukuTable" class="table table-bordered">
+            <table id="songTable" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>id</th>
@@ -56,13 +56,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($data['buku'] as $b)
+                    @forelse ($data['song'] as $b)
                         <tr>
                             <td>
                                 {{ $b->id }}
                             </td>
                             <td>
-                                <a href="{{ route('crud-buku.show', $b->id) }}">
+                                <a href="{{ route('crud-song.show', $b->id) }}">
                                     {{ Str::limit($b->title, 20, '...') }}
                                 </a>
                             </td>
@@ -79,9 +79,9 @@
                             </td>
                             <td>{{ Str::limit($b->description, 30, '...') }}</td>
                             <td class="d-flex">
-                                <a href="{{ route('crud-buku.edit', $b->id) }}"
+                                <a href="{{ route('crud-song.edit', $b->id) }}"
                                     class="btn btn-primary btn-sm mr-2">Edit</a>
-                                <form class="border-0" action="{{ route('crud-buku.destroy', $b->id) }}" method="POST"
+                                <form class="border-0" action="{{ route('crud-song.destroy', $b->id) }}" method="POST"
                                     style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
@@ -118,7 +118,7 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#bukuTable').DataTable({
+            $('#songTable').DataTable({
                 responsive: true
                 paging: false,
                 searching: false,

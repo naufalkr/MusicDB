@@ -1,6 +1,6 @@
 @extends('layout.base')
 
-@section('title', 'Edit Buku')
+@section('title', 'Edit Song')
 
 @push('styles')
     <link rel="stylesheet" href="/css/bootstrap-select.min.css">
@@ -9,14 +9,14 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form id="updateForm" action="{{ route('crud-buku.update', $data['buku']->id) }}" method="POST">
+            <form id="updateForm" action="{{ route('crud-song.update', $data['song']->id) }}" method="POST">
                 @csrf
                 @method('PUT') <!-- Menandakan bahwa ini adalah request untuk update -->
 
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                        name="title" value="{{ old('title', $data['buku']->title) }}" required>
+                        name="title" value="{{ old('title', $data['song']->title) }}" required>
                     @error('title')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="artist">Artist</label>
                             <input type="text" class="form-control @error('artist') is-invalid @enderror" id="artist"
-                                name="artist" value="{{ old('artist', $data['buku']->artist) }}" required>
+                                name="artist" value="{{ old('artist', $data['song']->artist) }}" required>
                             @error('artist')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label for="album">Album</label>
                             <input type="text" class="form-control @error('album') is-invalid @enderror"
-                                id="album" name="album" value="{{ old('album', $data['buku']->album) }}"
+                                id="album" name="album" value="{{ old('album', $data['song']->album) }}"
                                 required>
                             @error('album')
                                 <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                             <label for="year">Tahun Terbit</label>
                             <input type="number" class="form-control @error('year') is-invalid @enderror"
                                 id="year" name="year"
-                                value="{{ old('year', $data['buku']->year) }}">
+                                value="{{ old('year', $data['song']->year) }}">
                             @error('year')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
                             <label for="duration">Jumlah Halaman</label>
                             <input type="number" class="form-control @error('duration') is-invalid @enderror"
                                 id="duration" name="duration"
-                                value="{{ old('duration', $data['buku']->duration) }}">
+                                value="{{ old('duration', $data['song']->duration) }}">
                             @error('duration')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <label for="music_company">MUSIC_COMPANY</label>
                             <input type="text" class="form-control @error('music_company') is-invalid @enderror" id="music_company"
-                                name="music_company" value="{{ old('music_company', $data['buku']->music_company) }}" required>
+                                name="music_company" value="{{ old('music_company', $data['song']->music_company) }}" required>
                             @error('music_company')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -101,7 +101,7 @@
                                 name="genre[]" multiple>
                                 @foreach ($data['genre'] as $k)
                                     <option value="{{ $k->id }}"
-                                        {{ in_array($k->id, old('genre', $data['buku-genre'])) ? 'selected' : '' }}>
+                                        {{ in_array($k->id, old('genre', $data['song-genre'])) ? 'selected' : '' }}>
                                         {{ $k->nama }}
                                     </option>
                                 @endforeach
@@ -118,7 +118,7 @@
                         <div class="form-group">
                             <label for="genre">Genre</label>
                             <input type="text" class="form-control @error('genre') is-invalid @enderror"
-                                id="genre" name="genre" value="{{ old('genre', $data['buku']->genre) }}">
+                                id="genre" name="genre" value="{{ old('genre', $data['song']->genre) }}">
                             @error('genre')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -130,7 +130,7 @@
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description', $data['buku']->description) }}</textarea>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description', $data['song']->description) }}</textarea>
                     @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -140,16 +140,16 @@
 
 
             </form>
-            <button id="submitBtn" type="submit" class="btn btn-primary">Update Buku</button>
-            <a href="{{ route('crud-buku.index') }}" class="btn btn-warning">Kembali ke Daftar Buku</a>
-            <a href="{{ route('crud-buku.show', $data['buku']->id) }}" class="btn btn-warning">
-                Kembali ke Detail Buku</a>
-            <form class="border-0" action="{{ route('crud-buku.destroy', $data['buku']->id) }}" method="POST"
+            <button id="submitBtn" type="submit" class="btn btn-primary">Update Song</button>
+            <a href="{{ route('crud-song.index') }}" class="btn btn-warning">Kembali ke Daftar Song</a>
+            <a href="{{ route('crud-song.show', $data['song']->id) }}" class="btn btn-warning">
+                Kembali ke Detail Song</a>
+            <form class="border-0" action="{{ route('crud-song.destroy', $data['song']->id) }}" method="POST"
                 style="display:inline-block;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Hapus
-                    Buku</button>
+                    Song</button>
             </form>
         </div>
     </div>

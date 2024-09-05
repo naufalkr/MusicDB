@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('buku', function (Blueprint $table) {
+        Schema::create('song', function (Blueprint $table) {
             $table->id();
-            $table->string('title'); // Title buku
+            $table->string('title'); // Title song
             $table->string('artist'); // Nama artist
             $table->string('album'); // Nama album
             $table->year('year')->nullable(); // Tahun terbit
             $table->integer('duration')->nullable(); // Jumlah halaman
-            $table->string('music_company')->unique(); // MUSIC_COMPANY buku
-            $table->text('description')->nullable(); // Description buku
+            $table->string('music_company')->unique(); // MUSIC_COMPANY song
+            $table->text('description')->nullable(); // Description song
             $table->timestamps(); // Timestamps created_at dan updated_at
         });
 
@@ -29,9 +29,9 @@ return new class extends Migration
             $table->timestamps();
         });
         
-        Schema::create('buku_genre', function (Blueprint $table) {
+        Schema::create('song_genre', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('buku_id')->constrained('buku')->onDelete('cascade');
+            $table->foreignId('song_id')->constrained('song')->onDelete('cascade');
             $table->foreignId('genre_id')->constrained('genre')->onDelete('cascade');
             $table->timestamps();
         });
@@ -44,9 +44,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('buku_genre'); // Drop the pivot table first
+        Schema::dropIfExists('song_genre'); // Drop the pivot table first
         Schema::dropIfExists('genre');      // Then drop the genre table
-        Schema::dropIfExists('buku');          // Finally, drop the buku table
+        Schema::dropIfExists('song');          // Finally, drop the song table
     }
     
 };

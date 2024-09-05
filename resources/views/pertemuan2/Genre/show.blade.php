@@ -20,8 +20,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="count">Jumlah Buku</label>
-                        <p id="title">{{ count($data['genre']->bukus) }}</p>
+                        <label for="count">Jumlah Song</label>
+                        <p id="title">{{ count($data['genre']->songs) }}</p>
                     </div>
                 </div>
             </div>

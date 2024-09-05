@@ -6,7 +6,7 @@ use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Buku extends Model
+class Song extends Model
 {
     use HasFactory;
     use Searchable;
@@ -26,7 +26,7 @@ class Buku extends Model
 
     public function genres()
     {
-        return $this->belongsToMany(Genre::class, 'buku_genre','buku_id', 'genre_id'); // Explicitly define the pivot table name
+        return $this->belongsToMany(Genre::class, 'song_genre','song_id', 'genre_id'); // Explicitly define the pivot table name
     }
     
 }

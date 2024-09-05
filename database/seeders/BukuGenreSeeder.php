@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Buku;
+use App\Models\Song;
 use App\Models\Genre;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -51,9 +51,9 @@ class BukuGenreSeeder extends Seeder
             $genreIds[] = $genreModel->id;
         }
 
-        // Seed Buku Table and attach Genre
+        // Seed Song Table and attach Genre
         foreach (range(1, 100) as $index) {
-            $buku = Buku::create([
+            $song = Song::create([
                 'title' => $faker->sentence,
                 'artist' => $faker->name,
                 'album' => $faker->sentence,
@@ -65,7 +65,7 @@ class BukuGenreSeeder extends Seeder
 
             // Assign 1 to 3 random categories to each book
             $randomGenreIds = $faker->randomElements($genreIds, $faker->numberBetween(1, count($genres)));
-            $buku->genres()->attach($randomGenreIds);
+            $song->genres()->attach($randomGenreIds);
         }
     }
 }

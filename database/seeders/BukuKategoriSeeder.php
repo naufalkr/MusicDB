@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Buku;
+use App\Models\Song;
 use App\Models\Kategori;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
 
-class BukuKategoriSeeder extends Seeder
+class SongKategoriSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -51,9 +51,9 @@ class BukuKategoriSeeder extends Seeder
             $kategoriIds[] = $kategoriModel->id;
         }
 
-        // Seed Buku Table and attach Kategori
+        // Seed Song Table and attach Kategori
         foreach (range(1, 100) as $index) {
-            $buku = Buku::create([
+            $song = Song::create([
                 'title' => $faker->sentence,
                 'artist' => $faker->name,
                 'album' => $faker->sentence,
@@ -65,7 +65,7 @@ class BukuKategoriSeeder extends Seeder
 
             // Assign 1 to 3 random categories to each book
             $randomKategoriIds = $faker->randomElements($kategoriIds, $faker->numberBetween(1, count($kategoris)));
-            $buku->kategoris()->attach($randomKategoriIds);
+            $song->kategoris()->attach($randomKategoriIds);
         }
     }
 }

@@ -17,8 +17,8 @@ class Kategori extends Model
         'nama',
     ];
     
-    public function bukus()
+    public function songs()
     {
-        return $this->belongsToMany(Buku::class, 'buku_kategori', 'kategori_id', 'buku_id'); // Explicitly define the pivot table name
+        return $this->belongsToMany(Song::class, 'song_kategori', 'kategori_id', 'song_id'); // Explicitly define the pivot table name
     }
 }
