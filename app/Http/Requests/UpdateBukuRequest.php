@@ -26,20 +26,20 @@ class UpdateBukuRequest extends FormRequest
         $bukuId = $this->route('buku')->id;
 
         return [
-            'judul' => 'required|string|max:255',
-            'penulis' => 'required|string|max:255',
-            'penerbit' => 'required|string|max:255',
-            'tahun_terbit' => 'nullable|integer',
-            'jumlah_halaman' => 'nullable|integer',
-            'isbn' => [
+            'title' => 'required|string|max:255',
+            'artist' => 'required|string|max:255',
+            'album' => 'required|string|max:255',
+            'year' => 'nullable|integer',
+            'duration' => 'nullable|integer',
+            'music_company' => [
                 'required',
                 'string',
                 'max:13',
-                Rule::unique('buku', 'isbn')->ignore($bukuId),
+                Rule::unique('buku', 'music_company')->ignore($bukuId),
             ],
-            'kategori' => 'required|array',
-            'kategori.*' => 'exists:kategori,id',
-            'deskripsi' => 'nullable|string',
+            'genre' => 'required|array',
+            'genre.*' => 'exists:genre,id',
+            'description' => 'nullable|string',
         ];
     }
 }

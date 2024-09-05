@@ -24,17 +24,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('crud-kategori.index') }}"
-                    class="nav-link {{ request()->routeIs('crud-kategori.index') ? 'active' : '' }}">
+                <a href="{{ route('crud-genre.index') }}"
+                    class="nav-link {{ request()->routeIs('crud-genre.index') ? 'active' : '' }}">
                     <i class="fas fa-list nav-icon"></i>
-                    <p>List Kategori</p>
+                    <p>List Genre</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('crud-kategori.create') }}"
-                    class="nav-link {{ request()->routeIs('crud-kategori.create') ? 'active' : '' }}">
+                <a href="{{ route('crud-genre.create') }}"
+                    class="nav-link {{ request()->routeIs('crud-genre.create') ? 'active' : '' }}">
                     <i class="fas fa-plus-circle nav-icon"></i>
-                    <p>Tambah Kategori</p>
+                    <p>Tambah Genre</p>
                 </a>
             </li>
         </ul>

@@ -9,10 +9,10 @@
             <form action="{{ route('crud-buku.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="judul">Judul</label>
-                    <textarea class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul"
-                        value="{{ old('judul') }}" required></textarea>
-                    @error('judul')
+                    <label for="title">Title</label>
+                    <textarea class="form-control @error('title') is-invalid @enderror" id="title" name="title"
+                        value="{{ old('title') }}" required></textarea>
+                    @error('title')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -21,10 +21,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="penulis">Penulis</label>
-                            <input type="text" class="form-control @error('penulis') is-invalid @enderror" id="penulis"
-                                name="penulis" value="{{ old('penulis') }}" required>
-                            @error('penulis')
+                            <label for="artist">Artist</label>
+                            <input type="text" class="form-control @error('artist') is-invalid @enderror" id="artist"
+                                name="artist" value="{{ old('artist') }}" required>
+                            @error('artist')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -33,36 +33,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="penerbit">Penerbit</label>
-                            <input type="text" class="form-control @error('penerbit') is-invalid @enderror"
-                                id="penerbit" name="penerbit" value="{{ old('penerbit') }}" required>
-                            @error('penerbit')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="tahun_terbit">Tahun Terbit</label>
-                            <input type="number" class="form-control @error('tahun_terbit') is-invalid @enderror"
-                                id="tahun_terbit" name="tahun_terbit" value="{{ old('tahun_terbit') }}">
-                            @error('tahun_terbit')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="jumlah_halaman">Jumlah Halaman</label>
-                            <input type="number" class="form-control @error('jumlah_halaman') is-invalid @enderror"
-                                id="jumlah_halaman" name="jumlah_halaman" value="{{ old('jumlah_halaman') }}">
-                            @error('jumlah_halaman')
+                            <label for="album">Album</label>
+                            <input type="text" class="form-control @error('album') is-invalid @enderror"
+                                id="album" name="album" value="{{ old('album') }}" required>
+                            @error('album')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -73,10 +47,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="isbn">ISBN</label>
-                            <input type="text" class="form-control @error('isbn') is-invalid @enderror" id="isbn"
-                                name="isbn" value="{{ old('isbn') }}" required>
-                            @error('isbn')
+                            <label for="year">Tahun Terbit</label>
+                            <input type="number" class="form-control @error('year') is-invalid @enderror"
+                                id="year" name="year" value="{{ old('year') }}">
+                            @error('year')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -85,17 +59,43 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="kategori">Kategori</label><br>
-                            <select class="selectpicker w-100" id="kategori" name="kategori[]"
-                                class="form-control @error('kategori') is-invalid @enderror" multiple>
-                                @foreach ($data['kategori'] as $k)
+                            <label for="duration">Jumlah Halaman</label>
+                            <input type="number" class="form-control @error('duration') is-invalid @enderror"
+                                id="duration" name="duration" value="{{ old('duration') }}">
+                            @error('duration')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="music_company">MUSIC_COMPANY</label>
+                            <input type="text" class="form-control @error('music_company') is-invalid @enderror" id="music_company"
+                                name="music_company" value="{{ old('music_company') }}" required>
+                            @error('music_company')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="genre">Genre</label><br>
+                            <select class="selectpicker w-100" id="genre" name="genre[]"
+                                class="form-control @error('genre') is-invalid @enderror" multiple>
+                                @foreach ($data['genre'] as $k)
                                     <option value="{{ $k->id }}"
-                                        {{ in_array($k->id, old('kategori', [])) ? 'selected' : '' }}>
+                                        {{ in_array($k->id, old('genre', [])) ? 'selected' : '' }}>
                                         {{ $k->nama }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('kategori')
+                            @error('genre')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -106,9 +106,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="deskripsi">Deskripsi</label>
-                    <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi" rows="4">{{ old('deskripsi') }}</textarea>
-                    @error('deskripsi')
+                    <label for="description">Description</label>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description') }}</textarea>
+                    @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

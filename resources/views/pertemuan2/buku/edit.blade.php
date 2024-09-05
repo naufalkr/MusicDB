@@ -14,10 +14,10 @@
                 @method('PUT') <!-- Menandakan bahwa ini adalah request untuk update -->
 
                 <div class="form-group">
-                    <label for="judul">Judul</label>
-                    <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul"
-                        name="judul" value="{{ old('judul', $data['buku']->judul) }}" required>
-                    @error('judul')
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                        name="title" value="{{ old('title', $data['buku']->title) }}" required>
+                    @error('title')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -27,10 +27,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="penulis">Penulis</label>
-                            <input type="text" class="form-control @error('penulis') is-invalid @enderror" id="penulis"
-                                name="penulis" value="{{ old('penulis', $data['buku']->penulis) }}" required>
-                            @error('penulis')
+                            <label for="artist">Artist</label>
+                            <input type="text" class="form-control @error('artist') is-invalid @enderror" id="artist"
+                                name="artist" value="{{ old('artist', $data['buku']->artist) }}" required>
+                            @error('artist')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -39,11 +39,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="penerbit">Penerbit</label>
-                            <input type="text" class="form-control @error('penerbit') is-invalid @enderror"
-                                id="penerbit" name="penerbit" value="{{ old('penerbit', $data['buku']->penerbit) }}"
+                            <label for="album">Album</label>
+                            <input type="text" class="form-control @error('album') is-invalid @enderror"
+                                id="album" name="album" value="{{ old('album', $data['buku']->album) }}"
                                 required>
-                            @error('penerbit')
+                            @error('album')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -55,11 +55,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="tahun_terbit">Tahun Terbit</label>
-                            <input type="number" class="form-control @error('tahun_terbit') is-invalid @enderror"
-                                id="tahun_terbit" name="tahun_terbit"
-                                value="{{ old('tahun_terbit', $data['buku']->tahun_terbit) }}">
-                            @error('tahun_terbit')
+                            <label for="year">Tahun Terbit</label>
+                            <input type="number" class="form-control @error('year') is-invalid @enderror"
+                                id="year" name="year"
+                                value="{{ old('year', $data['buku']->year) }}">
+                            @error('year')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -68,11 +68,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="jumlah_halaman">Jumlah Halaman</label>
-                            <input type="number" class="form-control @error('jumlah_halaman') is-invalid @enderror"
-                                id="jumlah_halaman" name="jumlah_halaman"
-                                value="{{ old('jumlah_halaman', $data['buku']->jumlah_halaman) }}">
-                            @error('jumlah_halaman')
+                            <label for="duration">Jumlah Halaman</label>
+                            <input type="number" class="form-control @error('duration') is-invalid @enderror"
+                                id="duration" name="duration"
+                                value="{{ old('duration', $data['buku']->duration) }}">
+                            @error('duration')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -84,10 +84,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="isbn">ISBN</label>
-                            <input type="text" class="form-control @error('isbn') is-invalid @enderror" id="isbn"
-                                name="isbn" value="{{ old('isbn', $data['buku']->isbn) }}" required>
-                            @error('isbn')
+                            <label for="music_company">MUSIC_COMPANY</label>
+                            <input type="text" class="form-control @error('music_company') is-invalid @enderror" id="music_company"
+                                name="music_company" value="{{ old('music_company', $data['buku']->music_company) }}" required>
+                            @error('music_company')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -96,17 +96,17 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="kategori">Kategori</label>
-                            <select class="selectpicker w-100 @error('kategori') is-invalid @enderror" id="kategori"
-                                name="kategori[]" multiple>
-                                @foreach ($data['kategori'] as $k)
+                            <label for="genre">Genre</label>
+                            <select class="selectpicker w-100 @error('genre') is-invalid @enderror" id="genre"
+                                name="genre[]" multiple>
+                                @foreach ($data['genre'] as $k)
                                     <option value="{{ $k->id }}"
-                                        {{ in_array($k->id, old('kategori', $data['buku-kategori'])) ? 'selected' : '' }}>
+                                        {{ in_array($k->id, old('genre', $data['buku-genre'])) ? 'selected' : '' }}>
                                         {{ $k->nama }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('kategori')
+                            @error('genre')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -116,10 +116,10 @@
 
                     {{-- <div class="col-md-6">
                         <div class="form-group">
-                            <label for="kategori">Kategori</label>
-                            <input type="text" class="form-control @error('kategori') is-invalid @enderror"
-                                id="kategori" name="kategori" value="{{ old('kategori', $data['buku']->kategori) }}">
-                            @error('kategori')
+                            <label for="genre">Genre</label>
+                            <input type="text" class="form-control @error('genre') is-invalid @enderror"
+                                id="genre" name="genre" value="{{ old('genre', $data['buku']->genre) }}">
+                            @error('genre')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -129,9 +129,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="deskripsi">Deskripsi</label>
-                    <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi" rows="4">{{ old('deskripsi', $data['buku']->deskripsi) }}</textarea>
-                    @error('deskripsi')
+                    <label for="description">Description</label>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description', $data['buku']->description) }}</textarea>
+                    @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

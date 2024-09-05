@@ -9,10 +9,10 @@
         {{-- <x-menu-item title="Tambah Buku" icon="fas fa-plus-circle" :href="route('crud-buku.create')" :active="request()->routeIs('crud-buku.create')">
         </x-menu-item> --}}
 
-        <x-menu-item title="List Kategori" icon="fas fa-list" :href="route('crud-kategori.index')" :active="request()->routeIs('crud-kategori.index')">
+        <x-menu-item title="List Genre" icon="fas fa-list" :href="route('crud-genre.index')" :active="request()->routeIs('crud-genre.index')">
         </x-menu-item>
         {{-- 
-        <x-menu-item title="Tambah Kategori" icon="fas fa-plus-circle" :href="route('crud-kategori.create')" :active="request()->routeIs('crud-kategori.create')">
+        <x-menu-item title="Tambah Genre" icon="fas fa-plus-circle" :href="route('crud-genre.create')" :active="request()->routeIs('crud-genre.create')">
         </x-menu-item> --}}
     </x-menu-tree>
     {{-- <x-menu-item title="Adminlte" icon="fas fa-plus-circle" href="/adminlte/index.html" active=''>

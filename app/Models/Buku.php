@@ -14,19 +14,19 @@ class Buku extends Model
     protected $table = 'buku';
 
     protected $fillable = [
-        'judul',           // Title of the book
-        'penulis',         // Author of the book
-        'penerbit',        // Publisher
-        'tahun_terbit',    // Year of publication
-        'jumlah_halaman',  // Number of pages
-        'isbn',            // ISBN number
-        'kategori',        // Category (if not using the pivot table relationship)
-        'deskripsi',       // Description of the book
+        'title',           // Title of the book
+        'artist',         // Author of the book
+        'album',        // Publisher
+        'year',    // Year of publication
+        'duration',  // Number of pages
+        'music_company',            // MUSIC_COMPANY number
+        'genre',        // Category (if not using the pivot table relationship)
+        'description',       // Description of the book
     ];
 
-    public function kategoris()
+    public function genres()
     {
-        return $this->belongsToMany(Kategori::class, 'buku_kategori','buku_id', 'kategori_id'); // Explicitly define the pivot table name
+        return $this->belongsToMany(Genre::class, 'buku_genre','buku_id', 'genre_id'); // Explicitly define the pivot table name
     }
     
 }

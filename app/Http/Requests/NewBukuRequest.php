@@ -22,15 +22,15 @@ class NewBukuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'judul' => 'required|string|max:255',
-            'penulis' => 'required|string|max:255',
-            'penerbit' => 'required|string|max:255',
-            'tahun_terbit' => 'nullable|integer',
-            'jumlah_halaman' => 'nullable|integer',
-            'isbn' => 'required|string|unique:buku,isbn|max:13',
-            'kategori' => 'required|array',
-            'kategori.*' => 'exists:kategori,id',
-            'deskripsi' => 'nullable|string',
+            'title' => 'required|string|max:255',
+            'artist' => 'required|string|max:255',
+            'album' => 'required|string|max:255',
+            'year' => 'nullable|integer',
+            'duration' => 'nullable|integer',
+            'music_company' => 'required|string|unique:buku,music_company|max:13',
+            'genre' => 'required|array',
+            'genre.*' => 'exists:genre,id',
+            'description' => 'nullable|string',
         ];
     }
 }

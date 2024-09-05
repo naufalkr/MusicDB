@@ -1,6 +1,6 @@
 @extends('layout.base')
 
-@section('title', 'Detail Kategori')
+@section('title', 'Detail Genre')
 
 @section('content')
     <div class="card">
@@ -9,31 +9,31 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="id">ID</label>
-                        <p id="id">{{ $data['kategori']->id }}</p>
+                        <p id="id">{{ $data['genre']->id }}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <p id="title">{{ $data['kategori']->nama }}</p>
+                        <p id="title">{{ $data['genre']->nama }}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="count">Jumlah Buku</label>
-                        <p id="title">{{ count($data['kategori']->bukus) }}</p>
+                        <p id="title">{{ count($data['genre']->bukus) }}</p>
                     </div>
                 </div>
             </div>
 
-            <a href="{{ route('crud-kategori.index') }}" class="btn btn-primary">Kembali ke Daftar Kategori</a>
-            <a href="{{ route('crud-kategori.edit', $data['kategori']->id) }}" class="btn btn-warning">Edit Kategori</a>
-            <form class="border-0" action="{{ route('crud-kategori.destroy', $data['kategori']->id) }}" method="POST"
+            <a href="{{ route('crud-genre.index') }}" class="btn btn-primary">Kembali ke Daftar Genre</a>
+            <a href="{{ route('crud-genre.edit', $data['genre']->id) }}" class="btn btn-warning">Edit Genre</a>
+            <form class="border-0" action="{{ route('crud-genre.destroy', $data['genre']->id) }}" method="POST"
                 style="display:inline-block;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Hapus
-                    Kategori</button>
+                    Genre</button>
             </form>
         </div>
     </div>

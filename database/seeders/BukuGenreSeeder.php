@@ -3,13 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Buku;
-use App\Models\Kategori;
+use App\Models\Genre;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
 
-class BukuKategoriSeeder extends Seeder
+class BukuGenreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,8 +18,8 @@ class BukuKategoriSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Seed Kategori Table
-        $kategoris = [
+        // Seed Genre Table
+        $genres = [
             'Fiction', 
             'Non-Fiction', 
             'Science', 
@@ -42,16 +42,16 @@ class BukuKategoriSeeder extends Seeder
             'Graphic Novels'
         ];
         
-        $kategoriIds = [];
+        $genreIds = [];
 
-        foreach ($kategoris as $kategori) {
-            $kategoriModel = Kategori::create([
-                'nama' => $kategori,
+        foreach ($genres as $genre) {
+            $genreModel = Genre::create([
+                'nama' => $genre,
             ]);
-            $kategoriIds[] = $kategoriModel->id;
+            $genreIds[] = $genreModel->id;
         }
 
-        // Seed Buku Table and attach Kategori
+        // Seed Buku Table and attach Genre
         foreach (range(1, 100) as $index) {
             $buku = Buku::create([
                 'title' => $faker->sentence,
@@ -64,8 +64,8 @@ class BukuKategoriSeeder extends Seeder
             ]);
 
             // Assign 1 to 3 random categories to each book
-            $randomKategoriIds = $faker->randomElements($kategoriIds, $faker->numberBetween(1, count($kategoris)));
-            $buku->kategoris()->attach($randomKategoriIds);
+            $randomGenreIds = $faker->randomElements($genreIds, $faker->numberBetween(1, count($genres)));
+            $buku->genres()->attach($randomGenreIds);
         }
     }
 }

@@ -20,7 +20,7 @@
             <form action="{{ route('crud-buku.index') }}" method="GET" class="mr-md-2 mr-0 mb-2 mb-md-0 flex-grow-1">
                 <div class="input-group ">
                     <input type="text" name="search" class="form-control" id="search"
-                        placeholder="id, judul, penulis, penerbit, isbn, kategori, deskripsi etc."
+                        placeholder="id, title, artist, album, music_company, genre, description etc."
                         value="{{ request()->get('search') }}">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-primary">Cari</button>
@@ -44,14 +44,14 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>Judul</th>
-                        <th>Penulis</th>
-                        <th>Penerbit</th>
-                        <th>Tahun Terbit</th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Album</th>
+                        <th>Year</th>
                         <th>Jumlah Halaman</th>
-                        <th>ISBN</th>
-                        <th>Kategori</th>
-                        <th>Deskripsi</th>
+                        <th>MUSIC_COMPANY</th>
+                        <th>Genre</th>
+                        <th>Description</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -63,21 +63,21 @@
                             </td>
                             <td>
                                 <a href="{{ route('crud-buku.show', $b->id) }}">
-                                    {{ Str::limit($b->judul, 20, '...') }}
+                                    {{ Str::limit($b->title, 20, '...') }}
                                 </a>
                             </td>
-                            <td>{{ $b->penulis }}</td>
-                            <td>{{ $b->penerbit }}</td>
-                            <td>{{ $b->tahun_terbit }}</td>
-                            <td>{{ $b->jumlah_halaman }}</td>
-                            <td>{{ $b->isbn }}</td>
+                            <td>{{ $b->artist }}</td>
+                            <td>{{ $b->album }}</td>
+                            <td>{{ $b->year }}</td>
+                            <td>{{ $b->duration }}</td>
+                            <td>{{ $b->music_company }}</td>
                             <td>
-                                @foreach ($b->kategoris as $kategori)
-                                    <span class="badge badge-primary">{{ $kategori->nama }}</span>
+                                @foreach ($b->genres as $genre)
+                                    <span class="badge badge-primary">{{ $genre->nama }}</span>
                                     <!-- Adjust field name as needed -->
                                 @endforeach
                             </td>
-                            <td>{{ Str::limit($b->deskripsi, 30, '...') }}</td>
+                            <td>{{ Str::limit($b->description, 30, '...') }}</td>
                             <td class="d-flex">
                                 <a href="{{ route('crud-buku.edit', $b->id) }}"
                                     class="btn btn-primary btn-sm mr-2">Edit</a>

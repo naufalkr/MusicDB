@@ -14,8 +14,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="judul">Judul</label>
-                        <p id="judul">{{ $data['buku']->judul }}</p>
+                        <label for="title">Title</label>
+                        <p id="title">{{ $data['buku']->title }}</p>
                     </div>
                 </div>
             </div>
@@ -23,29 +23,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="penulis">Penulis</label>
-                        <p id="penulis">{{ $data['buku']->penulis }}</p>
+                        <label for="artist">Artist</label>
+                        <p id="artist">{{ $data['buku']->artist }}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="penerbit">Penerbit</label>
-                        <p id="penerbit">{{ $data['buku']->penerbit }}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="tahun_terbit">Tahun Terbit</label>
-                        <p id="tahun_terbit">{{ $data['buku']->tahun_terbit }}</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="jumlah_halaman">Jumlah Halaman</label>
-                        <p id="jumlah_halaman">{{ $data['buku']->jumlah_halaman }}</p>
+                        <label for="album">Album</label>
+                        <p id="album">{{ $data['buku']->album }}</p>
                     </div>
                 </div>
             </div>
@@ -53,15 +38,30 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="isbn">ISBN</label>
-                        <p id="isbn">{{ $data['buku']->isbn }}</p>
+                        <label for="year">Tahun Terbit</label>
+                        <p id="year">{{ $data['buku']->year }}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="kategori">Kategori</label>
+                        <label for="duration">Jumlah Halaman</label>
+                        <p id="duration">{{ $data['buku']->duration }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="music_company">MUSIC_COMPANY</label>
+                        <p id="music_company">{{ $data['buku']->music_company }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
                         <br>
-                        @foreach ($data['buku']->kategoris as $k)
+                        @foreach ($data['buku']->genres as $k)
                             <span class="badge badge-primary">{{ $k->nama }}</span>
                             <!-- Adjust field name as needed -->
                         @endforeach
@@ -70,8 +70,8 @@
             </div>
 
             <div class="form-group">
-                <label for="deskripsi">Deskripsi</label>
-                <p id="deskripsi">{{ $data['buku']->deskripsi }}</p>
+                <label for="description">Description</label>
+                <p id="description">{{ $data['buku']->description }}</p>
             </div>
 
             <a href="{{ route('crud-buku.index') }}" class="btn btn-primary">Kembali ke Daftar Buku</a>

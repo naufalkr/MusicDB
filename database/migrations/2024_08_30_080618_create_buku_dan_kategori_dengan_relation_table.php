@@ -13,26 +13,26 @@ return new class extends Migration
     {
         Schema::create('buku', function (Blueprint $table) {
             $table->id();
-            $table->string('judul'); // Judul buku
-            $table->string('penulis'); // Nama penulis
-            $table->string('penerbit'); // Nama penerbit
-            $table->year('tahun_terbit')->nullable(); // Tahun terbit
-            $table->integer('jumlah_halaman')->nullable(); // Jumlah halaman
-            $table->string('isbn')->unique(); // ISBN buku
-            $table->text('deskripsi')->nullable(); // Deskripsi buku
+            $table->string('title'); // Title buku
+            $table->string('artist'); // Nama artist
+            $table->string('album'); // Nama album
+            $table->year('year')->nullable(); // Tahun terbit
+            $table->integer('duration')->nullable(); // Jumlah halaman
+            $table->string('music_company')->unique(); // MUSIC_COMPANY buku
+            $table->text('description')->nullable(); // Description buku
             $table->timestamps(); // Timestamps created_at dan updated_at
         });
 
-        Schema::create('kategori', function (Blueprint $table) {
+        Schema::create('genre', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->timestamps();
         });
         
-        Schema::create('buku_kategori', function (Blueprint $table) {
+        Schema::create('buku_genre', function (Blueprint $table) {
             $table->id();
             $table->foreignId('buku_id')->constrained('buku')->onDelete('cascade');
-            $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade');
+            $table->foreignId('genre_id')->constrained('genre')->onDelete('cascade');
             $table->timestamps();
         });
         
@@ -44,8 +44,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('buku_kategori'); // Drop the pivot table first
-        Schema::dropIfExists('kategori');      // Then drop the kategori table
+        Schema::dropIfExists('buku_genre'); // Drop the pivot table first
+        Schema::dropIfExists('genre');      // Then drop the genre table
         Schema::dropIfExists('buku');          // Finally, drop the buku table
     }
     
