@@ -34,7 +34,7 @@ class UpdateSongRequest extends FormRequest
             'music_company' => [
                 'required',
                 'string',
-                'max:13',
+                'max:200',
                 Rule::unique('song', 'music_company')->ignore($songId),
             ],
             'genre' => 'required|array',

@@ -26,7 +26,7 @@
 
         <x-menu-item title="Album" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item>
-        <x-menu-item title="Music Company" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
+        <x-menu-item title="Record Label" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item>
         <x-menu-item title="Playlist" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item>
