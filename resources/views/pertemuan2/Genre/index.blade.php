@@ -1,7 +1,7 @@
 @extends('layout.base')
 
 
-@section('title', 'List of Genres')
+@section('title', 'Genre List')
 
 @section('content')
 

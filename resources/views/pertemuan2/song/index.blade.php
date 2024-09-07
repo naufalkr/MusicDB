@@ -69,7 +69,13 @@
                             <td>{{ $b->artist }}</td>
                             <td>{{ $b->album }}</td>
                             <td>{{ $b->year }}</td>
-                            <td>{{ $b->duration }}</td>
+                            <td>
+                                @php
+                                    $minutes = floor($b->duration / 60);
+                                    $seconds = $b->duration % 60;
+                                @endphp
+                                {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }}
+                            </td>
                             <td>{{ $b->music_company }}</td>
                             <td>
                                 @foreach ($b->genres as $genre)
@@ -86,7 +92,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Hapus</button>
+                                        onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                             </td>
                         </tr>
