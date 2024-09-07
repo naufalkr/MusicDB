@@ -10,7 +10,7 @@
                 @method('PUT') <!-- Menandakan bahwa ini adalah request untuk update -->
 
                 <div class="form-group">
-                    <label for="title">Nama</label>
+                    <label for="title">Name</label>
                     <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama"
                         name="nama" value="{{ old('nama', $data['genre']->nama) }}" required>
                     @error('title')
@@ -21,14 +21,14 @@
                 </div>
             </form>
             <button id="submitBtn" type="submit" class="btn btn-primary">Update Genre</button>
-            <a href="{{ route('crud-genre.index') }}" class="btn btn-warning">Kembali ke Daftar Genre</a>
+            <a href="{{ route('crud-genre.index') }}" class="btn btn-warning">Return to Genre List</a>
             <a href="{{ route('crud-genre.show', $data['genre']->id) }}" class="btn btn-warning">
-                Kembali ke Detail Genre</a>
+            Return to Genre Detail</a>
             <form class="border-0" action="{{ route('crud-genre.destroy', $data['genre']->id) }}" method="POST"
                 style="display:inline-block;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Hapus
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete
                     Genre</button>
             </form>
         </div>

@@ -1,7 +1,7 @@
 @extends('layout.base')
 
 
-@section('title', 'List Genre')
+@section('title', 'List of Genres')
 
 @section('content')
 
@@ -19,10 +19,10 @@
         <div class="d-flex flex-column flex-md-row gap-2 mb-md-0 mb-2">
             <form action="{{ route('crud-genre.index') }}" method="GET" class="mr-md-2 mr-0 mb-2 mb-md-0 flex-grow-1">
                 <div class="input-group ">
-                    <input type="text" name="search" class="form-control" id="search" placeholder="nama genre"
+                    <input type="text" name="search" class="form-control" id="search" placeholder="Search"
                         value="{{ request()->get('search') }}">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary">Cari</button>
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </div>
             </form>
@@ -31,7 +31,7 @@
                 <div class="ml-2">
                     <a href="{{ route('crud-genre.create') }}" class="text-white">
                         <button class="btn btn-success">
-                            Tambah Genre
+                            Add Genre
                         </button>
                     </a>
                 </div>
@@ -43,8 +43,8 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>Nama Genre</th>
-                        <th>Jumlah Song</th>
+                        <th>Genre Name</th>
+                        <th>Number of Tracks</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -68,7 +68,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Hapus</button>
+                                        onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                             </td>
                         </tr>

@@ -1,7 +1,7 @@
 @extends('layout.base')
 
 
-@section('title', 'List Song')
+@section('title', 'List of Tracks')
 
 @section('content')
 
@@ -23,7 +23,7 @@
                         placeholder="id, title, artist, album, music_company, genre, description etc."
                         value="{{ request()->get('search') }}">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary">Cari</button>
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </div>
             </form>
@@ -32,7 +32,7 @@
                 <div class="ml-2">
                     <a href="{{ route('crud-song.create') }}" class="text-white">
                         <button class="btn btn-success">
-                            Tambah Song
+                            Add Track
                         </button>
                     </a>
                 </div>
@@ -48,11 +48,11 @@
                         <th>Artist</th>
                         <th>Album</th>
                         <th>Year</th>
-                        <th>Jumlah Halaman</th>
-                        <th>MUSIC_COMPANY</th>
+                        <th>Duration</th>
+                        <th>Record Label</th>
                         <th>Genre</th>
                         <th>Description</th>
-                        <th>Aksi</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

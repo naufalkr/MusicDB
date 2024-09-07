@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="duration">Jumlah Halaman</label>
+                        <label for="duration">Duration</label>
                         <p id="duration">{{ $data['song']->duration }}</p>
                     </div>
                 </div>

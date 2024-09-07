@@ -1,6 +1,6 @@
 @extends('layout.base')
 
-@section('title', 'Edit Song')
+@section('title', 'Edit Track')
 
 @push('styles')
     <link rel="stylesheet" href="/css/bootstrap-select.min.css">
@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="year">Tahun Terbit</label>
+                            <label for="year">Year</label>
                             <input type="number" class="form-control @error('year') is-invalid @enderror"
                                 id="year" name="year"
                                 value="{{ old('year', $data['song']->year) }}">
@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="duration">Jumlah Halaman</label>
+                            <label for="duration">Duration</label>
                             <input type="number" class="form-control @error('duration') is-invalid @enderror"
                                 id="duration" name="duration"
                                 value="{{ old('duration', $data['song']->duration) }}">
@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="music_company">MUSIC_COMPANY</label>
+                            <label for="music_company">Record Label</label>
                             <input type="text" class="form-control @error('music_company') is-invalid @enderror" id="music_company"
                                 name="music_company" value="{{ old('music_company', $data['song']->music_company) }}" required>
                             @error('music_company')
@@ -140,16 +140,16 @@
 
 
             </form>
-            <button id="submitBtn" type="submit" class="btn btn-primary">Update Song</button>
-            <a href="{{ route('crud-song.index') }}" class="btn btn-warning">Kembali ke Daftar Song</a>
+            <button id="submitBtn" type="submit" class="btn btn-primary">Update Track</button>
+            <a href="{{ route('crud-song.index') }}" class="btn btn-warning">Kembali ke Daftar Track</a>
             <a href="{{ route('crud-song.show', $data['song']->id) }}" class="btn btn-warning">
-                Kembali ke Detail Song</a>
+                Kembali ke Detail Track</a>
             <form class="border-0" action="{{ route('crud-song.destroy', $data['song']->id) }}" method="POST"
                 style="display:inline-block;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Hapus
-                    Song</button>
+                Track</button>
             </form>
         </div>
     </div>

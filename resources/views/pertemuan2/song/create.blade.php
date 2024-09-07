@@ -2,7 +2,7 @@
 @push('styles')
     <link rel="stylesheet" href="/css/bootstrap-select.min.css">
 @endpush
-@section('title', 'Add Song')
+@section('title', 'Add Track')
 @section('content')
     <div class="card">
         <div class="card-body">
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="year">Tahun Terbit</label>
+                            <label for="year">Year</label>
                             <input type="number" class="form-control @error('year') is-invalid @enderror"
                                 id="year" name="year" value="{{ old('year') }}">
                             @error('year')
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="duration">Jumlah Halaman</label>
+                            <label for="duration">Duration</label>
                             <input type="number" class="form-control @error('duration') is-invalid @enderror"
                                 id="duration" name="duration" value="{{ old('duration') }}">
                             @error('duration')
@@ -73,7 +73,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="music_company">MUSIC_COMPANY</label>
+                            <label for="music_company">Record Label</label>
                             <input type="text" class="form-control @error('music_company') is-invalid @enderror" id="music_company"
                                 name="music_company" value="{{ old('music_company') }}" required>
                             @error('music_company')
