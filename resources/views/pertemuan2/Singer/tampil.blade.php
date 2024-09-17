@@ -43,7 +43,7 @@
                 <a href="{{ route('crud-singer.edit', $data_singer->id) }}" class="btn btn-primary btn-sm mr-2">Edit</a>
                 <form action="{{ route('crud-singer.delete', $data_singer->id) }}" method="post" style="display:inline-block;">
                     @csrf
-                    @method('DELETE')
+                    <!-- @method('DELETE') -->
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
                 </div>

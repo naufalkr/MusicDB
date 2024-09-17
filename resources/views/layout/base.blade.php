@@ -22,10 +22,14 @@
         <x-menu-item title="Tambah Genre" icon="fas fa-plus-circle" :href="route('crud-genre.create')" :active="request()->routeIs('crud-genre.create')">
         </x-menu-item> --}}
 
-
-
-        <x-menu-item title="Album" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
+        <x-menu-item title="Album" icon="fas fa-list" :href="route('crud-album.tampil')" :active="request()->routeIs('crud-album.tampil')">
         </x-menu-item>
+
+        {{-- <x-menu-item title="Tambah Artist" icon="fas fa-plus-circle" :href="route('crud-album.tambah')" :active="request()->routeIs('crud-album.tambah')">
+        </x-menu-item> --}}
+
+        <!-- <x-menu-item title="Album" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
+        </x-menu-item> -->
         <x-menu-item title="Record Label" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item>
         <x-menu-item title="Playlist" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">

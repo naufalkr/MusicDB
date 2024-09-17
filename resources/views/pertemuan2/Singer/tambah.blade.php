@@ -21,7 +21,7 @@
         <strong>{{ $message }}</strong>
         </span>
         @enderror
-        <button id="submitBtn" type="submit" class="btn btn-primary">Tambah Singer</button>
+        <button id="submitBtn" type="submit" class="btn btn-primary">Add Singer</button>
     </div>
 </form>
 

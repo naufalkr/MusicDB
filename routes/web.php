@@ -3,6 +3,7 @@
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SingerController;
+use App\Http\Controllers\AlbumController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,13 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::post('/crud-singer/update/{id}', [SingerController::class, 'update'])->name('crud-singer.update');
     Route::post('/crud-singer/delete/{id}', [SingerController::class, 'delete'])->name('crud-singer.delete');
     // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
+
+    Route::get('/crud-album', [AlbumController::class, 'tampil'])->name('crud-album.tampil');
+    Route::get('/crud-album/tambah', [AlbumController::class, 'tambah'])->name('crud-album.tambah');
+    Route::post('/crud-album/submit', [AlbumController::class, 'submit'])->name('crud-album.submit');
+    Route::get('/crud-album/edit/{id}', [AlbumController::class, 'edit'])->name('crud-album.edit');
+    Route::post('/crud-album/update/{id}', [AlbumController::class, 'update'])->name('crud-album.update');
+    Route::post('/crud-album/delete/{id}', [AlbumController::class, 'delete'])->name('crud-album.delete');
     
     Route::get('/temp', fn() => redirect('/'))->name('temp');
     
@@ -58,6 +66,8 @@ Route::prefix('/pertemuan3')->group(function(){
     Route::post('/login', [Pertemuan3Controller::class,'login'])->name('pertemuan3.login');
     Route::post('/register', [Pertemuan3Controller::class,'register'])->name('pertemuan3.register');
     Route::post('/logout', [Pertemuan3Controller::class,'logout'])->name('pertemuan3.logout');
+
+
 });
 
 // Route::get('/pertemuan1/error', fn() => view('pertemuan1.error'))->name('error');
