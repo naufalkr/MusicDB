@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Record_Label extends Model
+class Recordlabel extends Model
 {
     use HasFactory;
+
+    protected $table = 'recordlabel';
+
+    protected $fillable = ['nama', 'country'];
 }

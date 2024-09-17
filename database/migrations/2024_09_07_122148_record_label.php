@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('recordlabel', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('country');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('recordlabel');
     }
 };

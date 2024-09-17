@@ -4,6 +4,7 @@ use App\Http\Controllers\SongController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SingerController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\RecordlabelController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,14 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/crud-album/edit/{id}', [AlbumController::class, 'edit'])->name('crud-album.edit');
     Route::post('/crud-album/update/{id}', [AlbumController::class, 'update'])->name('crud-album.update');
     Route::post('/crud-album/delete/{id}', [AlbumController::class, 'delete'])->name('crud-album.delete');
+    
+    Route::get('/crud-recordlabel', [RecordlabelController::class, 'tampil'])->name('crud-recordlabel.tampil');
+    Route::get('/crud-recordlabel/tambah', [RecordlabelController::class, 'tambah'])->name('crud-recordlabel.tambah');
+    Route::post('/crud-recordlabel/submit', [RecordlabelController::class, 'submit'])->name('crud-recordlabel.submit');
+    Route::get('/crud-recordlabel/edit/{id}', [RecordlabelController::class, 'edit'])->name('crud-recordlabel.edit');
+    Route::post('/crud-recordlabel/update/{id}', [RecordlabelController::class, 'update'])->name('crud-recordlabel.update');
+    Route::post('/crud-recordlabel/delete/{id}', [RecordlabelController::class, 'delete'])->name('crud-recordlabel.delete');
+    
     
     Route::get('/temp', fn() => redirect('/'))->name('temp');
     

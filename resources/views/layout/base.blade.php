@@ -25,13 +25,21 @@
         <x-menu-item title="Album" icon="fas fa-list" :href="route('crud-album.tampil')" :active="request()->routeIs('crud-album.tampil')">
         </x-menu-item>
 
-        {{-- <x-menu-item title="Tambah Artist" icon="fas fa-plus-circle" :href="route('crud-album.tambah')" :active="request()->routeIs('crud-album.tambah')">
+        {{-- <x-menu-item title="Tambah Album" icon="fas fa-plus-circle" :href="route('crud-album.tambah')" :active="request()->routeIs('crud-album.tambah')">
         </x-menu-item> --}}
+
+        
+        <x-menu-item title="Record Label" icon="fas fa-list" :href="route('crud-recordlabel.tampil')" :active="request()->routeIs('crud-recordlabel.tampil')">
+        </x-menu-item>
+
+        {{-- <x-menu-item title="Tambah Record Label" icon="fas fa-plus-circle" :href="route('crud-recordlabel.tambah')" :active="request()->routeIs('crud-recordlabel.tambah')">
+        </x-menu-item> --}}
+
 
         <!-- <x-menu-item title="Album" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item> -->
-        <x-menu-item title="Record Label" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
-        </x-menu-item>
+        <!-- <x-menu-item title="Record Label" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
+        </x-menu-item> -->
         <x-menu-item title="Playlist" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item>
         <x-menu-item title="Favorites" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
