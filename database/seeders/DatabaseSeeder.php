@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AlbumSeeder::class);
         $this->call(RecordlabelSeeder::class);        
         $this->call(BukuGenreSeeder::class);
+        $this->call(PlaylistSeeder::class);
+        $this->call(FavoriteSeeder::class); 
     }
 }

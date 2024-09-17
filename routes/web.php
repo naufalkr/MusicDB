@@ -5,6 +5,8 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SingerController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\RecordlabelController;
+use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\FavoriteController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +52,14 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::post('/crud-singer/delete/{id}', [SingerController::class, 'delete'])->name('crud-singer.delete');
     // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
 
+    Route::get('/crud-playlist', [PlaylistController::class, 'tampil'])->name('crud-playlist.tampil');
+    Route::get('/crud-playlist/tambah', [PlaylistController::class, 'tambah'])->name('crud-playlist.tambah');
+    Route::post('/crud-playlist/submit', [PlaylistController::class, 'submit'])->name('crud-playlist.submit');
+    Route::get('/crud-playlist/edit/{id}', [PlaylistController::class, 'edit'])->name('crud-playlist.edit');
+    Route::post('/crud-playlist/update/{id}', [PlaylistController::class, 'update'])->name('crud-playlist.update');
+    Route::post('/crud-playlist/delete/{id}', [PlaylistController::class, 'delete'])->name('crud-playlist.delete');
+    // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
+
     Route::get('/crud-album', [AlbumController::class, 'tampil'])->name('crud-album.tampil');
     Route::get('/crud-album/tambah', [AlbumController::class, 'tambah'])->name('crud-album.tambah');
     Route::post('/crud-album/submit', [AlbumController::class, 'submit'])->name('crud-album.submit');
@@ -57,12 +67,21 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::post('/crud-album/update/{id}', [AlbumController::class, 'update'])->name('crud-album.update');
     Route::post('/crud-album/delete/{id}', [AlbumController::class, 'delete'])->name('crud-album.delete');
     
+    
     Route::get('/crud-recordlabel', [RecordlabelController::class, 'tampil'])->name('crud-recordlabel.tampil');
     Route::get('/crud-recordlabel/tambah', [RecordlabelController::class, 'tambah'])->name('crud-recordlabel.tambah');
     Route::post('/crud-recordlabel/submit', [RecordlabelController::class, 'submit'])->name('crud-recordlabel.submit');
     Route::get('/crud-recordlabel/edit/{id}', [RecordlabelController::class, 'edit'])->name('crud-recordlabel.edit');
     Route::post('/crud-recordlabel/update/{id}', [RecordlabelController::class, 'update'])->name('crud-recordlabel.update');
     Route::post('/crud-recordlabel/delete/{id}', [RecordlabelController::class, 'delete'])->name('crud-recordlabel.delete');
+
+    Route::get('/crud-favorite', [FavoriteController::class, 'tampil'])->name('crud-favorite.tampil');
+    Route::get('/crud-favorite/tambah', [FavoriteController::class, 'tambah'])->name('crud-favorite.tambah');
+    Route::post('/crud-favorite/submit', [FavoriteController::class, 'submit'])->name('crud-favorite.submit');
+    Route::get('/crud-favorite/edit/{id}', [FavoriteController::class, 'edit'])->name('crud-favorite.edit');
+    Route::post('/crud-favorite/update/{id}', [FavoriteController::class, 'update'])->name('crud-favorite.update');
+    Route::post('/crud-favorite/delete/{id}', [FavoriteController::class, 'delete'])->name('crud-favorite.delete');
+    
     
     
     Route::get('/temp', fn() => redirect('/'))->name('temp');
