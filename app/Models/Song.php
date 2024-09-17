@@ -10,23 +10,26 @@ class Song extends Model
 {
     use HasFactory;
     use Searchable;
-    
+
     protected $table = 'song';
 
     protected $fillable = [
-        'title',           // Title of the book
-        'artist',         // Author of the book
-        'album',        // Publisher
-        'year',    // Year of publication
-        'duration',  // Number of pages
-        'music_company',            // MUSIC_COMPANY number
-        'genre',        // Category (if not using the pivot table relationship)
-        'description',       // Description of the book
+        'title',           
+        'artist_id',       // Foreign key for artist
+        'album',        
+        'year',    
+        'duration',  
+        'music_company',  
+        'description',
     ];
 
     public function genres()
     {
-        return $this->belongsToMany(Genre::class, 'song_genre','song_id', 'genre_id'); // Explicitly define the pivot table name
+        return $this->belongsToMany(Genre::class, 'song_genre', 'song_id', 'genre_id');
     }
-    
+
+    public function artist()
+    {
+        return $this->belongsTo(Singer::class, 'artist_id'); // Relasi ke Singer
+    }
 }

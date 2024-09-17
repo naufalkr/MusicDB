@@ -7,8 +7,8 @@
 <!-- Form untuk Search -->
 <div class="d-flex justify-content-between align-items-center">
     <form action="{{ route('crud-singer.tampil') }}" method="GET" class="d-flex">
-        <input type="text" class="form-control" placeholder="Search" name="search" value="{{ request('search') }}">
-        <button class="btn btn-primary ml-2" type="submit">Search</button>
+        <input type="text" class="form-control"  placeholder="Search" name="search" value="{{ request('search') }}">
+        <button class="btn btn-success ml-2" type="submit">Search</button>
     </form>
     
     <!-- Pagination di atas tabel -->
@@ -35,12 +35,13 @@
         @foreach($singer as $no => $data_singer)
         <tr>
             <td>{{ ($singer->currentPage() - 1) * $singer->perPage() + $no + 1 }}</td>
-            <td>{{ $data_singer->nama }}</td>
+            <td><a href="{{ route('crud-singer.show', $data_singer->id) }}">{{ $data_singer->nama }}</a></td>
             <td>{{ $data_singer->bio }}</td>
             <td>
                 <div class="d-flex justify-content-end mt-2">
                 
-                <a href="{{ route('crud-singer.edit', $data_singer->id) }}" class="btn btn-primary btn-sm mr-2">Edit</a>
+                <a href="{{ route('crud-singer.edit', $data_singer->id) }}" class="btn btn-success btn-sm mr-2">Edit</a>
+                
                 <form action="{{ route('crud-singer.delete', $data_singer->id) }}" method="post" style="display:inline-block;">
                     @csrf
                     <!-- @method('DELETE') -->

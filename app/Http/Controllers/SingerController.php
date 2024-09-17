@@ -28,6 +28,44 @@ class SingerController extends Controller
     
         return view('pertemuan2.Singer.tampil', compact('singer', 'search'));
     }
+
+    public function show($id)
+    {
+        // Find the singer by ID
+        $singer = Singer::findOrFail($id);
+    
+        // Get the songs associated with the singer
+        // Ensure you have the correct relationship name
+        $songs = $singer->songs;
+    
+        // Return the view with the singer and their songs
+        return view('pertemuan2.Singer.show', compact('singer', 'songs'));
+    }
+    
+    public function autocomplete(Request $request)
+    {
+        $term = $request->get('term');
+    
+        $artists = Singer::where('nama', 'LIKE', '%' . $term . '%')
+            ->get(['id', 'nama'])
+            ->map(function($artist) {
+                return [
+                    'value' => $artist->id,
+                    'label' => $artist->nama
+                ];
+            });
+    
+        return response()->json($artists);
+    }
+    
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('q');
+        $artists = Artist::where('name', 'like', "%$searchTerm%")->get();
+
+        return response()->json($artists);
+    }
+
     
 
 

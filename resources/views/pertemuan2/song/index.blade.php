@@ -1,6 +1,5 @@
 @extends('layout.base')
 
-
 @section('title', 'List of Tracks')
 
 @section('content')
@@ -39,7 +38,7 @@
             </div>
 
         </div>
-        <div class="overflow-auto">`
+        <div class="overflow-auto">
             <table id="songTable" class="table table-bordered">
                 <thead>
                     <tr>
@@ -66,7 +65,7 @@
                                     {{ Str::limit($b->title, 20, '...') }}
                                 </a>
                             </td>
-                            <td>{{ $b->artist }}</td>
+                            <td>{{ $b->artist->nama }}</td> <!-- Menampilkan nama penyanyi berdasarkan relasi -->
                             <td>{{ $b->album }}</td>
                             <td>{{ $b->year }}</td>
                             <td>
@@ -106,6 +105,7 @@
         </div>
     </div>
 @endsection
+
 @push('scripts')
     <script src="/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -119,13 +119,13 @@
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
 @endpush
+
 @push('scripts')
     <script>
         $(document).ready(function() {
             $('#songTable').DataTable({
-                responsive: true
+                responsive: true,
                 paging: false,
                 searching: false,
                 ordering: true,

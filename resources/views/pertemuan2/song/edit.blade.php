@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="artist">Artist</label>
                             <input type="text" class="form-control @error('artist') is-invalid @enderror" id="artist"
-                                name="artist" value="{{ old('artist', $data['song']->artist) }}" required>
+                                name="artist" value="{{ old('artist', $data['song']->artist->nama) }}" required>
                             @error('artist')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -4,11 +4,11 @@ namespace Database\Seeders;
 
 use App\Models\Song;
 use App\Models\Genre;
-use App\Models\Singer; // Import model Singer
+use App\Models\Singer;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class BukuGenreSeeder extends Seeder
+class BukuGenreSeeder extends Seeder 
 {
     /**
      * Run the database seeds.
@@ -51,15 +51,15 @@ class BukuGenreSeeder extends Seeder
             $genreIds[] = $genreModel->id;
         }
 
-        // Ambil semua nama artis dari tabel singers
-        $singerNames = Singer::pluck('nama')->toArray();
+        // Ambil semua ID penyanyi dari tabel singers
+        $singerIds = Singer::pluck('id')->toArray();
 
         // Seed Song Table and attach Genre
         foreach (range(1, 100) as $index) {
             $song = Song::create([
-                'title' => $faker->sentences($faker->numberBetween(1, 5), true), // 1-5 kalimat untuk title
-                'artist' => $faker->randomElement($singerNames), // Ambil nama artis dari tabel singers
-                'album' => $faker->sentences($faker->numberBetween(1, 5), true), // 1-5 kalimat untuk album
+                'title' => $faker->sentence($faker->numberBetween(1, 5)), // 1-5 kata untuk title
+                'artist_id' => $faker->randomElement($singerIds), // Ambil artist_id dari singer
+                'album' => $faker->sentence($faker->numberBetween(1, 5)), // 1-5 kata untuk album
                 'year' => $faker->year,
                 'duration' => $faker->numberBetween(100, 500),
                 'music_company' => $faker->company,

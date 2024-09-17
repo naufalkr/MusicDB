@@ -50,6 +50,9 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/crud-singer/edit/{id}', [SingerController::class, 'edit'])->name('crud-singer.edit');
     Route::post('/crud-singer/update/{id}', [SingerController::class, 'update'])->name('crud-singer.update');
     Route::post('/crud-singer/delete/{id}', [SingerController::class, 'delete'])->name('crud-singer.delete');
+    // Route to show tracks for a specific singer
+    Route::get('/crud-singer/{id}/show', [SingerController::class, 'show'])->name('crud-singer.show');
+
     // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
 
     Route::get('/crud-playlist', [PlaylistController::class, 'tampil'])->name('crud-playlist.tampil');
@@ -81,6 +84,13 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/crud-favorite/edit/{id}', [FavoriteController::class, 'edit'])->name('crud-favorite.edit');
     Route::post('/crud-favorite/update/{id}', [FavoriteController::class, 'update'])->name('crud-favorite.update');
     Route::post('/crud-favorite/delete/{id}', [FavoriteController::class, 'delete'])->name('crud-favorite.delete');
+
+    Route::get('/autocomplete/artists', [SingerController::class, 'autocomplete'])->name('autocomplete.artists');
+    // web.php
+    Route::get('/artists/search', [SingerController::class, 'search'])->name('artists.search');
+
+
+
     
     
     

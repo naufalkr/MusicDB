@@ -31,22 +31,42 @@ class SongController extends Controller
         return view('pertemuan2.song.create',compact('data'));
     }
 
-    public function store(NewSongRequest $request)
+    public function store(Request $request)
     {
-        $validatedData = $request->validated();
-        unset($validatedData['genre']);
-        $song = Song::create($validatedData);
+        $request->validate([
+            'title' => 'required|string',
+            'artist_id' => 'required|exists:singer,id',
+            'album' => 'required|string',
+            'year' => 'nullable|integer',
+            'duration' => 'nullable|integer',
+            'music_company' => 'required|string',
+            'description' => 'nullable|string',
+            'genre' => 'required|array', // Ensure genre is an array
+            'genre.*' => 'exists:genre,id' // Ensure each genre ID exists in the genres table
+        ]);
+    
+        $song = Song::create([
+            'title' => $request->input('title'),
+            'artist_id' => $request->input('artist_id'),
+            'album' => $request->input('album'),
+            'year' => $request->input('year'),
+            'duration' => $request->input('duration'),
+            'music_company' => $request->input('music_company'),
+            'description' => $request->input('description'),
+        ]);
+    
+        // Attach genres to the song
         $song->genres()->attach($request->input('genre'));
-
-        return redirect()->route('crud-song.index')->with('success', 'Song "' . $song->title . '" sukses ditambahkan.');
+    
+        return redirect()->route('crud-song.index')->with('success', 'Song added successfully.');
     }
+    
 
     public function show(Song $song)
     {
         $data['song'] = $song;
         return view('pertemuan2.song.show', compact('data'));
     }
-
     public function edit(Song $song) 
     {
         $data['song'] = $song;
@@ -54,7 +74,7 @@ class SongController extends Controller
         $data['genre'] = Genre::all();
         return view('pertemuan2.song.edit', compact('data'));
     }
-
+    
     public function update(UpdateSongRequest $request, Song $song)
     {
         $validatedData = $request->validated();

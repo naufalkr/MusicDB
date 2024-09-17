@@ -12,4 +12,9 @@ class Singer extends Model
     protected $table = 'singer';
 
     protected $fillable = ['nama', 'bio'];
+
+    public function songs()
+    {
+        return $this->hasMany(Song::class, 'artist_id'); // Relasi ke Song
+    }
 }

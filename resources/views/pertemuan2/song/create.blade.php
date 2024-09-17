@@ -1,6 +1,7 @@
 @extends('layout.base')
 @push('styles')
     <link rel="stylesheet" href="/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css"> <!-- Add jQuery UI CSS for autocomplete -->
 @endpush
 @section('title', 'Add Track')
 @section('content')
@@ -22,9 +23,10 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="artist">Artist</label>
-                            <input type="text" class="form-control @error('artist') is-invalid @enderror" id="artist"
-                                name="artist" value="{{ old('artist') }}" required>
-                            @error('artist')
+                            <input type="text" class="form-control @error('artist') is-invalid @enderror" id="artist_name"
+                                name="artist_name" value="{{ old('artist_name') }}" required>
+                            <input type="hidden" id="artist_id" name="artist_id" value="{{ old('artist_id') }}" required>
+                            @error('artist_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -86,22 +88,19 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="genre">Genre</label><br>
-                            <select class="selectpicker w-100" id="genre" name="genre[]"
-                                class="form-control @error('genre') is-invalid @enderror" multiple>
-                                @foreach ($data['genre'] as $k)
-                                    <option value="{{ $k->id }}"
-                                        {{ in_array($k->id, old('genre', [])) ? 'selected' : '' }}>
-                                        {{ $k->nama }}
-                                    </option>
-                                @endforeach
-                            </select>
+                                <select class="selectpicker w-100" id="genre" name="genre[]" class="form-control @error('genre') is-invalid @enderror" multiple>
+                                    @foreach ($data['genre'] as $k)
+                                        <option value="{{ $k->id }}" {{ in_array($k->id, old('genre', [])) ? 'selected' : '' }}>
+                                            {{ $k->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             @error('genre')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-
                     </div>
                 </div>
 
@@ -116,11 +115,38 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Add Song</button>
-                <a href="{{ route('crud-song.index') }}" class="btn btn-warning">Kembali</a><a href="#"></a>
+                <a href="{{ route('crud-song.index') }}" class="btn btn-warning">Back</a>
             </form>
         </div>
     </div>
 @endsection
+
 @push('scripts')
+    <script src="/js/jquery-ui.min.js"></script> <!-- Add jQuery UI JS for autocomplete -->
     <script src="/js/bootstrap-select.min.js"></script>
+    <script>
+            $(document).ready(function() {
+                $('#artist_name').autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: "{{ route('autocomplete.artists') }}",
+                            dataType: "json",
+                            data: {
+                                term: request.term
+                            },
+                            success: function(data) {
+                                response(data);
+                            }
+                        });
+                    },
+                    minLength: 2,
+                    select: function(event, ui) {
+                        $('#artist_name').val(ui.item.label); // Show the artist name in the input
+                        $('#artist_id').val(ui.item.value); // Store the artist ID in the hidden field
+                        return false;
+                    }
+                });
+            });
+
+    </script>
 @endpush
