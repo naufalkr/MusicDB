@@ -35,6 +35,37 @@ class RecordlabelController extends Controller
         return view('pertemuan2.Recordlabel.tambah');
     }
 
+    public function show($id)
+    {
+        // Find the recordlabel by ID
+        $recordlabel = Recordlabel::findOrFail($id);
+    
+        // Get the songs associated with the recordlabel
+        // Ensure you have the correct relationship name
+        $songs = $recordlabel->songs;
+    
+        // Return the view with the recordlabel and their songs
+        return view('pertemuan2.Recordlabel.show', compact('recordlabel', 'songs'));
+    }
+    
+    public function autocomplete(Request $request)
+    {
+        $term = $request->get('term');
+    
+        $rls = Recordlabel::where('nama', 'LIKE', '%' . $term . '%')
+            ->get(['id', 'nama'])
+            ->map(function($rl) {
+                return [
+                    'value' => $rl->id,
+                    'label' => $rl->nama
+                ];
+            });
+    
+        return response()->json($rls);
+    }
+    
+
+
     public function submit(Request $request)
     {
         // $data['recordlabel'] = $recordlabel;
@@ -52,7 +83,6 @@ class RecordlabelController extends Controller
         // $data['recordlabel'] = $recordlabel;
         $recordlabel = Recordlabel::find($id);
         return view('pertemuan2.Recordlabel.edit', compact('recordlabel'));
-
     }
 
     public function update(Request $request, $id)

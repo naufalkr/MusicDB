@@ -15,11 +15,13 @@ class Song extends Model
 
     protected $fillable = [
         'title',           
-        'artist_id',       // Foreign key for artist
-        'album',        
+        'artist_id',       
+        // 'album',       
+        'albm_id',        
         'year',    
         'duration',  
-        'music_company',  
+        // 'music_company',  
+        'rl_id',  
         'description',
     ];
 
@@ -31,5 +33,15 @@ class Song extends Model
     public function artist()
     {
         return $this->belongsTo(Singer::class, 'artist_id'); // Relasi ke Singer
+    }
+
+    public function albm()
+    {
+        return $this->belongsTo(Album::class, 'albm_id'); // Relasi ke Singer
+    }
+
+    public function rl()
+    {
+        return $this->belongsTo(Recordlabel::class, 'rl_id'); 
     }
 }

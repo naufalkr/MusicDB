@@ -35,7 +35,9 @@
         @foreach($recordlabel as $no => $data_recordlabel)
         <tr>
             <td>{{ ($recordlabel->currentPage() - 1) * $recordlabel->perPage() + $no + 1 }}</td>
-            <td>{{ $data_recordlabel->nama }}</td>
+            <!-- <td>{{ $data_recordlabel->nama }}</td> -->
+            <td><a href="{{ route('crud-recordlabel.show', $data_recordlabel->id) }}">{{ $data_recordlabel->nama }}</a></td>
+
             <td>{{ $data_recordlabel->country }}</td>
             <td>
                 <div class="d-flex justify-content-end mt-2">

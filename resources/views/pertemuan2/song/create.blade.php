@@ -34,11 +34,22 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="album">Album</label>
                             <input type="text" class="form-control @error('album') is-invalid @enderror"
                                 id="album" name="album" value="{{ old('album') }}" required>
                             @error('album')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div> -->
+                        <div class="form-group">
+                            <label for="albm">albm</label>
+                            <input type="text" class="form-control @error('albm') is-invalid @enderror" id="albm_name"
+                                name="albm_name" value="{{ old('albm_name') }}" required>
+                            <input type="hidden" id="albm_id" name="albm_id" value="{{ old('albm_id') }}" required>
+                            @error('albm_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -74,11 +85,22 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
+                        <!-- <div class="form-group">
+                            <label for="recordlabel">Record Label</label>
+                            <input type="text" class="form-control @error('recordlabel') is-invalid @enderror" id="recordlabel"
+                                name="recordlabel" value="{{ old('recordlabel') }}" required>
+                            @error('recordlabel')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div> -->
                         <div class="form-group">
-                            <label for="music_company">Record Label</label>
-                            <input type="text" class="form-control @error('music_company') is-invalid @enderror" id="music_company"
-                                name="music_company" value="{{ old('music_company') }}" required>
-                            @error('music_company')
+                            <label for="rl">Record Label</label>
+                            <input type="text" class="form-control @error('rl') is-invalid @enderror" id="rl_name"
+                                name="rl_name" value="{{ old('rl_name') }}" required>
+                            <input type="hidden" id="rl_id" name="rl_id" value="{{ old('rl_id') }}" required>
+                            @error('rl_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -143,6 +165,46 @@
                     select: function(event, ui) {
                         $('#artist_name').val(ui.item.label); // Show the artist name in the input
                         $('#artist_id').val(ui.item.value); // Store the artist ID in the hidden field
+                        return false;
+                    }
+                });
+                $('#albm_name').autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: "{{ route('autocomplete.albm') }}",
+                            dataType: "json",
+                            data: {
+                                term: request.term
+                            },
+                            success: function(data) {
+                                response(data);
+                            }
+                        });
+                    },
+                    minLength: 2,
+                    select: function(event, ui) {
+                        $('#albm_name').val(ui.item.label); // Show the albm name in the input
+                        $('#albm_id').val(ui.item.value); // Store the albm ID in the hidden field
+                        return false;
+                    }
+                });
+                $('#rl_name').autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: "{{ route('autocomplete.rl') }}",
+                            dataType: "json",
+                            data: {
+                                term: request.term
+                            },
+                            success: function(data) {
+                                response(data);
+                            }
+                        });
+                    },
+                    minLength: 2,
+                    select: function(event, ui) {
+                        $('#rl_name').val(ui.item.label); // Show the rl name in the input
+                        $('#rl_id').val(ui.item.value); // Store the rl ID in the hidden field
                         return false;
                     }
                 });

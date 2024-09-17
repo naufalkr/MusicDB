@@ -66,7 +66,8 @@
                                 </a>
                             </td>
                             <td>{{ $b->artist->nama }}</td> <!-- Menampilkan nama penyanyi berdasarkan relasi -->
-                            <td>{{ $b->album }}</td>
+                            <!-- <td>{{ $b->album }}</td> -->
+                            <td>{{ $b->albm->nama }}</td> <!-- Menampilkan nama penyanyi berdasarkan relasi -->                             
                             <td>{{ $b->year }}</td>
                             <td>
                                 @php
@@ -75,7 +76,8 @@
                                 @endphp
                                 {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }}
                             </td>
-                            <td>{{ $b->music_company }}</td>
+                            <!-- <td>{{ $b->music_company }}</td> -->
+                            <td>{{ $b->rl->nama }}</td>
                             <td>
                                 @foreach ($b->genres as $genre)
                                     <span class="badge badge-primary">{{ $genre->nama }}</span>

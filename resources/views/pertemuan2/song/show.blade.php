@@ -24,13 +24,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="artist">Artist</label>
-                        <p id="artist">{{ $data['song']->artist }}</p>
+                        <p id="artist">{{ $data['song']->artist->nama }}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="album">Album</label>
-                        <p id="album">{{ $data['song']->album }}</p>
+                        <p id="album">{{ $data['song']->albm->nama }}</p>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="music_company">MUSIC_COMPANY</label>
-                        <p id="music_company">{{ $data['song']->music_company }}</p>
+                        <label for="recordlabel">Record Label</label>
+                        <p id="recordlabel">{{ $data['song']->rl->nama }}</p>
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -12,4 +12,9 @@ class Recordlabel extends Model
     protected $table = 'recordlabel';
 
     protected $fillable = ['nama', 'country'];
+
+    public function songs()
+    {
+        return $this->hasMany(Song::class, 'rl_id'); // Relasi ke Song
+    }
 }

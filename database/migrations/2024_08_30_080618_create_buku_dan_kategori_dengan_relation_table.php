@@ -16,10 +16,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->foreignId('artist_id')->constrained('singer')->onDelete('cascade'); // Foreign key to singer
-            $table->string('album');
+            $table->foreignId('albm_id')->constrained('album')->onDelete('cascade'); // Foreign key to singer
+            $table->foreignId('rl_id')->constrained('recordlabel')->onDelete('cascade'); // Foreign key to singer
+            // $table->string('album');
             $table->year('year')->nullable();
             $table->integer('duration')->nullable();
-            $table->string('music_company')->unique();
+            // $table->string('music_company')->unique();
             $table->text('description')->nullable();
             $table->timestamps();
         });

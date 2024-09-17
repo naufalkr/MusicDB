@@ -55,13 +55,6 @@ Route::prefix('/pertemuan2')->group(function(){
 
     // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
 
-    Route::get('/crud-playlist', [PlaylistController::class, 'tampil'])->name('crud-playlist.tampil');
-    Route::get('/crud-playlist/tambah', [PlaylistController::class, 'tambah'])->name('crud-playlist.tambah');
-    Route::post('/crud-playlist/submit', [PlaylistController::class, 'submit'])->name('crud-playlist.submit');
-    Route::get('/crud-playlist/edit/{id}', [PlaylistController::class, 'edit'])->name('crud-playlist.edit');
-    Route::post('/crud-playlist/update/{id}', [PlaylistController::class, 'update'])->name('crud-playlist.update');
-    Route::post('/crud-playlist/delete/{id}', [PlaylistController::class, 'delete'])->name('crud-playlist.delete');
-    // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
 
     Route::get('/crud-album', [AlbumController::class, 'tampil'])->name('crud-album.tampil');
     Route::get('/crud-album/tambah', [AlbumController::class, 'tambah'])->name('crud-album.tambah');
@@ -69,6 +62,9 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/crud-album/edit/{id}', [AlbumController::class, 'edit'])->name('crud-album.edit');
     Route::post('/crud-album/update/{id}', [AlbumController::class, 'update'])->name('crud-album.update');
     Route::post('/crud-album/delete/{id}', [AlbumController::class, 'delete'])->name('crud-album.delete');
+    // Route to show tracks for a specific album
+    Route::get('/crud-album/{id}/show', [AlbumController::class, 'show'])->name('crud-album.show');
+
     
     
     Route::get('/crud-recordlabel', [RecordlabelController::class, 'tampil'])->name('crud-recordlabel.tampil');
@@ -77,6 +73,18 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/crud-recordlabel/edit/{id}', [RecordlabelController::class, 'edit'])->name('crud-recordlabel.edit');
     Route::post('/crud-recordlabel/update/{id}', [RecordlabelController::class, 'update'])->name('crud-recordlabel.update');
     Route::post('/crud-recordlabel/delete/{id}', [RecordlabelController::class, 'delete'])->name('crud-recordlabel.delete');
+    // Route to show tracks for a specific recordlabel
+    Route::get('/crud-recordlabel/{id}/show', [RecordlabelController::class, 'show'])->name('crud-recordlabel.show');
+
+
+    Route::get('/crud-playlist', [PlaylistController::class, 'tampil'])->name('crud-playlist.tampil');
+    Route::get('/crud-playlist/tambah', [PlaylistController::class, 'tambah'])->name('crud-playlist.tambah');
+    Route::post('/crud-playlist/submit', [PlaylistController::class, 'submit'])->name('crud-playlist.submit');
+    Route::get('/crud-playlist/edit/{id}', [PlaylistController::class, 'edit'])->name('crud-playlist.edit');
+    Route::post('/crud-playlist/update/{id}', [PlaylistController::class, 'update'])->name('crud-playlist.update');
+    Route::post('/crud-playlist/delete/{id}', [PlaylistController::class, 'delete'])->name('crud-playlist.delete');
+    // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
+
 
     Route::get('/crud-favorite', [FavoriteController::class, 'tampil'])->name('crud-favorite.tampil');
     Route::get('/crud-favorite/tambah', [FavoriteController::class, 'tambah'])->name('crud-favorite.tambah');
@@ -86,6 +94,10 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::post('/crud-favorite/delete/{id}', [FavoriteController::class, 'delete'])->name('crud-favorite.delete');
 
     Route::get('/autocomplete/artists', [SingerController::class, 'autocomplete'])->name('autocomplete.artists');
+    Route::get('/autocomplete/albm', [AlbumController::class, 'autocomplete'])->name('autocomplete.albm');
+    Route::get('/autocomplete/rl', [RecordlabelController::class, 'autocomplete'])->name('autocomplete.rl');
+
+
     // web.php
     Route::get('/artists/search', [SingerController::class, 'search'])->name('artists.search');
 

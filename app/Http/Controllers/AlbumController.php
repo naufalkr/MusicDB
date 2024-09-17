@@ -26,6 +26,37 @@ class AlbumController extends Controller
     
         return view('pertemuan2.Album.tampil', compact('album', 'search'));
     }
+
+    public function show($id)
+    {
+        // Find the album by ID
+        $album = Album::findOrFail($id);
+    
+        // Get the songs associated with the album
+        // Ensure you have the correct relationship name
+        $songs = $album->songs;
+    
+        // Return the view with the album and their songs
+        return view('pertemuan2.Album.show', compact('album', 'songs'));
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $term = $request->get('term');
+    
+        $albms = Album::where('nama', 'LIKE', '%' . $term . '%')
+            ->get(['id', 'nama'])
+            ->map(function($albm) {
+                return [
+                    'value' => $albm->id,
+                    'label' => $albm->nama
+                ];
+            });
+    
+        return response()->json($albms);
+    }
+    
+
     
 
 

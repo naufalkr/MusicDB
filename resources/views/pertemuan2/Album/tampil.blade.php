@@ -35,7 +35,8 @@
         @foreach($album as $no => $data_album)
         <tr>
             <td>{{ ($album->currentPage() - 1) * $album->perPage() + $no + 1 }}</td>
-            <td>{{ $data_album->nama }}</td>
+            <!-- <td>{{ $data_album->nama }}</td> -->
+            <td><a href="{{ route('crud-album.show', $data_album->id) }}">{{ $data_album->nama }}</a></td>
             <td>{{ $data_album->release_date }}</td>
             <td>
                 <div class="d-flex justify-content-end mt-2">

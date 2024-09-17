@@ -36,10 +36,12 @@ class SongController extends Controller
         $request->validate([
             'title' => 'required|string',
             'artist_id' => 'required|exists:singer,id',
-            'album' => 'required|string',
+            // 'album' => 'required|string',
+            'albm_id' => 'required|exists:album,id',
             'year' => 'nullable|integer',
             'duration' => 'nullable|integer',
-            'music_company' => 'required|string',
+            // 'music_company' => 'required|string',
+            'rl_id' => 'required|exists:recordlabel,id',
             'description' => 'nullable|string',
             'genre' => 'required|array', // Ensure genre is an array
             'genre.*' => 'exists:genre,id' // Ensure each genre ID exists in the genres table
@@ -48,10 +50,12 @@ class SongController extends Controller
         $song = Song::create([
             'title' => $request->input('title'),
             'artist_id' => $request->input('artist_id'),
-            'album' => $request->input('album'),
+            // 'album' => $request->input('album'),
+            'albm_id' => $request->input('albm_id'),            
             'year' => $request->input('year'),
             'duration' => $request->input('duration'),
-            'music_company' => $request->input('music_company'),
+            // 'music_company' => $request->input('music_company'),            
+            'rl_id' => $request->input('rl_id'),    
             'description' => $request->input('description'),
         ]);
     

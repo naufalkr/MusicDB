@@ -1,21 +1,21 @@
 @extends('layout.base')
 
-@section('title', 'Singer Details')
+@section('title', 'Recordlabel Details')
 
 @section('content')
 
 <div class="card p-3">
-    <!-- Display Singer Details -->
+    <!-- Display Recordlabel Details -->
     <div class="mb-4">
-        <h2>{{ $singer->nama }}</h2>
-        <p><strong>Bio:</strong> {{ $singer->bio }}</p>
+        <h2>{{ $recordlabel->nama }}</h2>
+        <p><strong>Bio:</strong> {{ $recordlabel->bio }}</p>
     </div>
 
     <!-- Display List of Songs -->
-    <h3>Songs by {{ $singer->nama }}</h3>
+    <h3>Songs by {{ $recordlabel->nama }}</h3>
 
     @if($songs->isEmpty())
-        <p>No songs available for this artist.</p>
+        <p>No songs available for this recordlabel.</p>
     @else
         <table id="songTable" class="table table-bordered mt-2">
             <thead>
@@ -53,7 +53,7 @@
         </table>
     @endif
 
-    <a href="{{ route('crud-singer.tampil') }}" class="btn btn-success">Back to Artist List</a>
+    <a href="{{ route('crud-recordlabel.tampil') }}" class="btn btn-success">Back to Recordlabel List</a>
 </div>
 
 @endsection
