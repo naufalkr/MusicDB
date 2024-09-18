@@ -12,4 +12,9 @@ class Favorite extends Model
     protected $table = 'favorite';
 
     protected $fillable = ['nama', 'release_date'];
+
+    public function songs()
+    {
+        return $this->belongsToMany(Song::class, 'favorite_song', 'favorite_id', 'song_id');
+    }
 }

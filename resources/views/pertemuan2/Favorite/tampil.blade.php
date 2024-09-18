@@ -35,7 +35,9 @@
         @foreach($favorite as $no => $data_favorite)
         <tr>
             <td>{{ ($favorite->currentPage() - 1) * $favorite->perPage() + $no + 1 }}</td>
-            <td>{{ $data_favorite->nama }}</td>
+            <td>
+                <a href="{{ route('crud-favorite.show', $data_favorite->id) }}">{{ $data_favorite->nama }}</a>
+            </td>
             <td>{{ $data_favorite->release_date }}</td>
             <td>
                 <div class="d-flex justify-content-end mt-2">
@@ -53,6 +55,5 @@
         @endforeach
     </tbody>
 </table>
-
 
 @endsection

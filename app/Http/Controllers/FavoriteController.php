@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Favorite;
+use App\Models\Song;
 
 class FavoriteController extends Controller
 {
@@ -26,7 +27,45 @@ class FavoriteController extends Controller
     
         return view('pertemuan2.Favorite.tampil', compact('favorite', 'search'));
     }
+
+    public function show($id)
+    {
+        $favorite = Favorite::with('songs')->findOrFail($id);
+        $songs = Song::all(); // Ambil semua lagu untuk ditambahkan ke favorite
+        return view('pertemuan2.Favorite.show', compact('favorite', 'songs'));
+    }
+
+    public function removeSong($favoriteId, $songId)
+    {
+        $favorite = Favorite::findOrFail($favoriteId);
+        $favorite->songs()->detach($songId);
+
+        return redirect()->route('crud-favorite.show', $favoriteId)
+                        ->with('success', 'Song removed from favorite successfully.');
+    }
+
     
+    
+
+    // public function addSong(Request $request, $id)
+    // {
+    //     $favorite = Favorite::findOrFail($id);
+    //     $songId = $request->input('song_id');
+
+    //     // Cek apakah lagu sudah ada di favorite
+    //     if (!$favorite->songs->contains($songId)) {
+    //         $favorite->songs()->attach($songId);
+    //     }
+
+    //     return redirect()->route('pertemuan2.Favorite.show', $id)->with('success', 'Song added to favorite successfully.');
+    // }
+    public function addSong(Request $request, $favoriteId)
+    {
+        $favorite = Favorite::findOrFail($favoriteId);
+        $favorite->songs()->attach($request->song_id);
+        return redirect()->route('crud-favorite.show', $favoriteId)->with('success', 'Song added to favorite!');
+    }
+
 
 
     public function tambah()

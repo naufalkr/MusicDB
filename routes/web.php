@@ -102,6 +102,12 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/crud-favorite/edit/{id}', [FavoriteController::class, 'edit'])->name('crud-favorite.edit');
     Route::post('/crud-favorite/update/{id}', [FavoriteController::class, 'update'])->name('crud-favorite.update');
     Route::post('/crud-favorite/delete/{id}', [FavoriteController::class, 'delete'])->name('crud-favorite.delete');
+    Route::post('favorite/{id}/add-song', [FavoriteController::class, 'addSong'])->name('crud-favorite.addSong');
+    Route::get('/favorite/{id}', [FavoriteController::class, 'show'])->name('crud-favorite.show');
+    Route::post('/favorite/{favoriteId}/remove-song/{songId}', [FavoriteController::class, 'removeSong'])
+     ->name('crud-favorite.removeSong');
+     
+
 
     Route::get('/autocomplete/artists', [SingerController::class, 'autocomplete'])->name('autocomplete.artists');
     Route::get('/autocomplete/albm', [AlbumController::class, 'autocomplete'])->name('autocomplete.albm');

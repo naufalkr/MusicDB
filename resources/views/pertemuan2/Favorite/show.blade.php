@@ -1,13 +1,13 @@
 @extends('layout.base')
 
-@section('title', 'Playlist Detail')
+@section('title', 'Favorite Detail')
 
 @section('content')
 
-<h1>{{ $playlist->nama }}</h1>
-<p>Description: {{ $playlist->release_date }}</p>
+<h1>{{ $favorite->nama }}</h1>
+<p>Description: {{ $favorite->release_date }}</p>
 
-<form action="{{ route('crud-playlist.addSong', $playlist->id) }}" method="POST">
+<form action="{{ route('crud-favorite.addSong', $favorite->id) }}" method="POST">
     @csrf
     <div class="form-group">
         <label for="song">Select Song:</label>
@@ -20,8 +20,8 @@
     <button type="submit" class="btn btn-primary mt-2">Add Song</button>
 </form>
 
-<!-- Daftar Lagu dalam Playlist -->
-<h3><br>Songs in this Playlist:</h3>
+<!-- Daftar Lagu dalam Favorite -->
+<h3><br>Songs in this Favorite:</h3>
 <table class="table table-bordered mt-2">
     <thead class="table">
         <tr>
@@ -38,7 +38,7 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($playlist->songs as $song)
+        @forelse ($favorite->songs as $song)
             <tr>
                 <!-- <td>{{ $song->id }}</td> -->
                 <td>
@@ -64,16 +64,16 @@
                 </td>
                 <!-- <td>{{ Str::limit($song->description, 30, '...') }}</td> -->
                 <td class="d-flex">
-                    <form class="border-0" action="{{ route('crud-playlist.removeSong', [$playlist->id, $song->id]) }}" method="POST" style="display:inline-block;">
+                    <form class="border-0" action="{{ route('crud-favorite.removeSong', [$favorite->id, $song->id]) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('POST')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to remove this song from the playlist?')">Remove from Playlist</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to remove this song from the favorite?')">Remove from Favorite</button>
                     </form>
                 </td>
             </tr>
         @empty
             <tr>
-                <td colspan="10" class="text-center">No songs found in this playlist.</td>
+                <td colspan="10" class="text-center">No songs found in this favorite.</td>
             </tr>
         @endforelse
     </tbody>
