@@ -44,4 +44,10 @@ class Song extends Model
     {
         return $this->belongsTo(Recordlabel::class, 'rl_id'); 
     }
+
+    public function playlists()
+    {
+        return $this->belongsToMany(Playlist::class, 'playlist_song', 'song_id', 'playlist_id');
+    }
+    
 }

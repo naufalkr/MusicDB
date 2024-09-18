@@ -30,6 +30,7 @@ class SongController extends Controller
         $data['genre'] = Genre::all();
         return view('pertemuan2.song.create',compact('data'));
     }
+    
 
     public function store(Request $request)
     {

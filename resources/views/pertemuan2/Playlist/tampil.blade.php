@@ -35,7 +35,9 @@
         @foreach($playlist as $no => $data_playlist)
         <tr>
             <td>{{ ($playlist->currentPage() - 1) * $playlist->perPage() + $no + 1 }}</td>
-            <td>{{ $data_playlist->nama }}</td>
+            <td>
+                <a href="{{ route('crud-playlist.show', $data_playlist->id) }}">{{ $data_playlist->nama }}</a>
+            </td>
             <td>{{ $data_playlist->release_date }}</td>
             <td>
                 <div class="d-flex justify-content-end mt-2">
@@ -53,6 +55,5 @@
         @endforeach
     </tbody>
 </table>
-
 
 @endsection

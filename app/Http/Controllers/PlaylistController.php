@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Playlist;
+use App\Models\Song;
 
 class PlaylistController extends Controller
 {
@@ -26,7 +27,45 @@ class PlaylistController extends Controller
     
         return view('pertemuan2.Playlist.tampil', compact('playlist', 'search'));
     }
+
+    public function show($id)
+    {
+        $playlist = Playlist::with('songs')->findOrFail($id);
+        $songs = Song::all(); // Ambil semua lagu untuk ditambahkan ke playlist
+        return view('pertemuan2.Playlist.show', compact('playlist', 'songs'));
+    }
+
+    public function removeSong($playlistId, $songId)
+    {
+        $playlist = Playlist::findOrFail($playlistId);
+        $playlist->songs()->detach($songId);
+
+        return redirect()->route('crud-playlist.show', $playlistId)
+                        ->with('success', 'Song removed from playlist successfully.');
+    }
+
     
+    
+
+    // public function addSong(Request $request, $id)
+    // {
+    //     $playlist = Playlist::findOrFail($id);
+    //     $songId = $request->input('song_id');
+
+    //     // Cek apakah lagu sudah ada di playlist
+    //     if (!$playlist->songs->contains($songId)) {
+    //         $playlist->songs()->attach($songId);
+    //     }
+
+    //     return redirect()->route('pertemuan2.Playlist.show', $id)->with('success', 'Song added to playlist successfully.');
+    // }
+    public function addSong(Request $request, $playlistId)
+    {
+        $playlist = Playlist::findOrFail($playlistId);
+        $playlist->songs()->attach($request->song_id);
+        return redirect()->route('crud-playlist.show', $playlistId)->with('success', 'Song added to playlist!');
+    }
+
 
 
     public function tambah()

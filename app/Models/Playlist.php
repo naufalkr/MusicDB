@@ -12,4 +12,10 @@ class Playlist extends Model
     protected $table = 'playlist';
 
     protected $fillable = ['nama', 'release_date'];
+
+    public function songs()
+    {
+        return $this->belongsToMany(Song::class, 'playlist_song', 'playlist_id', 'song_id');
+    }
+    
 }

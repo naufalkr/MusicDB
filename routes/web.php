@@ -83,6 +83,16 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/crud-playlist/edit/{id}', [PlaylistController::class, 'edit'])->name('crud-playlist.edit');
     Route::post('/crud-playlist/update/{id}', [PlaylistController::class, 'update'])->name('crud-playlist.update');
     Route::post('/crud-playlist/delete/{id}', [PlaylistController::class, 'delete'])->name('crud-playlist.delete');
+    // Route::get('playlist/{id}', [PlaylistController::class, 'show'])->name('playlist.show');
+    Route::post('playlist/{id}/add-song', [PlaylistController::class, 'addSong'])->name('crud-playlist.addSong');
+    Route::get('/playlist/{id}', [PlaylistController::class, 'show'])->name('crud-playlist.show');
+    Route::post('/playlist/{playlistId}/remove-song/{songId}', [PlaylistController::class, 'removeSong'])
+     ->name('crud-playlist.removeSong');
+
+
+    
+    
+
     // Route::resource('/crud-temp')->(['crud-genre' => 'genre']);
 
 
@@ -100,6 +110,8 @@ Route::prefix('/pertemuan2')->group(function(){
 
     // web.php
     Route::get('/artists/search', [SingerController::class, 'search'])->name('artists.search');
+
+    
 
 
 
