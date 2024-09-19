@@ -9,11 +9,17 @@ use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\FavoriteController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfileController;
+// use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layout.base');
-})->name('home');  // Named route untuk halaman utama
+    return view('welcome');
+});
+
+
+// Route::get('/', function () {
+//     return view('layout.base');
+// })->name('home');  // Named route untuk halaman utama
 
 // Route::prefix('/pertemuan1')->group(function(){
 //     Route::get('/basic', function () {
@@ -38,6 +44,19 @@ Route::get('/', function () {
 //         Route::get('/page2', fn() => view('pertemuan1.group2page2'))->name('group2page2');
 //     });
 // });
+
+Route::get('/dashboard', function () {
+    return view('layout.base');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
 
 Route::prefix('/pertemuan2')->group(function(){
     Route::resource('/crud-song', SongController::class)->parameters(['crud-song' => 'song']);
