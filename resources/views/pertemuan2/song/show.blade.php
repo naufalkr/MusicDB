@@ -8,8 +8,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="id">ID</label>
-                        <p id="id">{{ $data['song']->id }}</p>
+                        <!-- <label for="id">ID</label>
+                        <p id="id">{{ $data['song']->id }}</p> -->                        
+                        <img src="{{ $data['song']->albm->image_url }}" alt="Random Image" style="border: none; width: 5cm;height: 5cm;" class="img-thumbnail">  
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -45,7 +45,6 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Image</th> <!-- New column for image -->
                         <th>Title</th>
                         <th>Artist</th>
                         <th>Album</th>
@@ -65,10 +64,8 @@
                             <td>
                                 {{ $key + 1 }}
                             </td>
-                            <td>
-                                <img src="https://via.placeholder.com/100x100" alt="Random Image" class="img-thumbnail">
-                            </td>
                             <td class="song-title">
+                                <img src="{{ $b->albm->image_url }}" alt="Random Image" style="border: none;" class="img-thumbnail">
                                 <a href="{{ route('crud-song.show', $b->id) }}">
                                     {{ Str::limit($b->title, 20, '...') }}
                                 </a>
@@ -156,8 +153,8 @@
 
         /* Mengatur ukuran gambar */
         .img-thumbnail {
-            width: 1cm;
-            height: 1cm;
+            width: 1.2cm;
+            height: 1.2cm;
         }
     </style>
 @endpush

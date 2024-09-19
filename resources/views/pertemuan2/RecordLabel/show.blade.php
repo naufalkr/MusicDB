@@ -17,7 +17,7 @@
     @if($songs->isEmpty())
         <p>No songs available for this recordlabel.</p>
     @else
-        <table id="songTable" class="table table-bordered mt-2">
+        <table id="songTable" class="table table-borderless mt-2">
             <thead>
                 <tr>
                     <th>No</th>
@@ -30,9 +30,18 @@
             </thead>
             <tbody>
                 @foreach($songs as $index => $song)
-                <tr>
+                <tr class="song-row" data-id="{{ $song->id }}">
                     <td>{{ $index + 1 }}</td>
-                    <td>{{ $song->title }}</td>
+                    <td class="song-title">
+                        <img src="{{ $song->albm->image_url }}" alt="{{ $song->albm->nama }}" class="img-thumbnail" style="width: 50px; height: auto;">
+                        <a href="{{ route('crud-song.show', $song->id) }}">
+                            {{ Str::limit($song->title, 20, '...') }}
+                        </a>
+                        <!-- Play icon that appears on hover -->
+                        <span class="play-icon" style="display: none;">
+                            <i class="fas fa-play-circle"></i>
+                        </span>
+                    </td>
                     <td>{{ $song->albm->nama }}</td>
                     <td>{{ $song->year }}</td>
                     <td>
@@ -57,3 +66,41 @@
 </div>
 
 @endsection
+
+@push('styles')
+<style>
+    .table-borderless th,
+    .table-borderless td {
+        border: none;
+    }
+
+    .song-row:hover .play-icon {
+        display: inline-block;
+        position: absolute;
+        left: 20px;
+        color: green;
+        font-size: 20px;
+    }
+
+    .play-icon {
+        display: none;
+    }
+
+    .song-row:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+    .song-title {
+        position: relative;
+    }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        // Initialize any scripts if necessary
+    });
+</script>
+@endpush
