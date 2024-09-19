@@ -26,23 +26,26 @@
                     </div>
                 </div>
             </form>
+            
             <div class="d-flex">
                 {{ $data['song']->appends(['search' => request()->get('search'), 'limit' => request()->get('limit')])->links() }}
                 <div class="ml-2">
                     <a href="{{ route('crud-song.create') }}" class="text-white">
-                        <button class="btn btn-success">
-                            Add Track
-                        </button>
-                    </a>
-                </div>
+                    @role('admin')
+                    <button class="btn btn-success">
+                        Add Track
+                    </button>
+                    @endrole
+                </a>
             </div>
-
         </div>
+    </div>
         <div class="overflow-auto">
-            <table id="songTable" class="table table-bordered">
+            <table id="songTable" class="table">
                 <thead>
                     <tr>
-                        <th>id</th>
+                        <th>#</th>
+                        <th>Image</th> <!-- New column for image -->
                         <th>Title</th>
                         <th>Artist</th>
                         <th>Album</th>
@@ -51,23 +54,31 @@
                         <th>Record Label</th>
                         <th>Genre</th>
                         <th>Description</th>
+                        @role('admin')                        
                         <th>Action</th>
+                        @endrole
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($data['song'] as $b)
-                        <tr>
+                    @forelse ($data['song'] as $key => $b)
+                        <tr class="song-row" data-id="{{ $b->id }}">
                             <td>
-                                {{ $b->id }}
+                                {{ $key + 1 }}
                             </td>
                             <td>
+                                <img src="https://via.placeholder.com/100x100" alt="Random Image" class="img-thumbnail">
+                            </td>
+                            <td class="song-title">
                                 <a href="{{ route('crud-song.show', $b->id) }}">
                                     {{ Str::limit($b->title, 20, '...') }}
                                 </a>
+                                <!-- Ikon play yang akan muncul saat hover -->
+                                <span class="play-icon" style="display: none;">
+                                    <i class="fas fa-play-circle"></i>
+                                </span>
                             </td>
-                            <td>{{ $b->artist->nama }}</td> <!-- Menampilkan nama penyanyi berdasarkan relasi -->
-                            <!-- <td>{{ $b->album }}</td> -->
-                            <td>{{ $b->albm->nama }}</td> <!-- Menampilkan nama penyanyi berdasarkan relasi -->                             
+                            <td>{{ $b->artist->nama }}</td> 
+                            <td>{{ $b->albm->nama }}</td>                             
                             <td>{{ $b->year }}</td>
                             <td>
                                 @php
@@ -76,30 +87,30 @@
                                 @endphp
                                 {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }}
                             </td>
-                            <!-- <td>{{ $b->music_company }}</td> -->
                             <td>{{ $b->rl->nama }}</td>
                             <td>
                                 @foreach ($b->genres as $genre)
                                     <span class="badge badge-primary">{{ $genre->nama }}</span>
-                                    <!-- Adjust field name as needed -->
                                 @endforeach
                             </td>
                             <td>{{ Str::limit($b->description, 30, '...') }}</td>
+                            @role('admin')
                             <td class="d-flex">
                                 <a href="{{ route('crud-song.edit', $b->id) }}"
-                                    class="btn btn-primary btn-sm mr-2">Edit</a>
+                                class="btn btn-primary btn-sm mr-2">Edit</a>
                                 <form class="border-0" action="{{ route('crud-song.destroy', $b->id) }}" method="POST"
-                                    style="display:inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Delete</button>
-                                </form>
-                            </td>
+                                style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Are you sure?')">Delete</button>
+                            </form>
+                        </td>
+                        @endrole
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="text-center">No records found</td>
+                            <td colspan="9" class="text-center">No records found</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -108,19 +119,47 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script src="/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="/adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="/adminlte/plugins/jszip/jszip.min.js"></script>
-    <script src="/adminlte/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="/adminlte/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="/adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+@push('styles')
+    <style>
+        /* Hilangkan border tabel agar berurutan */
+        .table {
+            border-collapse: collapse;
+        }
+        .table td, .table th {
+            border: none;
+        }
+
+        /* Hover effect: play icon */
+        .song-row:hover .play-icon {
+            display: inline-block;
+            position: absolute;
+            left: 20px;
+            color: green;
+            font-size: 20px;
+        }
+
+        /* Posisi awal play icon tersembunyi */
+        .play-icon {
+            display: none;
+        }
+
+        /* Warna saat hover baris */
+        .song-row:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        /* Mengatur posisi play-icon dan title */
+        .song-title {
+            position: relative;
+        }
+
+        /* Mengatur ukuran gambar */
+        .img-thumbnail {
+            width: 1cm;
+            height: 1cm;
+        }
+    </style>
 @endpush
 
 @push('scripts')

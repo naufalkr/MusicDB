@@ -14,9 +14,11 @@
     <!-- Pagination di atas tabel -->
     <div class="d-flex justify-content-end mt-2">
         {{ $album->appends(request()->query())->links() }}
+        @role('admin')  
         <a href="{{ route('crud-album.tambah') }}" class="btn btn-success">
-    Add Album
-    </a>
+            Add Album
+        </a>
+        @endrole
     </div>    
 </div>
 
@@ -28,7 +30,9 @@
             <th>No</th>
             <th>Name</th>
             <th>Release_date</th>
+            @role('admin')  
             <th>Action</th>
+            @endrole
         </tr>
     </thead>
     <tbody>
@@ -40,13 +44,14 @@
             <td>{{ $data_album->release_date }}</td>
             <td>
                 <div class="d-flex justify-content-end mt-2">
-                
+                @role('admin')  
                 <a href="{{ route('crud-album.edit', $data_album->id) }}" class="btn btn-primary btn-sm mr-2">Edit</a>
                 <form action="{{ route('crud-album.delete', $data_album->id) }}" method="post" style="display:inline-block;">
                     @csrf
                     <!-- @method('DELETE') -->
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
+                @endrole
                 </div>
 
             </td>
