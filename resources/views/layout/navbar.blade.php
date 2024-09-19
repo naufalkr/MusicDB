@@ -8,4 +8,25 @@
             <a href="/" class="nav-link">Home</a>
         </li>
     </ul>
+
+    <!-- Right navbar links (Profile Dropdown) -->
+    <ul class="navbar-nav ml-auto">
+        @auth
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                You're Login as {{ Auth::user()->name }}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a>
+
+                <!-- Logout -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+            </div>
+        </li>
+        @endauth
+    </ul>
 </nav>
+    
