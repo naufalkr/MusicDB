@@ -55,7 +55,7 @@
                 <tbody>
                     @forelse ($recordlabel as $key => $data_recordlabel)
                         <tr class="recordlabel-row" data-id="{{ $data_recordlabel->id }}">
-                            <td>{{ $key + 1 }}</td>
+                            <td>{{ ($recordlabel->currentPage() - 1) * $recordlabel->perPage() + $key + 1 }}</td>
                             <td class="recordlabel-name">
                                 <a href="{{ route('crud-recordlabel.show', $data_recordlabel->id) }}">{{ $data_recordlabel->nama }}</a>
                                 <!-- Ikon play yang akan muncul saat hover -->

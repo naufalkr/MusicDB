@@ -42,13 +42,13 @@
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td class="song-title">
-                        <img src="{{ $song->albm->image_url }}" alt="{{ $song->albm->nama }}" class="img-thumbnail" style="width: 1.2cm; height: 1.2cm;">
+                        <img src="{{ $song->albm->image_url }}" alt="{{ $song->albm->nama }}" class="" style="width: 1cm; height: 1cm;">
                         <a href="{{ route('crud-song.show', $song->id) }}">
                             {{ Str::limit($song->title, 20, '...') }}
                         </a>
                     </td>
-                    <td>{{ $song->artist->nama }}</td>
-                    <td>{{ $song->albm->nama }}</td>
+                    <td><a href="{{ route('crud-singer.show', $song->artist->id) }}" class="artist-link">{{ $song->artist->nama }}</a></td>
+                    <td><a href="{{ route('crud-album.show', $song->albm->id) }}" class="album-link">{{ $song->albm->nama }}</a></td>
                     <td>{{ $song->year }}</td>
                     <td>
                         @php
@@ -63,7 +63,7 @@
                             <span class="badge badge-primary">{{ $genre->nama }}</span>
                         @endforeach
                     </td>
-                    <td class="d-flex">
+                    <td class="">
                         <form class="border-0" action="{{ route('crud-favorite.removeSong', [$favorite->id, $song->id]) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('POST')
@@ -91,12 +91,25 @@
 
     .song-title {
         display: flex;
-        align-items: center;
+        /* align-items: center; */
     }
 
     .song-title img {
-        margin-right: 10px; /* Spacing between image and title */
+        margin-right: 10px;
+        margin-top: -5px /* Spacing between image and title */
     }
+    .album-link,
+    .artist-link {
+        text-decoration: none; /* Hilangkan underline default */
+        color: black; /* Tetapkan warna default */
+    }
+
+    .album-link:hover,
+    .artist-link:hover {
+        text-decoration: underline; /* Tambahkan underline saat hover */
+        color: #28a745; /* Ubah warna saat hover */
+    }
+
 </style>
 @endpush
 

@@ -10,7 +10,7 @@ use App\Models\Recordlabel;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class BukuGenreSeeder extends Seeder 
+class BukuGenreSeeder extends Seeder  
 {
     /**
      * Run the database seeds.
@@ -55,23 +55,19 @@ class BukuGenreSeeder extends Seeder
 
         // Ambil semua ID penyanyi dari tabel singers
         $singerIds = Singer::pluck('id')->toArray();
-
         $albumIds = Album::pluck('id')->toArray();
-
         $recordlabelIds = Recordlabel::pluck('id')->toArray();
 
         // Seed Song Table and attach Genre
         foreach (range(1, 100) as $index) {
             $song = Song::create([
-                'title' => $faker->sentence($faker->numberBetween(1, 5)), // 1-5 kata untuk title
-                'artist_id' => $faker->randomElement($singerIds), // Ambil artist_id dari singer
-                // 'album' => $faker->sentence($faker->numberBetween(1, 5)), // 1-5 kata untuk album
-                'albm_id' => $faker->randomElement($albumIds), 
-                'year' => $faker->year,
-                'duration' => $faker->numberBetween(100, 500),
-                // 'music_company' => $faker->company,
-                'rl_id' => $faker->randomElement($recordlabelIds), 
-                'description' => $faker->paragraph,
+                'title' => $faker->words($faker->numberBetween(2, 4), true), // Judul lagu antara 2-4 kata
+                'artist_id' => $faker->randomElement($singerIds), // ID penyanyi dari tabel singer
+                'albm_id' => $faker->randomElement($albumIds), // ID album dari tabel album
+                'year' => $faker->year($max = 'now'), // Tahun rilis yang acak dari masa lalu hingga sekarang
+                'duration' => $faker->numberBetween(180, 420), // Durasi lagu antara 3 hingga 7 menit dalam detik
+                'rl_id' => $faker->randomElement($recordlabelIds), // ID label rekaman dari tabel record label
+                'description' => $faker->realText($faker->numberBetween(50, 150)), // Deskripsi singkat antara 50-150 karakter
             ]);
 
             // Assign 1 to 3 random genres to each song

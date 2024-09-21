@@ -19,7 +19,7 @@ class PlaylistSeeder extends Seeder
         $faker = Faker::create();
 
         // Misal kita ingin menambahkan 10 penyanyi ke tabel playlists
-        foreach (range(1, 100) as $index) {
+        foreach (range(1, 7) as $index) {
             Playlist::create([
                 'nama' => $faker->name,
                 'release_date' => $faker->paragraph(3), // bio dengan 3 paragraf acak

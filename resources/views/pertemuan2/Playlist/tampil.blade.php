@@ -30,7 +30,7 @@
             <div class="d-flex">
                 {{ $playlist->appends(['search' => request()->get('search')])->links() }}
                 <div class="ml-2">
-                    @role('admin')
+                    @role('user')
                     <a href="{{ route('crud-playlist.tambah') }}" class="text-white">
                         <button class="btn btn-success">
                             Add Playlist
@@ -44,9 +44,9 @@
             <table id="playlistTable" class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>#</th>  
                         <th>Name</th>
-                        <th>Release date</th>
+                        <th>Description</th>
                         @role('user')
                         <th>Action</th>
                         @endrole
@@ -55,7 +55,7 @@
                 <tbody>
                     @forelse ($playlist as $key => $data_playlist)
                         <tr class="playlist-row" data-id="{{ $data_playlist->id }}">
-                            <td>{{ $key + 1 }}</td>
+                            <td>{{ ($playlist->currentPage() - 1) * $playlist->perPage() + $key + 1 }}</td>
                             <td class="playlist-name">
                                 <a href="{{ route('crud-playlist.show', $data_playlist->id) }}">{{ $data_playlist->nama }}</a>
                                 <!-- Ikon play yang akan muncul saat hover -->

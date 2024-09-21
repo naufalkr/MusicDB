@@ -8,7 +8,7 @@
     <!-- Display Recordlabel Details -->
     <div class="mb-4">
         <h2>{{ $recordlabel->nama }}</h2>
-        <p><strong>Bio:</strong> {{ $recordlabel->bio }}</p>
+        <p><strong>Country:</strong> {{ $recordlabel->country }}</p>
     </div>
 
     <!-- Display List of Songs -->

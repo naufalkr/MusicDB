@@ -13,7 +13,7 @@
             <strong>{{ $message }}</strong>
         @enderror
 
-        <label for="release_date">Release_date</label>
+        <label for="release_date">Description</label>
         <input type="text" class="form-control @error('playlist') is-invalid @enderror" id="release_date"
             name="release_date" value="{{ $playlist->release_date }}" required>
         @error('playlist')

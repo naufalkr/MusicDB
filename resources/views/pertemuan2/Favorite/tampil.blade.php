@@ -30,7 +30,7 @@
             <div class="d-flex">
                 {{ $favorite->appends(['search' => request()->get('search')])->links() }}
                 <div class="ml-2">
-                    @role('admin')
+                    @role('user')
                     <a href="{{ route('crud-favorite.tambah') }}" class="text-white">
                         <button class="btn btn-success">
                             Add Favorite
@@ -46,7 +46,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Release date</th>
+                        <th>Description</th>
                         @role('user')
                         <th>Action</th>
                         @endrole
@@ -55,7 +55,7 @@
                 <tbody>
                     @forelse ($favorite as $key => $data_favorite)
                         <tr class="favorite-row" data-id="{{ $data_favorite->id }}">
-                            <td>{{ $key + 1 }}</td>
+                            <td>{{ ($favorite->currentPage() - 1) * $favorite->perPage() + $key + 1 }}</td>
                             <td class="favorite-name">
                                 <a href="{{ route('crud-favorite.show', $data_favorite->id) }}">{{ $data_favorite->nama }}</a>
                                 <!-- Ikon play yang akan muncul saat hover -->

@@ -41,13 +41,14 @@
 
         {{-- <x-menu-item title="Tambah Playlist" icon="fas fa-plus-circle" :href="route('crud-playlist.tambah')" :active="request()->routeIs('crud-playlist.tambah')">
         </x-menu-item> --}}
-
+        
+        @role('user')
         <x-menu-item title="Favorites" icon="fas fa-list" :href="route('crud-favorite.tampil')" :active="request()->routeIs('crud-favorite.tampil')">
         </x-menu-item>
 
         {{-- <x-menu-item title="Tambah Favorite" icon="fas fa-plus-circle" :href="route('crud-favorite.tambah')" :active="request()->routeIs('crud-favorite.tambah')">
         </x-menu-item> --}}
-
+        @endrole
 
         <!-- <x-menu-item title="Album" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item> -->

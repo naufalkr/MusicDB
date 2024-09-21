@@ -62,7 +62,7 @@
                     @forelse ($data['song'] as $key => $b)
                         <tr class="song-row" data-id="{{ $b->id }}">
                             <td>
-                                {{ $key + 1 }}
+                                 {{ ($data['song']->currentPage() - 1) * $data['song']->perPage() + $key + 1 }}
                             </td>
                             <td class="song-title">
                                 <img src="{{ $b->albm->image_url }}" alt="Random Image" style="border: none;" class="img-thumbnail">
@@ -74,8 +74,10 @@
                                     <i class="fas fa-play-circle"></i>
                                 </span>
                             </td>
-                            <td>{{ $b->artist->nama }}</td> 
-                            <td>{{ $b->albm->nama }}</td>                             
+                            <!-- <td>{{ $b->artist->nama }}</td>  -->
+                            <td><a href="{{ route('crud-singer.show', $b->artist->id) }}" class="artist-link">{{ $b->artist->nama }}</a></td>                                                         
+                            <td><a href="{{ route('crud-album.show', $b->albm->id) }}" class="album-link">{{ $b->albm->nama }}</a></td>
+                          
                             <td>{{ $b->year }}</td>
                             <td>
                                 @php
@@ -135,6 +137,11 @@
             font-size: 20px;
         }
 
+        a:hover {
+            text-decoration: underline;
+            color:#28a745
+        }
+
         /* Posisi awal play icon tersembunyi */
         .play-icon {
             display: none;
@@ -156,6 +163,17 @@
             width: 1.2cm;
             height: 1.2cm;
         }
+
+        .artist-link, .album-link {
+            text-decoration: none; /* Hilangkan underline default */
+            color: black; /* Tetapkan warna default */
+        }
+
+        .artist-link:hover, .album-link:hover {
+            text-decoration: underline; /* Tambahkan underline saat hover */
+            color: #28a745; /* Tetapkan warna saat hover */
+        }
+
     </style>
 @endpush
 

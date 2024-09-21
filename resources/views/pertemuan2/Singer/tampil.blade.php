@@ -55,7 +55,7 @@
                 <tbody>
                     @forelse ($singer as $key => $data_singer)
                         <tr class="singer-row" data-id="{{ $data_singer->id }}">
-                            <td>{{ $key + 1 }}</td>
+                            <td>{{ ($singer->currentPage() - 1) * $singer->perPage() + $key + 1 }}</td>
                             <td class="singer-name">
                                 <a href="{{ route('crud-singer.show', $data_singer->id) }}">{{ $data_singer->nama }}</a>
                                 <!-- Ikon play yang akan muncul saat hover -->

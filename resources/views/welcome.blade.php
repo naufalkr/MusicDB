@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to YourApp</title>
+    <title>Welcome to MusicDB</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -26,6 +26,13 @@
         .container {
             max-width: 900px;
             margin: auto;
+        }
+
+        .logo {
+            width: 150px; /* Ukuran logo */
+            margin-bottom: 20px; /* Jarak antara logo dan judul */
+            border-radius: 10px; /* Membuat sudut logo lebih halus */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Memberikan efek bayangan */
         }
 
         .welcome-title {
@@ -80,15 +87,16 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="welcome-title">Welcome to YourApp</h1>
-        <p class="description">Stream music, podcasts, and more from your favorite artists.</p>
+        <img src="https://i.pinimg.com/564x/55/46/c0/5546c0128307873a4ffc590fda7eac16.jpg" alt="MusicDB Logo" class="logo">
+        <h1 class="welcome-title">Welcome to MusicDB</h1>
+        <p class="description">Search musics, albums, and more from your favorite musicians.</p>
         <button class="btn">Get Started</button>
         <div class="auth-links">
             <a href="/login">Log In</a> |
             <a href="/register">Register</a>
         </div>
         <footer>
-            &copy; 2024 YourApp. All rights reserved.
+            &copy; 2024 MusicDB. All rights reserved.
         </footer>
     </div>
 </body>

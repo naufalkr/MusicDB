@@ -55,7 +55,7 @@
                 <tbody>
                     @forelse ($album as $key => $data_album)
                         <tr class="album-row" data-id="{{ $data_album->id }}">
-                            <td>{{ $key + 1 }}</td>
+                            <td>{{ ($album->currentPage() - 1) * $album->perPage() + $key + 1 }}</td>
                             <td class="album-name">
                                 <a href="{{ route('crud-album.show', $data_album->id) }}">{{ $data_album->nama }}</a>
                                 <!-- Ikon play yang akan muncul saat hover -->
