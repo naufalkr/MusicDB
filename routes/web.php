@@ -148,14 +148,14 @@ Route::prefix('/pertemuan2')->group(function(){
 });
 
 
-Route::prefix('/pertemuan3')->group(function(){
-    Route::get('/', [Pertemuan3Controller::class,'index'])->name('pertemuan3.index')->middleware(AuthMiddleware::class);
-    Route::post('/login', [Pertemuan3Controller::class,'login'])->name('pertemuan3.login');
-    Route::post('/register', [Pertemuan3Controller::class,'register'])->name('pertemuan3.register');
-    Route::post('/logout', [Pertemuan3Controller::class,'logout'])->name('pertemuan3.logout');
+// Route::prefix('/pertemuan3')->group(function(){
+//     Route::get('/', [Pertemuan3Controller::class,'index'])->name('pertemuan3.index')->middleware(AuthMiddleware::class);
+//     Route::post('/login', [Pertemuan3Controller::class,'login'])->name('pertemuan3.login');
+//     Route::post('/register', [Pertemuan3Controller::class,'register'])->name('pertemuan3.register');
+//     Route::post('/logout', [Pertemuan3Controller::class,'logout'])->name('pertemuan3.logout');
 
 
-});
+// });
 
 // Route::get('/pertemuan1/error', fn() => view('pertemuan1.error'))->name('error');
 
