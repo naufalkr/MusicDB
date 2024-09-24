@@ -78,6 +78,18 @@ class SpotifyService
         return json_decode($response->getBody(), true);
     }
 
+    public function getTrackById($trackId)
+    {
+        $response = $this->client->get("tracks/{$trackId}", [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->token,
+            ],
+        ]);
+
+        return json_decode($response->getBody(), true);
+    }
+
+
 
     
 }
