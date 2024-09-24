@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Playlist;
 use App\Models\Song;
+use App\Services\SpotifyService;
 
 class PlaylistController extends Controller
 {
@@ -14,6 +15,13 @@ class PlaylistController extends Controller
     //     return view('pertemuan2.Playlist.tampil', compact('playlist'));
     // }
 
+    protected $spotify;
+
+    public function __construct(SpotifyService $spotify)
+    {
+        $this->spotify = $spotify;
+    }
+    
     public function tampil(Request $request)
     {
         $search = $request->input('search'); // Menerima input search dari request
@@ -74,6 +82,14 @@ class PlaylistController extends Controller
         return view('pertemuan2.Playlist.tambah');
     }
 
+    
+    public function tambahadmin()
+    {
+        // $data['playlist'] = $playlist;
+        return view('pertemuan2.Playlist.tambahadmin');
+    }
+
+
     public function submit(Request $request)
     {
         // $data['playlist'] = $playlist;
@@ -81,6 +97,26 @@ class PlaylistController extends Controller
 
         $playlist->nama = $request->nama;
         $playlist->release_date = $request->release_date;
+        $playlist->save();
+
+        return redirect()->route('crud-playlist.tampil');
+    }
+
+    public function submitadmin(Request $request)
+    {
+        // Validasi input Spotify Playlist ID
+        $request->validate([
+            'spotify_playlist_id' => 'required|string',
+        ]);
+
+        // Ambil data playlist dari Spotify API berdasarkan ID
+        $spotifyPlaylist = $this->spotify->getPlaylistById($request->spotify_playlist_id);
+
+        // Simpan data playlist ke dalam database
+        $playlist = new Playlist();
+        $playlist->nama = $spotifyPlaylist['name']; // Nama playlist
+        $playlist->release_date = $spotifyPlaylist['description']; // Tanggal rilis
+        // $playlist->image_url = $spotifyPlaylist['images'][0]['url'] ?? null; // URL gambar playlist
         $playlist->save();
 
         return redirect()->route('crud-playlist.tampil');

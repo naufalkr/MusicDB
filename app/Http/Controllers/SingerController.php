@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 // use App\Http\Requests\SingerRequest;
 use App\Models\Singer;
 use Illuminate\Http\Request;
+use App\Services\SpotifyService;
+
 
 class SingerController extends Controller
 {
+    protected $spotifyService;
+
+    public function __construct(SpotifyService $spotifyService)
+    {
+        $this->spotifyService = $spotifyService;
+    }
 
     // public function tampil()
     // {
@@ -71,21 +79,26 @@ class SingerController extends Controller
 
     public function tambah()
     {
-        // $data['singer'] = $singer;
+        // Menampilkan form tambah singer dengan input Spotify ID
         return view('pertemuan2.Singer.tambah');
     }
 
     public function submit(Request $request)
     {
-        // $data['singer'] = $singer;
-        $singer = new Singer();
+        $spotifyId = $request->spotify_artist_id;
 
-        $singer->nama = $request->nama;
-        $singer->bio = $request->bio;
+        // Ambil data singer dari Spotify
+        $spotifyArtist = $this->spotifyService->getArtistById($spotifyId);
+
+        // Buat instance singer baru
+        $singer = new Singer();
+        $singer->nama = $spotifyArtist['name'];
+        $singer->bio = $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info'; // Mengambil genre sebagai bio
         $singer->save();
 
-        return redirect()->route('crud-singer.tampil');
+        return redirect()->route('crud-singer.tampil')->with('success', 'Singer berhasil ditambahkan!');
     }
+
 
     public function edit($id)
     {

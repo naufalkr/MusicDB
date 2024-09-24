@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Album;
+use App\Services\SpotifyService;
 
 class AlbumController extends Controller
 {
+    protected $spotify;
+
+    public function __construct(SpotifyService $spotify)
+    {
+        $this->spotify = $spotify;
+    }
         // public function tampil()
     // {
     //     $album = Album::get();
@@ -62,22 +69,29 @@ class AlbumController extends Controller
 
     public function tambah()
     {
-        // $data['album'] = $album;
         return view('pertemuan2.Album.tambah');
     }
 
     public function submit(Request $request)
     {
-        // $data['album'] = $album;
-        $album = new Album();
+        // Validasi input Spotify Album ID
+        $request->validate([
+            'spotify_album_id' => 'required|string',
+        ]);
 
-        $album->nama = $request->nama;
-        $album->release_date = $request->release_date;
+        // Ambil data album dari Spotify API berdasarkan ID
+        $spotifyAlbum = $this->spotify->getAlbumById($request->spotify_album_id);
+
+        // Simpan data album ke dalam database
+        $album = new Album();
+        $album->nama = $spotifyAlbum['name']; // Nama album
+        $album->release_date = $spotifyAlbum['release_date']; // Tanggal rilis
+        $album->image_url = $spotifyAlbum['images'][0]['url'] ?? null; // URL gambar album
         $album->save();
 
         return redirect()->route('crud-album.tampil');
     }
-
+    
     public function edit($id)
     {
         // $data['album'] = $album;

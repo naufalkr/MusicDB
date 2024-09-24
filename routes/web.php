@@ -107,7 +107,9 @@ Route::prefix('/pertemuan2')->group(function(){
     Route::get('/playlist/{id}', [PlaylistController::class, 'show'])->name('crud-playlist.show');
     Route::post('/playlist/{playlistId}/remove-song/{songId}', [PlaylistController::class, 'removeSong'])
      ->name('crud-playlist.removeSong');
-
+    Route::post('/crud-playlist/submitadmin', [PlaylistController::class, 'submitadmin'])->name('crud-playlist.submitadmin');
+    Route::get('/crud-playlist/tambahadmin', [PlaylistController::class, 'tambahadmin'])->name('crud-playlist.tambahadmin');
+    
 
     
     

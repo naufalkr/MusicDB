@@ -3,26 +3,18 @@
 @section('title', 'Add Recordlabel')
 
 @section('content')
+<div class="container">
+    <h1>Tambah Recordlabel</h1>
+    
+    <form action="{{ route('crud-recordlabel.submit') }}" method="POST">
+        @csrf
 
-<form action="{{ route('crud-recordlabel.submit') }}" method = "post">
-    @csrf
-    <div class="form-group">
-        <label for="nama">Name</label>
-        <input type="text" class="form-control @error('recordlabel') is-invalid @enderror" id="nama"
-            name="nama" required>
-            @error('recordlabel')
-        <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-        <label for="country">Country</label>
-        <input type="text" class="form-control @error('recordlabel') is-invalid @enderror" id="country"
-            name="country" required>
-            @error('recordlabel')
-        <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-        <button id="submitBtn" type="submit" class="btn btn-primary">Add Recordlabel</button>
-    </div>
-</form>
+        <div class="form-group">
+            <label for="spotify_recordlabel_id">Spotify Recordlabel ID</label>
+            <input type="text" name="spotify_recordlabel_id" class="form-control" placeholder="Masukkan Spotify Recordlabel ID">
+        </div>
 
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
 @endsection

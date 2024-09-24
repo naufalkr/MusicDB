@@ -37,6 +37,13 @@
                         </button>
                     </a>
                     @endrole
+                    @role('admin')
+                    <a href="{{ route('crud-playlist.tambahadmin') }}" class="text-white">
+                        <button class="btn btn-success">
+                            Add Playlist (Admin)
+                        </button>
+                    </a>
+                    @endrole
                 </div>
             </div>
         </div>

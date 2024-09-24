@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Recordlabel;
+use App\Services\SpotifyService;
 
 class RecordlabelController extends Controller
 {
@@ -12,6 +13,13 @@ class RecordlabelController extends Controller
     //     $recordlabel = Recordlabel::get();
     //     return view('pertemuan2.Recordlabel.tampil', compact('recordlabel'));
     // }
+
+    protected $spotify;
+
+    public function __construct(SpotifyService $spotify)
+    {
+        $this->spotify = $spotify;
+    }
 
     public function tampil(Request $request)
     {
@@ -66,17 +74,40 @@ class RecordlabelController extends Controller
     
 
 
+    // public function submit(Request $request)
+    // {
+    //     // $data['recordlabel'] = $recordlabel;
+    //     $recordlabel = new Recordlabel();
+
+    //     $recordlabel->nama = $request->nama;
+    //     $recordlabel->country = $request->country;
+    //     $recordlabel->save();
+
+    //     return redirect()->route('crud-recordlabel.tampil');
+    // }
+
+
     public function submit(Request $request)
     {
-        // $data['recordlabel'] = $recordlabel;
-        $recordlabel = new Recordlabel();
+        // Validasi input Spotify Recordlabel ID
+        $request->validate([
+            'spotify_recordlabel_id' => 'required|string',
+        ]);
 
-        $recordlabel->nama = $request->nama;
-        $recordlabel->country = $request->country;
+        // Ambil data recordlabel dari Spotify API berdasarkan ID
+        $spotifyRecordlabel = $this->spotify->getRecordlabelById($request->spotify_recordlabel_id);
+
+        // Simpan data recordlabel ke dalam database
+        $recordlabel = new Recordlabel();
+        $recordlabel->nama = $spotifyRecordlabel['label']; // Nama recordlabel
+        $recordlabel->country = $spotifyRecordlabel['artists'][0]['name']; // Tanggal rilis
+        // $recordlabel->image_url = $spotifyRecordlabel['images'][0]['url'] ?? null; // URL gambar recordlabel
         $recordlabel->save();
 
         return redirect()->route('crud-recordlabel.tampil');
     }
+    
+
 
     public function edit($id)
     {
