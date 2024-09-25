@@ -89,6 +89,27 @@ class SpotifyService
         return json_decode($response->getBody(), true);
     }
 
+    public function getShowById($showId)
+    {
+        $response = $this->client->get("shows/{$showId}", [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->token,
+            ],
+        ]);
+
+        return json_decode($response->getBody(), true);
+    }
+
+    public function getEpisodeById($episodeId)
+    {
+        $response = $this->client->get("episodes/{$episodeId}", [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->token,
+            ],
+        ]);
+
+        return json_decode($response->getBody(), true);
+    }
 
 
     

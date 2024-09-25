@@ -50,6 +50,19 @@
         </x-menu-item> --}}
         @endrole
 
+        <x-menu-item title="Show" icon="fas fa-list" :href="route('crud-show.tampil')" :active="request()->routeIs('crud-show.tampil')">
+        </x-menu-item>
+
+        {{-- <x-menu-item title="Tambah Show" icon="fas fa-plus-circle" :href="route('crud-show.tambah')" :active="request()->routeIs('crud-show.tambah')">
+        </x-menu-item> --}}
+
+        <x-menu-item title="Episodes" icon="fas fa-list" :href="route('crud-episode.index')" :active="request()->routeIs('crud-episode.index')">
+        </x-menu-item>
+
+        {{-- <x-menu-item title="Tambah episode" icon="fas fa-plus-circle" :href="route('crud-episode.create')" :active="request()->routeIs('crud-episode.create')">
+        </x-menu-item> --}}
+
+
         <!-- <x-menu-item title="Album" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item> -->
         <!-- <x-menu-item title="Record Label" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">

@@ -100,7 +100,7 @@ class SongController extends Controller
         $album = Album::firstOrCreate(
             ['nama' => $spotifyAlbum['name']], // Check by album name
             [
-                'id' => $spotify_album_id, // Set the ID
+                // 'id' => $spotify_album_id, // Set the ID
                 'release_date' => $spotifyAlbum['release_date'],
                 'image_url' => $spotifyAlbum['images'][0]['url'] ?? null
             ]
@@ -110,7 +110,7 @@ class SongController extends Controller
         $artist = Singer::firstOrCreate(
             ['nama' => $spotifyArtist['name']], // Check by artist name
             [
-                'id' => $spotify_artist_id, // Set the ID
+                // 'id' => $spotify_artist_id, // Set the ID
                 'bio' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info'
             ]
         );
@@ -119,7 +119,7 @@ class SongController extends Controller
         $recordlabel = Recordlabel::firstOrCreate(
             ['nama' => $spotifyRecordlabel['label']], // Check by record label name
             [
-                'id' => $spotify_recordlabel_id, // Set the ID
+                // 'id' => $spotify_recordlabel_id, // Set the ID
                 'country' => $spotifyRecordlabel['total_tracks'] ?? null, // Adjust as needed
             ]
         );
