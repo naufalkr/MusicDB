@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/api/docs', function () {
+    return redirect('/api/documentation');
+});
+
+
 
 // Route::get('/', function () {
 //     return view('layout.base');
