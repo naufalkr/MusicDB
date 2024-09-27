@@ -115,7 +115,7 @@
                     </div>
 
                     {{-- <div class="col-md-6">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="genre">Genre</label>
                             <input type="text" class="form-control @error('genre') is-invalid @enderror"
                                 id="genre" name="genre" value="{{ old('genre', $data['song']->genre) }}">
@@ -124,8 +124,18 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> -->
                     </div> --}}
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <textarea class="form-control @error('category') is-invalid @enderror" id="category" name="category" rows="4">{{ old('category', $data['song']->category) }}</textarea>
+                    @error('category')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div class="form-group">

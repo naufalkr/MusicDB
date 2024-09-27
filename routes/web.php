@@ -53,7 +53,7 @@ Route::get('/api/docs', function () {
 // });
 
 Route::get('/dashboard', function () {
-    return view('layout.base');
+    return view('layout.base3');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

@@ -22,7 +22,8 @@ return new class extends Migration
             $table->year('year')->nullable();
             $table->integer('duration')->nullable();
             // $table->string('music_company')->unique();
-            $table->text('description')->nullable();
+            $table->text('category')->nullable();
+            $table->text('description')->nullable();            
             $table->timestamps();
         });
 

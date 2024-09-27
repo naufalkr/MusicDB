@@ -16,11 +16,11 @@
         {{-- <x-menu-item title="Tambah Artist" icon="fas fa-plus-circle" :href="route('crud-singer.tambah')" :active="request()->routeIs('crud-singer.tambah')">
         </x-menu-item> --}}
 
-        <x-menu-item title="Genre" icon="fas fa-list" :href="route('crud-genre.index')" :active="request()->routeIs('crud-genre.index')">
+        <!-- <x-menu-item title="Genre" icon="fas fa-list" :href="route('crud-genre.index')" :active="request()->routeIs('crud-genre.index')">
         </x-menu-item>
         {{-- 
         <x-menu-item title="Tambah Genre" icon="fas fa-plus-circle" :href="route('crud-genre.create')" :active="request()->routeIs('crud-genre.create')">
-        </x-menu-item> --}}
+        </x-menu-item> --}} -->
 
         <x-menu-item title="Album" icon="fas fa-list" :href="route('crud-album.tampil')" :active="request()->routeIs('crud-album.tampil')">
         </x-menu-item>

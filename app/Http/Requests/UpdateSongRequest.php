@@ -39,6 +39,7 @@ class UpdateSongRequest extends FormRequest
             ],
             'genre' => 'required|array',
             'genre.*' => 'exists:genre,id',
+            'category' => 'nullable|string',
             'description' => 'nullable|string',
         ];
     }

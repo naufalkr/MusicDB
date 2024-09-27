@@ -30,6 +30,7 @@ class NewSongRequest extends FormRequest
             'music_company' => 'required|string|unique:song,music_company|max:13',
             'genre' => 'required|array',
             'genre.*' => 'exists:genre,id',
+            'category' => 'nullable|string',
             'description' => 'nullable|string',
         ];
     }

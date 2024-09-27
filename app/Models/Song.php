@@ -22,6 +22,7 @@ class Song extends Model
         'duration',  
         // 'music_company',  
         'rl_id',  
+        'category',
         'description',
     ];
 

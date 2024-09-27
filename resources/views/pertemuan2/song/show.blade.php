@@ -59,15 +59,20 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="genre">Genre</label>
                         <br>
                         @foreach ($data['song']->genres as $k)
                             <span class="badge badge-primary">{{ $k->nama }}</span>
                             <!-- Adjust field name as needed -->
-                        @endforeach
-                    </div>
+                        <!-- @endforeach -->
+                    <!-- </div> --> 
                 </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="category">Category</label>
+                <p id="category">{{ $data['song']->category }}</p>
             </div>
 
             <div class="form-group">

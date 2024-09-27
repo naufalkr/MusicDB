@@ -132,6 +132,7 @@ class SongController extends Controller
             'year' => $spotifyTrack['album']['release_date'] ? date('Y', strtotime($spotifyTrack['album']['release_date'])) : null,
             'duration' => (int) ($spotifyTrack['duration_ms'] / 1000),
             'rl_id' => $recordlabel->id,
+            'category' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info',
             'description' => $spotifyTrack['popularity'] ?? null,
         ]);
     

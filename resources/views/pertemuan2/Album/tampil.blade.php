@@ -57,6 +57,7 @@
                         <tr class="album-row" data-id="{{ $data_album->id }}">
                             <td>{{ ($album->currentPage() - 1) * $album->perPage() + $key + 1 }}</td>
                             <td class="album-name">
+                                <img src="{{ $data_album->image_url }}" alt="Random Image" style="border: none;" class="img-thumbnail">
                                 <a href="{{ route('crud-album.show', $data_album->id) }}">{{ $data_album->nama }}</a>
                                 <!-- Ikon play yang akan muncul saat hover -->
                                 <span class="play-icon" style="display: none;">
@@ -120,6 +121,11 @@
         /* Mengatur posisi play-icon dan name */
         .album-name {
             position: relative;
+        }
+
+        .img-thumbnail {
+            width: 1.2cm;
+            height: 1.2cm;
         }
     </style>
 @endpush

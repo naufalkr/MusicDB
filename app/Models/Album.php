@@ -11,7 +11,7 @@ class Album extends Model
 
     protected $table = 'album';
 
-    protected $fillable = ['nama', 'release_date'];
+    protected $fillable = ['nama', 'release_date', 'image_url'];
 
     public function songs()
     {

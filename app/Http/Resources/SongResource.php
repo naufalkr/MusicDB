@@ -22,6 +22,7 @@ class SongResource extends JsonResource
             'record_label' => new RecordLabelResource($this->rl), // Relasi ke tabel recordlabel
             'year' => $this->year,
             'duration' => $this->duration,
+            'category' => $this->category,
             'description' => $this->description,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

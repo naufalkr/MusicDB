@@ -71,7 +71,8 @@ class SongController extends Controller
         // Check if the album, artist, and record label already exist, or create them
         $album = Album::firstOrCreate(
             ['nama' => $spotifyAlbum['name']],
-            ['release_date' => $spotifyAlbum['release_date'], 'image_url' => $spotifyAlbum['images'][0]['url'] ?? null]
+            ['release_date' => $spotifyAlbum['release_date']], 
+            ['image_url' => $spotifyAlbum['images'][0]['url'] ?? null] 
         );
 
         $artist = Singer::firstOrCreate(
@@ -92,6 +93,7 @@ class SongController extends Controller
             'year' => $spotifyTrack['album']['release_date'] ? date('Y', strtotime($spotifyTrack['album']['release_date'])) : null,
             'duration' => (int) ($spotifyTrack['duration_ms'] / 1000),
             'rl_id' => $recordlabel->id,
+            'category' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info',
             'description' => $spotifyTrack['popularity'] ?? null,
         ]);
 
@@ -146,6 +148,7 @@ class SongController extends Controller
             'title' => $spotifyTrack['name'],
             'year' => $spotifyTrack['album']['release_date'] ? date('Y', strtotime($spotifyTrack['album']['release_date'])) : null,
             'duration' => (int) ($spotifyTrack['duration_ms'] / 1000),
+            'category' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info',
             'description' => $spotifyTrack['popularity'] ?? null,
         ]);
 
