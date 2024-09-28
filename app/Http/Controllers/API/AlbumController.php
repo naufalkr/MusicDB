@@ -99,7 +99,8 @@ class AlbumController extends Controller
         // Validate the incoming request
         $validator = Validator::make($request->all(), [
             'nama' => 'required|string|max:255', // Album name is required and must be a string
-            'release_date' => 'required|date_format:Y-m-d', // Ensure the release date is in the 'Y-m-d' format
+            'release_date' => 'required|string|max:255', // Ensure the release date is in the 'Y-m-d' format
+            'image_url' => 'required|string|max:255', // Ensure the release date is in the 'Y-m-d' format
         ]);
 
         // If validation fails, return error response
@@ -115,6 +116,7 @@ class AlbumController extends Controller
         $album->update([
             'nama' => $request->get('nama'),
             'release_date' => $request->get('release_date'),
+            'image_url' => $request->get('image_url'),
         ]);
 
         // Return success response with the updated album

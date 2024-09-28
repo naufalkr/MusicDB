@@ -1,2437 +1,1438 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "title": "User API",
-        "description": "User API",
-        "version": "1.0.0"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "New Collection",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Authentication"
     },
-    "servers": [
-        {
-            "url": "http://localhost:8000"
-        }
-    ],
-    "paths":{
-        "collection": {
-          "info": {
-            "_postman_id": "1134e943-6ff8-42b3-9050-89aca621062c",
-            "name": "PBKK",
-            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-            "updatedAt": "2024-09-26T10:36:07.000Z",
-            "createdAt": "2024-09-25T04:04:28.000Z",
-            "lastUpdatedBy": "38431392",
-            "uid": "38431392-1134e943-6ff8-42b3-9050-89aca621062c"
-          },
-          "item": [
-            {
-              "name": "Patient",
-              "item": [
-                {
-                  "name": "getAllPatient",
-                  "id": "4823d463-a35e-4c39-b3a8-d2c1a37c1920",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/patient",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "patient"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "2c07c52d-0637-499a-bfe0-8d37ad8325ab",
-                      "name": "getAllPatient",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/patient",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "patient"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 05:03:46 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 05:03:46 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "[\n    {\n        \"patient_id\": 1,\n        \"nik\": \"95005224\",\n        \"name\": \"Wardi Iswahyudi\",\n        \"tanggal_lahir\": \"2015-05-28\",\n        \"email\": \"ypudjiastuti@example.org\",\n        \"no_hp\": \"088780706448\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 2,\n        \"nik\": \"59302978\",\n        \"name\": \"Adika Gunawan S.Pt\",\n        \"tanggal_lahir\": \"1970-09-21\",\n        \"email\": \"suryatmi.latika@example.com\",\n        \"no_hp\": \"088976821078\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 3,\n        \"nik\": \"30716622\",\n        \"name\": \"Vino Wasita M.M.\",\n        \"tanggal_lahir\": \"1990-05-05\",\n        \"email\": \"waluyo.cakrabirawa@example.com\",\n        \"no_hp\": \"081332008905\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 4,\n        \"nik\": \"66556296\",\n        \"name\": \"Waluyo Dongoran\",\n        \"tanggal_lahir\": \"2010-04-05\",\n        \"email\": \"usada.puti@example.net\",\n        \"no_hp\": \"087702418903\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 5,\n        \"nik\": \"29140361\",\n        \"name\": \"Harja Kuncara Najmudin S.I.Kom\",\n        \"tanggal_lahir\": \"1980-08-10\",\n        \"email\": \"xhakim@example.org\",\n        \"no_hp\": \"084015270614\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 6,\n        \"nik\": \"28810545\",\n        \"name\": \"Irma Usada\",\n        \"tanggal_lahir\": \"1976-08-18\",\n        \"email\": \"csuartini@example.org\",\n        \"no_hp\": \"088860878586\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 7,\n        \"nik\": \"87326272\",\n        \"name\": \"Janet Yulianti S.Farm\",\n        \"tanggal_lahir\": \"1972-09-04\",\n        \"email\": \"vanesa.sirait@example.net\",\n        \"no_hp\": \"088828988459\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 8,\n        \"nik\": \"48540768\",\n        \"name\": \"Aurora Mala Suartini\",\n        \"tanggal_lahir\": \"1994-11-24\",\n        \"email\": \"putra.danuja@example.com\",\n        \"no_hp\": \"089533353835\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 9,\n        \"nik\": \"86541237\",\n        \"name\": \"Umi Yolanda\",\n        \"tanggal_lahir\": \"2009-09-18\",\n        \"email\": \"gfarida@example.com\",\n        \"no_hp\": \"085153966180\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 10,\n        \"nik\": \"77876275\",\n        \"name\": \"Harsanto Putra\",\n        \"tanggal_lahir\": \"1977-08-12\",\n        \"email\": \"zulaika.maida@example.org\",\n        \"no_hp\": \"088184610301\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 11,\n        \"nik\": \"38536679\",\n        \"name\": \"Uli Maryati\",\n        \"tanggal_lahir\": \"2024-09-15\",\n        \"email\": \"reza.hutagalung@example.com\",\n        \"no_hp\": \"082140995918\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 12,\n        \"nik\": \"82470570\",\n        \"name\": \"Ghani Firgantoro S.Pt\",\n        \"tanggal_lahir\": \"2009-09-16\",\n        \"email\": \"garan.firmansyah@example.org\",\n        \"no_hp\": \"081777856299\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 13,\n        \"nik\": \"35879347\",\n        \"name\": \"Karya Wibisono\",\n        \"tanggal_lahir\": \"1985-12-10\",\n        \"email\": \"hastuti.dipa@example.org\",\n        \"no_hp\": \"087809821725\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 14,\n        \"nik\": \"39261510\",\n        \"name\": \"Najam Mansur\",\n        \"tanggal_lahir\": \"1983-03-27\",\n        \"email\": \"galar34@example.com\",\n        \"no_hp\": \"085900549586\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 15,\n        \"nik\": \"12596617\",\n        \"name\": \"Farhunnisa Mulyani M.Farm\",\n        \"tanggal_lahir\": \"1983-01-01\",\n        \"email\": \"lili.kusmawati@example.org\",\n        \"no_hp\": \"082655353480\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 16,\n        \"nik\": \"10219914\",\n        \"name\": \"Damar Lazuardi S.Sos\",\n        \"tanggal_lahir\": \"1972-05-06\",\n        \"email\": \"mustofa.bahuraksa@example.com\",\n        \"no_hp\": \"081477217391\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 17,\n        \"nik\": \"10366813\",\n        \"name\": \"Fathonah Ciaobella Oktaviani S.IP\",\n        \"tanggal_lahir\": \"2012-11-22\",\n        \"email\": \"padmasari.vanya@example.org\",\n        \"no_hp\": \"084701494593\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 18,\n        \"nik\": \"88356863\",\n        \"name\": \"Argono Marpaung\",\n        \"tanggal_lahir\": \"2013-02-01\",\n        \"email\": \"azalea85@example.net\",\n        \"no_hp\": \"081057799505\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 19,\n        \"nik\": \"83420270\",\n        \"name\": \"Prayoga Nashiruddin\",\n        \"tanggal_lahir\": \"2004-09-11\",\n        \"email\": \"shania30@example.net\",\n        \"no_hp\": \"088651326987\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 20,\n        \"nik\": \"49119282\",\n        \"name\": \"Gawati Haryanti\",\n        \"tanggal_lahir\": \"2011-12-14\",\n        \"email\": \"djailani@example.org\",\n        \"no_hp\": \"084168993618\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 21,\n        \"nik\": \"50909345\",\n        \"name\": \"Banawi Laksana Rajata M.Ak\",\n        \"tanggal_lahir\": \"1979-07-26\",\n        \"email\": \"sudiati.maria@example.net\",\n        \"no_hp\": \"088224524765\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 22,\n        \"nik\": \"30732424\",\n        \"name\": \"Shakila Usamah S.Pd\",\n        \"tanggal_lahir\": \"1989-06-21\",\n        \"email\": \"bmaulana@example.org\",\n        \"no_hp\": \"089561549889\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 23,\n        \"nik\": \"69053639\",\n        \"name\": \"Baktianto Candrakanta Budiman S.E.I\",\n        \"tanggal_lahir\": \"2009-10-01\",\n        \"email\": \"mustofa15@example.com\",\n        \"no_hp\": \"083520951856\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 24,\n        \"nik\": \"47632683\",\n        \"name\": \"Kawaya Kuswoyo\",\n        \"tanggal_lahir\": \"2006-11-06\",\n        \"email\": \"drajat23@example.net\",\n        \"no_hp\": \"083915123888\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 25,\n        \"nik\": \"50984422\",\n        \"name\": \"Balangga Prasetya\",\n        \"tanggal_lahir\": \"1976-09-30\",\n        \"email\": \"kurnia18@example.net\",\n        \"no_hp\": \"089194522329\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 26,\n        \"nik\": \"34515558\",\n        \"name\": \"Yance Utami\",\n        \"tanggal_lahir\": \"2015-08-01\",\n        \"email\": \"tantri.hutasoit@example.org\",\n        \"no_hp\": \"087660553042\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 27,\n        \"nik\": \"23765643\",\n        \"name\": \"Ida Laksita M.Kom.\",\n        \"tanggal_lahir\": \"1991-04-18\",\n        \"email\": \"najwa73@example.org\",\n        \"no_hp\": \"086000321330\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 28,\n        \"nik\": \"60464866\",\n        \"name\": \"Bakti Prabowo M.Kom.\",\n        \"tanggal_lahir\": \"1997-05-23\",\n        \"email\": \"usada.nilam@example.org\",\n        \"no_hp\": \"081845570238\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 29,\n        \"nik\": \"18358984\",\n        \"name\": \"Fitria Belinda Andriani\",\n        \"tanggal_lahir\": \"2000-12-24\",\n        \"email\": \"radika.januar@example.org\",\n        \"no_hp\": \"084097212623\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 30,\n        \"nik\": \"76831341\",\n        \"name\": \"Paramita Safitri\",\n        \"tanggal_lahir\": \"1980-07-23\",\n        \"email\": \"grahimah@example.net\",\n        \"no_hp\": \"082616499087\",\n        \"Golongan_darah\": \"AB\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 31,\n        \"nik\": \"58039126\",\n        \"name\": \"Karya Cengkir Prayoga\",\n        \"tanggal_lahir\": \"1975-12-31\",\n        \"email\": \"maria.namaga@example.com\",\n        \"no_hp\": \"081477706397\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 32,\n        \"nik\": \"66530632\",\n        \"name\": \"Omar Iswahyudi\",\n        \"tanggal_lahir\": \"1991-10-31\",\n        \"email\": \"tamba.mursita@example.org\",\n        \"no_hp\": \"082471302407\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 33,\n        \"nik\": \"51061791\",\n        \"name\": \"Daliono Marbun\",\n        \"tanggal_lahir\": \"2006-05-15\",\n        \"email\": \"jarwi48@example.com\",\n        \"no_hp\": \"085282721799\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 34,\n        \"nik\": \"70599914\",\n        \"name\": \"Gatra Xanana Marbun S.Ked\",\n        \"tanggal_lahir\": \"2010-09-21\",\n        \"email\": \"margana.pudjiastuti@example.com\",\n        \"no_hp\": \"084002018512\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 35,\n        \"nik\": \"68736741\",\n        \"name\": \"Indra Xanana Permadi\",\n        \"tanggal_lahir\": \"1995-02-05\",\n        \"email\": \"halim.vicky@example.net\",\n        \"no_hp\": \"083851916788\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 36,\n        \"nik\": \"88463635\",\n        \"name\": \"Bella Puspa Wijayanti\",\n        \"tanggal_lahir\": \"1980-02-05\",\n        \"email\": \"khariyah@example.com\",\n        \"no_hp\": \"080583261178\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 37,\n        \"nik\": \"79775352\",\n        \"name\": \"Vivi Raisa Sudiati\",\n        \"tanggal_lahir\": \"1996-03-05\",\n        \"email\": \"niyaga19@example.net\",\n        \"no_hp\": \"089131897612\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 38,\n        \"nik\": \"49426479\",\n        \"name\": \"Eja Prakasa\",\n        \"tanggal_lahir\": \"2010-09-04\",\n        \"email\": \"tamba.maya@example.com\",\n        \"no_hp\": \"085077929739\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 39,\n        \"nik\": \"83012840\",\n        \"name\": \"Karna Lazuardi S.Gz\",\n        \"tanggal_lahir\": \"2010-11-17\",\n        \"email\": \"kemal27@example.com\",\n        \"no_hp\": \"089024962076\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 40,\n        \"nik\": \"98354658\",\n        \"name\": \"Caket Narpati\",\n        \"tanggal_lahir\": \"1974-06-03\",\n        \"email\": \"zulfa.pratiwi@example.com\",\n        \"no_hp\": \"084941427620\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 41,\n        \"nik\": \"48842223\",\n        \"name\": \"Martaka Pradana\",\n        \"tanggal_lahir\": \"2015-10-26\",\n        \"email\": \"fujiati.mahfud@example.net\",\n        \"no_hp\": \"088616394277\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 42,\n        \"nik\": \"98607015\",\n        \"name\": \"Chandra Pradana\",\n        \"tanggal_lahir\": \"2024-06-19\",\n        \"email\": \"ssaputra@example.org\",\n        \"no_hp\": \"081733177010\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 43,\n        \"nik\": \"74574713\",\n        \"name\": \"Putri Yuliarti S.Gz\",\n        \"tanggal_lahir\": \"1988-04-27\",\n        \"email\": \"mardhiyah.tami@example.org\",\n        \"no_hp\": \"089131267762\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 44,\n        \"nik\": \"10419664\",\n        \"name\": \"Asmuni Rosman Ardianto\",\n        \"tanggal_lahir\": \"2010-09-05\",\n        \"email\": \"zizi.wibowo@example.net\",\n        \"no_hp\": \"083434538257\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 45,\n        \"nik\": \"92953801\",\n        \"name\": \"Wirda Elma Yolanda S.Ked\",\n        \"tanggal_lahir\": \"2001-04-20\",\n        \"email\": \"shania93@example.com\",\n        \"no_hp\": \"087516868224\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 46,\n        \"nik\": \"59978808\",\n        \"name\": \"Winda Hassanah\",\n        \"tanggal_lahir\": \"1984-09-28\",\n        \"email\": \"pangestu.daliono@example.net\",\n        \"no_hp\": \"084103889888\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 47,\n        \"nik\": \"12065300\",\n        \"name\": \"Dinda Wulan Usamah M.TI.\",\n        \"tanggal_lahir\": \"2023-12-02\",\n        \"email\": \"dacin.mardhiyah@example.com\",\n        \"no_hp\": \"088538878669\",\n        \"Golongan_darah\": \"A\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 48,\n        \"nik\": \"22117490\",\n        \"name\": \"Radit Baktianto Pradipta S.E.\",\n        \"tanggal_lahir\": \"2023-12-29\",\n        \"email\": \"riyanti.cornelia@example.org\",\n        \"no_hp\": \"087361272537\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 49,\n        \"nik\": \"44651100\",\n        \"name\": \"Cici Mandasari\",\n        \"tanggal_lahir\": \"2013-02-23\",\n        \"email\": \"ohidayat@example.org\",\n        \"no_hp\": \"083965704567\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"P\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 50,\n        \"nik\": \"94231057\",\n        \"name\": \"Zelda Lailasari\",\n        \"tanggal_lahir\": \"1991-06-20\",\n        \"email\": \"cindy69@example.org\",\n        \"no_hp\": \"086920138137\",\n        \"Golongan_darah\": \"B\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2024-09-17T15:12:58.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:58.000000Z\"\n    },\n    {\n        \"patient_id\": 60,\n        \"nik\": \"123456789\",\n        \"name\": \"John Doe\",\n        \"tanggal_lahir\": \"1990-01-01\",\n        \"email\": \"johndoe@example.com\",\n        \"no_hp\": \"081231873249\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"Laki-laki\",\n        \"created_at\": \"2024-09-25T04:49:00.000000Z\",\n        \"updated_at\": \"2024-09-25T04:49:00.000000Z\"\n    }\n]",
-                      "uid": "38431392-2c07c52d-0637-499a-bfe0-8d37ad8325ab"
-                    }
-                  ],
-                  "uid": "38431392-4823d463-a35e-4c39-b3a8-d2c1a37c1920"
-                },
-                {
-                  "name": "search-patient-id",
-                  "id": "7be98151-3fb1-4625-8cf5-a1f5f022513d",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/patient/26",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "patient", "26"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "ed6ce1ea-d186-4cd2-9728-98b8c6db85a5",
-                      "name": "search-patient-id",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/patient/26",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "patient", "26"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:39:22 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:39:22 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"patient_id\": 26,\n    \"nik\": \"34515558\",\n    \"name\": \"Yance Utami\",\n    \"tanggal_lahir\": \"2015-08-01\",\n    \"email\": \"tantri.hutasoit@example.org\",\n    \"no_hp\": \"087660553042\",\n    \"Golongan_darah\": \"AB\",\n    \"jenis_kelamin\": \"L\"\n}",
-                      "uid": "38431392-ed6ce1ea-d186-4cd2-9728-98b8c6db85a5"
-                    }
-                  ],
-                  "uid": "38431392-7be98151-3fb1-4625-8cf5-a1f5f022513d"
-                },
-                {
-                  "name": "add-patient",
-                  "id": "5f57dba2-6f75-46e5-af5f-dc2e9bccc818",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"nik\": 123456789,\r\n    \"name\": \"John Doe\",\r\n    \"tanggal_lahir\": \"1990-01-01\",\r\n    \"email\": \"johndoe@example.com\",\r\n    \"no_hp\": \"081231873249\",\r\n    \"Golongan_darah\": \"O\",\r\n    \"jenis_kelamin\": \"L\"\r\n}\r\n",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/add-patient",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "add-patient"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "59b248cd-c87c-4ded-af2e-86fa7bbb23cc",
-                      "name": "add-patient",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"nik\": 123456789,\r\n    \"name\": \"John Doe\",\r\n    \"tanggal_lahir\": \"1990-01-01\",\r\n    \"email\": \"johndoe@example.com\",\r\n    \"no_hp\": \"081231873249\",\r\n    \"Golongan_darah\": \"O\",\r\n    \"jenis_kelamin\": \"L\"\r\n}\r\n",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/add-patient",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "add-patient"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 18:17:04 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 18:17:04 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"messege\": \"Patient added successfully\",\n    \"data\": {\n        \"nik\": 123456789,\n        \"name\": \"John Doe\",\n        \"tanggal_lahir\": \"1990-01-01\",\n        \"email\": \"johndoe@example.com\",\n        \"no_hp\": \"081231873249\",\n        \"Golongan_darah\": \"O\",\n        \"jenis_kelamin\": \"L\",\n        \"updated_at\": \"2024-09-25T18:17:04.000000Z\",\n        \"created_at\": \"2024-09-25T18:17:04.000000Z\",\n        \"patient_id\": 65\n    }\n}",
-                      "uid": "38431392-59b248cd-c87c-4ded-af2e-86fa7bbb23cc"
-                    }
-                  ],
-                  "uid": "38431392-5f57dba2-6f75-46e5-af5f-dc2e9bccc818"
-                },
-                {
-                  "name": "update-patient",
-                  "id": "6ae37db5-e910-4804-81b2-9441b7f246bf",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"tanggal_lahir\": \"1990-01-01\",\r\n    \"email\": \"johndoe1@example.com\",\r\n    \"no_hp\": \"08123456789\",\r\n    \"Golongan_darah\": \"AB\",\r\n    \"jenis_kelamin\": \"L\"\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/update-patient/65",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "update-patient", "65"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "235aefed-8008-4494-90a9-ea34086a3914",
-                      "name": "update-patient",
-                      "originalRequest": {
-                        "method": "PUT",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"tanggal_lahir\": \"1990-01-01\",\r\n    \"email\": \"johndoe1@example.com\",\r\n    \"no_hp\": \"08123456789\",\r\n    \"Golongan_darah\": \"AB\",\r\n    \"jenis_kelamin\": \"L\"\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/update-patient/65",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "update-patient", "65"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:19:14 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:19:14 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Patient updated successfully\"\n}",
-                      "uid": "38431392-235aefed-8008-4494-90a9-ea34086a3914"
-                    }
-                  ],
-                  "uid": "38431392-6ae37db5-e910-4804-81b2-9441b7f246bf"
-                },
-                {
-                  "name": "delete-patient",
-                  "id": "b15bf865-a48b-462c-bae9-d46eae98e71e",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/delete-patient/65",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "delete-patient", "65"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "30f48d92-f157-41a2-8d93-d6e9f06f414d",
-                      "name": "delete-patient",
-                      "originalRequest": {
-                        "method": "DELETE",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/delete-patient/65",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "delete-patient", "65"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:20:58 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:20:58 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Patient deleted successfully\"\n}",
-                      "uid": "38431392-30f48d92-f157-41a2-8d93-d6e9f06f414d"
-                    }
-                  ],
-                  "uid": "38431392-b15bf865-a48b-462c-bae9-d46eae98e71e"
+    {
+      "name": "Track"
+    },
+    {
+      "name": "Artist"
+    },
+    {
+      "name": "Album"
+    },
+    {
+      "name": "Record Label"
+    },
+    {
+      "name": "Playlist"
+    },
+    {
+      "name": "Show"
+    },
+    {
+      "name": "Episode"
+    }
+  ],
+  "paths": {
+    "/api/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "admintest",
+                  "email": "admintest@example.com",
+                  "password": "password"
                 }
-              ],
-              "id": "99bab757-6907-4e54-9c88-e40fed1ce886",
-              "uid": "38431392-99bab757-6907-4e54-9c88-e40fed1ce886"
-            },
-            {
-              "name": "Doctor",
-              "item": [
-                {
-                  "name": "getAllDoctor",
-                  "id": "a77a1e8f-b037-4d03-bdb2-a4a732f01f4c",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/doctor",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "doctor"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "6e53638c-ab57-47fb-ac01-4cc8ce9fb878",
-                      "name": "getAllDoctor",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/doctor",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "doctor"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 04:49:50 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 04:49:50 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "[\n    {\n        \"doctor_id\": 1,\n        \"sip\": \"518526664\",\n        \"nama\": \"Pandu Drajat Hardiansyah\",\n        \"tanggal_lahir\": \"2006-10-27\",\n        \"email\": \"dewi.rahayu@example.org\",\n        \"no_hp\": \"083734781757\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 9,\n        \"health_center_id\": 1,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 2,\n        \"sip\": \"323614808\",\n        \"nama\": \"Tomi Dacin Kurniawan S.T.\",\n        \"tanggal_lahir\": \"1974-02-18\",\n        \"email\": \"himawan72@example.org\",\n        \"no_hp\": \"082939596791\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 13,\n        \"health_center_id\": 3,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 3,\n        \"sip\": \"198682898\",\n        \"nama\": \"Luis Kurniawan\",\n        \"tanggal_lahir\": \"1988-10-16\",\n        \"email\": \"luis32@example.net\",\n        \"no_hp\": \"080266034995\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 14,\n        \"health_center_id\": 5,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 4,\n        \"sip\": \"708518253\",\n        \"nama\": \"Eli Lidya Halimah S.Sos\",\n        \"tanggal_lahir\": \"2004-01-25\",\n        \"email\": \"pangestu.caket@example.com\",\n        \"no_hp\": \"082439152486\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 8,\n        \"health_center_id\": 4,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 5,\n        \"sip\": \"456166456\",\n        \"nama\": \"Jaga Prasasta\",\n        \"tanggal_lahir\": \"2021-08-20\",\n        \"email\": \"pangestu.rahayu@example.org\",\n        \"no_hp\": \"083542626733\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 17,\n        \"health_center_id\": 7,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 6,\n        \"sip\": \"274124272\",\n        \"nama\": \"Rendy Rahmat Sirait M.Pd\",\n        \"tanggal_lahir\": \"1976-07-04\",\n        \"email\": \"zulkarnain.janet@example.com\",\n        \"no_hp\": \"080170418697\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 13,\n        \"health_center_id\": 9,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 7,\n        \"sip\": \"744386608\",\n        \"nama\": \"Bella Puspasari S.IP\",\n        \"tanggal_lahir\": \"1974-02-15\",\n        \"email\": \"gasti40@example.org\",\n        \"no_hp\": \"088682363042\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 19,\n        \"health_center_id\": 6,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 8,\n        \"sip\": \"631108740\",\n        \"nama\": \"Farhunnisa Widya Nasyidah\",\n        \"tanggal_lahir\": \"1996-09-29\",\n        \"email\": \"yulia67@example.com\",\n        \"no_hp\": \"084300183301\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 12,\n        \"health_center_id\": 5,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 9,\n        \"sip\": \"335824879\",\n        \"nama\": \"Kasiyah Rina Nuraini\",\n        \"tanggal_lahir\": \"2011-08-27\",\n        \"email\": \"bmandala@example.net\",\n        \"no_hp\": \"086432725339\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 13,\n        \"health_center_id\": 9,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 10,\n        \"sip\": \"160280028\",\n        \"nama\": \"Hasta Adinata Siregar\",\n        \"tanggal_lahir\": \"2005-12-26\",\n        \"email\": \"jagaraga.winarno@example.org\",\n        \"no_hp\": \"086566464654\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 19,\n        \"health_center_id\": 10,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 11,\n        \"sip\": \"855410698\",\n        \"nama\": \"Cager Wasita M.TI.\",\n        \"tanggal_lahir\": \"2001-04-04\",\n        \"email\": \"widodo.okta@example.com\",\n        \"no_hp\": \"089241418221\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 4,\n        \"health_center_id\": 8,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 12,\n        \"sip\": \"971611289\",\n        \"nama\": \"Shakila Farah Wulandari\",\n        \"tanggal_lahir\": \"1978-01-14\",\n        \"email\": \"uli60@example.org\",\n        \"no_hp\": \"084144165650\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 6,\n        \"health_center_id\": 9,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 13,\n        \"sip\": \"853127890\",\n        \"nama\": \"Kamidin Iswahyudi\",\n        \"tanggal_lahir\": \"1975-04-27\",\n        \"email\": \"candrakanta43@example.net\",\n        \"no_hp\": \"082594119025\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 1,\n        \"health_center_id\": 1,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 14,\n        \"sip\": \"582031175\",\n        \"nama\": \"Wawan Mansur\",\n        \"tanggal_lahir\": \"2010-01-14\",\n        \"email\": \"garan68@example.org\",\n        \"no_hp\": \"085646655701\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 9,\n        \"health_center_id\": 2,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 15,\n        \"sip\": \"113320097\",\n        \"nama\": \"Ifa Maria Wijayanti\",\n        \"tanggal_lahir\": \"2012-12-22\",\n        \"email\": \"muwais@example.com\",\n        \"no_hp\": \"085763877311\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 1,\n        \"health_center_id\": 2,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 16,\n        \"sip\": \"999180886\",\n        \"nama\": \"Jasmani Prima Marpaung S.Kom\",\n        \"tanggal_lahir\": \"2023-09-28\",\n        \"email\": \"azalea.haryanti@example.com\",\n        \"no_hp\": \"089535574049\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 2,\n        \"health_center_id\": 4,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 17,\n        \"sip\": \"381073244\",\n        \"nama\": \"Maria Pratiwi\",\n        \"tanggal_lahir\": \"2016-12-26\",\n        \"email\": \"purnawati.prayogo@example.net\",\n        \"no_hp\": \"080175032461\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 7,\n        \"health_center_id\": 1,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 18,\n        \"sip\": \"371496147\",\n        \"nama\": \"Rafi Dabukke\",\n        \"tanggal_lahir\": \"1978-08-10\",\n        \"email\": \"michelle85@example.org\",\n        \"no_hp\": \"084007025886\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 6,\n        \"health_center_id\": 1,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 19,\n        \"sip\": \"205721116\",\n        \"nama\": \"Maria Fathonah Winarsih S.Farm\",\n        \"tanggal_lahir\": \"2014-11-24\",\n        \"email\": \"farida.puspa@example.com\",\n        \"no_hp\": \"088118741689\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 1,\n        \"health_center_id\": 4,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 20,\n        \"sip\": \"831655665\",\n        \"nama\": \"Zamira Handayani\",\n        \"tanggal_lahir\": \"1974-04-26\",\n        \"email\": \"vanesa52@example.com\",\n        \"no_hp\": \"080123662070\",\n        \"jenis_kelamin\": \"P\",\n        \"spesialis_id\": 1,\n        \"health_center_id\": 1,\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"doctor_id\": 22,\n        \"sip\": \"123456789\",\n        \"nama\": \"Irfan Hakim\",\n        \"tanggal_lahir\": \"1988-06-12\",\n        \"email\": \"dokter1@ex.com\",\n        \"no_hp\": \"08129376131\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 14,\n        \"health_center_id\": 1,\n        \"created_at\": \"2024-09-21T09:09:14.000000Z\",\n        \"updated_at\": \"2024-09-21T09:09:14.000000Z\"\n    },\n    {\n        \"doctor_id\": 23,\n        \"sip\": \"123456788\",\n        \"nama\": \"Muhammad Irfan\",\n        \"tanggal_lahir\": \"2011-05-11\",\n        \"email\": \"dokter2@ex.com\",\n        \"no_hp\": \"0887623642\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 15,\n        \"health_center_id\": 12,\n        \"created_at\": \"2024-09-21T09:27:33.000000Z\",\n        \"updated_at\": \"2024-09-21T09:27:33.000000Z\"\n    },\n    {\n        \"doctor_id\": 24,\n        \"sip\": \"123456777\",\n        \"nama\": \"Irfan H\",\n        \"tanggal_lahir\": \"2024-09-10\",\n        \"email\": \"dokter@ex.com\",\n        \"no_hp\": \"0823964292\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 18,\n        \"health_center_id\": 12,\n        \"created_at\": \"2024-09-21T09:29:59.000000Z\",\n        \"updated_at\": \"2024-09-21T09:29:59.000000Z\"\n    }\n]",
-                      "uid": "38431392-6e53638c-ab57-47fb-ac01-4cc8ce9fb878"
-                    }
-                  ],
-                  "uid": "38431392-a77a1e8f-b037-4d03-bdb2-a4a732f01f4c"
-                },
-                {
-                  "name": "search-doctor-id",
-                  "id": "d18975cf-fcf7-418e-8a85-ec162f9df44d",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"doctor_id\": 22\r\n}   ",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/search-doctor-id",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "search-doctor-id"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "8f47da2e-664d-45d5-8e4e-4b3c6e48f28b",
-                      "name": "search-doctor-id",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"doctor_id\": 22\r\n}   ",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/search-doctor-id",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "search-doctor-id"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 18:02:24 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 18:02:24 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"doctor_id\": 22,\n    \"sip\": \"123456789\",\n    \"nama\": \"Irfan Hakim\",\n    \"tanggal_lahir\": \"1988-06-12\",\n    \"email\": \"dokter1@ex.com\",\n    \"no_hp\": \"08129376131\",\n    \"jenis_kelamin\": \"L\",\n    \"spesialis_id\": 14,\n    \"health_center_id\": 1,\n    \"created_at\": \"2024-09-21T09:09:14.000000Z\",\n    \"updated_at\": \"2024-09-21T09:09:14.000000Z\"\n}",
-                      "uid": "38431392-8f47da2e-664d-45d5-8e4e-4b3c6e48f28b"
-                    }
-                  ],
-                  "uid": "38431392-d18975cf-fcf7-418e-8a85-ec162f9df44d"
-                },
-                {
-                  "name": "add-doctor",
-                  "id": "06292364-520a-41e7-ada8-4edac65fe209",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"sip\": 123456799,\r\n    \"nama\": \"John Doe, S.Pkk\",\r\n    \"email\": \"johndoe@example.com\",\r\n    \"no_hp\": \"08123121453\",\r\n    \"jenis_kelamin\": \"L\",\r\n    \"tanggal_lahir\": \"1998-01-09\",\r\n    \"spesialis_id\": 4,\r\n    \"health_center_id\": 1\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/add-doctor",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "add-doctor"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "8c0338d6-33e9-434b-8589-995b75dfd7b4",
-                      "name": "add-doctor",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"sip\": 123456799,\r\n    \"nama\": \"John Doe, S.Pkk\",\r\n    \"email\": \"johndoe@example.com\",\r\n    \"no_hp\": \"08123121453\",\r\n    \"jenis_kelamin\": \"L\",\r\n    \"tanggal_lahir\": \"1998-01-09\",\r\n    \"spesialis_id\": 4,\r\n    \"health_center_id\": 1\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/add-doctor",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "add-doctor"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 05:21:02 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 05:21:02 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Doctor added successfully\",\n    \"data\": {\n        \"sip\": 123456799,\n        \"nama\": \"John Doe, S.Pkk\",\n        \"email\": \"johndoe@example.com\",\n        \"no_hp\": \"08123121453\",\n        \"jenis_kelamin\": \"L\",\n        \"spesialis_id\": 4,\n        \"tanggal_lahir\": \"1998-01-09\",\n        \"health_center_id\": 1,\n        \"updated_at\": \"2024-09-26T05:21:01.000000Z\",\n        \"created_at\": \"2024-09-26T05:21:01.000000Z\",\n        \"doctor_id\": 25\n    }\n}",
-                      "uid": "38431392-8c0338d6-33e9-434b-8589-995b75dfd7b4"
-                    }
-                  ],
-                  "uid": "38431392-06292364-520a-41e7-ada8-4edac65fe209"
-                },
-                {
-                  "name": "update-doctor",
-                  "id": "507724dc-fc4e-4a04-adc8-01ec0a2a399e",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": []
-                  },
-                  "response": [],
-                  "uid": "38431392-507724dc-fc4e-4a04-adc8-01ec0a2a399e"
-                }
-              ],
-              "id": "3bac90fa-a988-4b56-b1be-9725a13506d3",
-              "uid": "38431392-3bac90fa-a988-4b56-b1be-9725a13506d3"
-            },
-            {
-              "name": "Health Center",
-              "item": [
-                {
-                  "name": "getAllHealthCenter",
-                  "id": "065bcb76-7123-4317-8b7d-7d5d5785c641",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/health-center",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "health-center"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "33653156-f327-4b8a-bc28-0fa4051fd2f0",
-                      "name": "getAllHealthCenter",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/health-center",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "health-center"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 15:53:22 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Wed, 25 Sep 2024 15:53:22 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "[\n    {\n        \"health_center_id\": 2,\n        \"nama\": \"Yayasan Rahimah Natsir\",\n        \"alamat\": \"Dk. Daan No. 456, Lubuklinggau 97211, Riau\",\n        \"no_telp\": \"0331 2956 301\",\n        \"email\": \"haryanto.harimurti@example.com\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 3,\n        \"nama\": \"Fa Wacana\",\n        \"alamat\": \"Psr. Salak No. 616, Subulussalam 16911, Sumsel\",\n        \"no_telp\": \"(+62) 944 2144 079\",\n        \"email\": \"zalindra.wastuti@example.org\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 4,\n        \"nama\": \"PT Namaga Tbk\",\n        \"alamat\": \"Jr. Dago No. 809, Bandar Lampung 76154, Babel\",\n        \"no_telp\": \"0553 7723 1552\",\n        \"email\": \"wasita.marsito@example.net\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 5,\n        \"nama\": \"Perum Latupono Tbk\",\n        \"alamat\": \"Gg. Villa No. 269, Kendari 87535, Kaltim\",\n        \"no_telp\": \"(+62) 322 6901 0219\",\n        \"email\": \"dongoran.zulfa@example.com\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 6,\n        \"nama\": \"PD Wibisono Pratama (Persero) Tbk\",\n        \"alamat\": \"Dk. Warga No. 586, Dumai 43289, Kalteng\",\n        \"no_telp\": \"0340 2889 961\",\n        \"email\": \"uli.astuti@example.org\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 7,\n        \"nama\": \"Fa Ardianto\",\n        \"alamat\": \"Kpg. Sentot Alibasa No. 423, Tual 84346, Sultra\",\n        \"no_telp\": \"025 1552 833\",\n        \"email\": \"among.pradana@example.org\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 8,\n        \"nama\": \"Yayasan Palastri\",\n        \"alamat\": \"Kpg. Dipenogoro No. 482, Tebing Tinggi 98380, Sumbar\",\n        \"no_telp\": \"(+62) 890 3905 831\",\n        \"email\": \"nuraini.saiful@example.org\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 9,\n        \"nama\": \"PJ Siregar (Persero) Tbk\",\n        \"alamat\": \"Psr. Pahlawan No. 363, Tarakan 42650, Jambi\",\n        \"no_telp\": \"0510 6323 708\",\n        \"email\": \"nalar23@example.org\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 10,\n        \"nama\": \"Perum Prabowo\",\n        \"alamat\": \"Ki. Setia Budi No. 209, Metro 29223, Jabar\",\n        \"no_telp\": \"(+62) 973 9498 1242\",\n        \"email\": \"simanjuntak.dadi@example.net\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"health_center_id\": 1,\n        \"nama\": \"PT Iswahyudi\",\n        \"alamat\": \"Dk. BKR No. 373, Pasuruan 40921, Jatim\",\n        \"no_telp\": \"087861238127\",\n        \"email\": \"capa.wacana@example.net\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:22:42.000000Z\"\n    },\n    {\n        \"health_center_id\": 12,\n        \"nama\": \"RS Tadika Mesra\",\n        \"alamat\": \"Jl. Brigjen Katamso\",\n        \"no_telp\": \"0823769123\",\n        \"email\": \"rs2@ex.com\",\n        \"created_at\": \"2024-09-21T09:07:40.000000Z\",\n        \"updated_at\": \"2024-09-21T09:07:40.000000Z\"\n    },\n    {\n        \"health_center_id\": 13,\n        \"nama\": \"RS Mitra Keluarga Surabaya\",\n        \"alamat\": \"Perumahan Galaxy Permai\",\n        \"no_telp\": \"08878721982\",\n        \"email\": \"mitrakeluarga@sby.com\",\n        \"created_at\": \"2024-09-25T15:19:37.000000Z\",\n        \"updated_at\": \"2024-09-25T15:19:37.000000Z\"\n    }\n]",
-                      "uid": "38431392-33653156-f327-4b8a-bc28-0fa4051fd2f0"
-                    }
-                  ],
-                  "uid": "38431392-065bcb76-7123-4317-8b7d-7d5d5785c641"
-                },
-                {
-                  "name": "search-health-center-id",
-                  "id": "cace3905-a1c3-48dd-99a4-bda62fecd66b",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"health_center_id\": 1\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/search-health-center-id",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "search-health-center-id"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "24c0aa8e-a2ae-4aff-baad-77a20f9d15bb",
-                      "name": "search-health-center",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"health_center_id\": 1\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/search-health-center-id",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "search-health-center-id"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 03:55:46 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 03:55:46 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"health_center_id\": 1,\n    \"nama\": \"PT Iswahyudi\",\n    \"alamat\": \"Dk. BKR No. 373, Pasuruan 40921, Jatim\",\n    \"no_telp\": \"087861238127\",\n    \"email\": \"capa.wacana@example.net\",\n    \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n    \"updated_at\": \"2024-09-17T15:22:42.000000Z\",\n    \"services\": [\n        4,\n        5,\n        7,\n        8,\n        10,\n        3,\n        6,\n        9\n    ]\n}",
-                      "uid": "38431392-24c0aa8e-a2ae-4aff-baad-77a20f9d15bb"
-                    }
-                  ],
-                  "uid": "38431392-cace3905-a1c3-48dd-99a4-bda62fecd66b"
-                },
-                {
-                  "name": "add-health-center",
-                  "id": "fa8b8731-977a-4827-b1da-600d7a7c9c69",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"nama\": \"RS Mitra Keluarga Surabaya\",\r\n    \"alamat\": \"Perumahan Galaxy Permai\",\r\n    \"email\": \"mitrakeluarga@sby.com\",\r\n    \"no_telp\":\"08878721982\",\r\n    \"service_id\": [2,3,5,6,7]\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/add-health-center",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "add-health-center"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "13207592-24ea-4efe-a7f9-a82e9a68081e",
-                      "name": "add-health-center",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"nama\": \"RS Mitra Keluarga Surabaya\",\r\n    \"alamat\": \"Perumahan Galaxy Permai\",\r\n    \"email\": \"mitrakeluarga@sby.com\",\r\n    \"no_telp\":\"08878721982\",\r\n    \"service_id\": [2,3,5,6,7]\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/add-health-center",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "add-health-center"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 03:58:40 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 03:58:40 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Health Center and services added successfully.\",\n    \"data\": {\n        \"nama\": \"RS Mitra Keluarga Surabaya\",\n        \"alamat\": \"Perumahan Galaxy Permai\",\n        \"no_telp\": \"08878721982\",\n        \"email\": \"mitrakeluarga@sby.com\",\n        \"updated_at\": \"2024-09-26T03:58:40.000000Z\",\n        \"created_at\": \"2024-09-26T03:58:40.000000Z\",\n        \"health_center_id\": 14,\n        \"services\": [\n            2,\n            3,\n            5,\n            6,\n            7\n        ]\n    }\n}",
-                      "uid": "38431392-13207592-24ea-4efe-a7f9-a82e9a68081e"
-                    }
-                  ],
-                  "uid": "38431392-fa8b8731-977a-4827-b1da-600d7a7c9c69"
-                },
-                {
-                  "name": "update-health-center",
-                  "id": "08ea622a-f3de-4e2c-976b-9368c707c78f",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"nama\": \"RS Mitra Keluarga Pocan\",\r\n    \"alamat\": \"Pondok Candra\",\r\n    \"email\": \"mitrakeluargapocan@sby.com\",\r\n    \"no_telp\":\"08878721982\",\r\n    \"service_id\": [2,4,6,8,9,10]\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/update-health-center/15",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "update-health-center", "15"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "3985194f-1055-406a-9b46-80251bd0ad9e",
-                      "name": "update-health-center",
-                      "originalRequest": {
-                        "method": "PUT",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"nama\": \"RS Mitra Keluarga Pocan\",\r\n    \"alamat\": \"Pondok Candra\",\r\n    \"email\": \"mitrakeluargapocan@sby.com\",\r\n    \"no_telp\":\"08878721982\",\r\n    \"service_id\": [2,4,6,8,9,10]\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/update-health-center/15",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "update-health-center", "15"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:15:06 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:15:06 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Health Center updated successfully.\"\n}",
-                      "uid": "38431392-3985194f-1055-406a-9b46-80251bd0ad9e"
-                    }
-                  ],
-                  "uid": "38431392-08ea622a-f3de-4e2c-976b-9368c707c78f"
-                },
-                {
-                  "name": "delete-health-center",
-                  "id": "501685ed-8862-4340-858d-5524172fb6a9",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/delete-health-center/15",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "delete-health-center", "15"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "b47d8a29-7c22-4209-ace7-cb454eda4f95",
-                      "name": "delete-health-center",
-                      "originalRequest": {
-                        "method": "DELETE",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/delete-health-center/15",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "delete-health-center", "15"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:12:15 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:12:15 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Health Center deleted successfully.\"\n}",
-                      "uid": "38431392-b47d8a29-7c22-4209-ace7-cb454eda4f95"
-                    }
-                  ],
-                  "uid": "38431392-501685ed-8862-4340-858d-5524172fb6a9"
-                }
-              ],
-              "id": "bdbd6420-2a11-41a4-960c-45d3ada0c5a1",
-              "uid": "38431392-bdbd6420-2a11-41a4-960c-45d3ada0c5a1"
-            },
-            {
-              "name": "Service",
-              "item": [
-                {
-                  "name": "getAllService",
-                  "id": "4c4b876a-adbe-4325-af31-fc8922401a88",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/service",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "service"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "9378a533-f033-4c95-811a-d45d119837a8",
-                      "name": "getAllService",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/service",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "service"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:31:11 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:31:11 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "[\n    {\n        \"service_id\": 1,\n        \"nama\": \"Operation\"\n    },\n    {\n        \"service_id\": 2,\n        \"nama\": \"Psychiatry\"\n    },\n    {\n        \"service_id\": 3,\n        \"nama\": \"Radiology\"\n    },\n    {\n        \"service_id\": 4,\n        \"nama\": \"Dermatology\"\n    },\n    {\n        \"service_id\": 5,\n        \"nama\": \"Dental\"\n    },\n    {\n        \"service_id\": 6,\n        \"nama\": \"Emergency\"\n    },\n    {\n        \"service_id\": 7,\n        \"nama\": \"Physiotherapy\"\n    },\n    {\n        \"service_id\": 8,\n        \"nama\": \"Checkup\"\n    },\n    {\n        \"service_id\": 9,\n        \"nama\": \"Optical\"\n    },\n    {\n        \"service_id\": 10,\n        \"nama\": \"Laboratory\"\n    },\n    {\n        \"service_id\": 11,\n        \"nama\": \"Pharmacy\"\n    }\n]",
-                      "uid": "38431392-9378a533-f033-4c95-811a-d45d119837a8"
-                    }
-                  ],
-                  "uid": "38431392-4c4b876a-adbe-4325-af31-fc8922401a88"
-                },
-                {
-                  "name": "getById",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "a5737191-7ae0-40a0-b252-6bf5159d8290",
-                        "exec": [""],
-                        "type": "text/javascript",
-                        "packages": {}
-                      }
-                    }
-                  ],
-                  "id": "06ebe746-446d-41bc-898f-b83fadf7ae6c",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/service/1",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "service", "1"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "6b048c96-8ba4-44c9-bb9b-482a9d8d5cfb",
-                      "name": "getById",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/service/1",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "service", "1"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:28:24 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:28:24 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"service_id\": 1,\n    \"nama\": \"Operation\"\n}",
-                      "uid": "38431392-6b048c96-8ba4-44c9-bb9b-482a9d8d5cfb"
-                    }
-                  ],
-                  "uid": "38431392-06ebe746-446d-41bc-898f-b83fadf7ae6c"
-                },
-                {
-                  "name": "add",
-                  "id": "12bb515f-9e6a-4297-8b96-207854cfd020",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"nama\": \"Rontgen\"\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/add-service",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "add-service"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "932b7449-5b9f-43b3-b1a6-4d7b76bdeda0",
-                      "name": "add",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"nama\": \"Rontgen\"\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/add-service",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "add-service"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:51:05 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:51:05 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"nama\": \"Rontgen\",\n    \"updated_at\": \"2024-09-26T07:51:05.000000Z\",\n    \"created_at\": \"2024-09-26T07:51:05.000000Z\",\n    \"service_id\": 13\n}",
-                      "uid": "38431392-932b7449-5b9f-43b3-b1a6-4d7b76bdeda0"
-                    }
-                  ],
-                  "uid": "38431392-12bb515f-9e6a-4297-8b96-207854cfd020"
-                },
-                {
-                  "name": "update",
-                  "id": "15edbafa-94f3-42cb-afc5-c97f8aa700d0",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"nama\": \"RontgenV2\"\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/update-service/13",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "update-service", "13"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "382265f9-795f-4cff-b6f7-fe9e24994a5d",
-                      "name": "update",
-                      "originalRequest": {
-                        "method": "PUT",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"nama\": \"RontgenV2\"\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/update-service/13",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "update-service", "13"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:37:46 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:37:46 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"messege\": \"Service updated successfully.\"\n}",
-                      "uid": "38431392-382265f9-795f-4cff-b6f7-fe9e24994a5d"
-                    }
-                  ],
-                  "uid": "38431392-15edbafa-94f3-42cb-afc5-c97f8aa700d0"
-                },
-                {
-                  "name": "delete",
-                  "id": "b0f20004-f219-44c9-b11b-334e6289b66a",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/delete-service/13",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "delete-service", "13"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "8e238ccb-f768-4dbc-850e-d7ee8c389ac8",
-                      "name": "delete",
-                      "originalRequest": {
-                        "method": "DELETE",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/delete-service/13",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "delete-service", "13"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:40:35 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:40:35 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Service deleted successfully.\"\n}",
-                      "uid": "38431392-8e238ccb-f768-4dbc-850e-d7ee8c389ac8"
-                    }
-                  ],
-                  "uid": "38431392-b0f20004-f219-44c9-b11b-334e6289b66a"
-                }
-              ],
-              "id": "1f269843-0330-4eef-ba07-128bd13f8073",
-              "uid": "38431392-1f269843-0330-4eef-ba07-128bd13f8073"
-            },
-            {
-              "name": "Specialization",
-              "item": [
-                {
-                  "name": "getAllSpecialization",
-                  "id": "cbd13aaa-2731-4a2c-a7f7-b32bc6638f50",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/specialization",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "specialization"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "cebca66d-a0bf-42ef-85cf-2694af1b4c0c",
-                      "name": "getAllSpecialization",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/specialization",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "specialization"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 04:07:38 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 04:07:38 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "[\n    {\n        \"spesialis_id\": 1,\n        \"spesialisasi\": \"Spesialis Kandungan\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 2,\n        \"spesialisasi\": \"Spesialis Gizi\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 3,\n        \"spesialisasi\": \"Spesialis Mata\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 4,\n        \"spesialisasi\": \"Spesialis Kulit\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 5,\n        \"spesialisasi\": \"Spesialis Bedah\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 6,\n        \"spesialisasi\": \"Spesialis Penyakit Dalam\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 7,\n        \"spesialisasi\": \"Spesialis Orthopedi\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 8,\n        \"spesialisasi\": \"Spesialis Patologi Anatomi\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 9,\n        \"spesialisasi\": \"Spesialis Patologi Klinik\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 10,\n        \"spesialisasi\": \"Spesialis Rehabilitasi Medik\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 11,\n        \"spesialisasi\": \"Spesialis Kulit dan Kelamin\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 12,\n        \"spesialisasi\": \"Spesialis Saraf\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 13,\n        \"spesialisasi\": \"Spesialis Jantung\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 14,\n        \"spesialisasi\": \"Dokter Umum\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 15,\n        \"spesialisasi\": \"Spesialis Paru\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 16,\n        \"spesialisasi\": \"Spesialis Forensik\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 17,\n        \"spesialisasi\": \"Spesialis Anak\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 18,\n        \"spesialisasi\": \"Spesialis Tulang\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 19,\n        \"spesialisasi\": \"Spesialis THT\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    },\n    {\n        \"spesialis_id\": 20,\n        \"spesialisasi\": \"Dokter Gigi\",\n        \"created_at\": \"2024-09-17T15:12:54.000000Z\",\n        \"updated_at\": \"2024-09-17T15:12:54.000000Z\"\n    }\n]",
-                      "uid": "38431392-cebca66d-a0bf-42ef-85cf-2694af1b4c0c"
-                    }
-                  ],
-                  "uid": "38431392-cbd13aaa-2731-4a2c-a7f7-b32bc6638f50"
-                },
-                {
-                  "name": "add",
-                  "id": "6f155807-2a8e-41a5-9dc6-2735a3bf517e",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"spesialisasi\": \"Spesialis Otot dan Jaringan Tubuh\"\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/add-specialization",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "add-specialization"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "5848ece1-0f78-4ca4-8820-530e8c903edc",
-                      "name": "add-specialization",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"spesialisasi\": \"Spesialis Otot dan Jaringan Tubuh\"\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/add-specialization",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "add-specialization"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 04:22:53 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 04:22:53 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Specialization added successfully.\"\n}",
-                      "uid": "38431392-5848ece1-0f78-4ca4-8820-530e8c903edc"
-                    }
-                  ],
-                  "uid": "38431392-6f155807-2a8e-41a5-9dc6-2735a3bf517e"
-                },
-                {
-                  "name": "update",
-                  "id": "65d9a91c-ffff-4cde-a39e-7648a02d9f78",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"spesialisasi\": \"Spesialis Otot dan Jaringan\"\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/update-specialization/22",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "update-specialization", "22"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "c429992d-c964-4413-963a-574a0fff58e1",
-                      "name": "update",
-                      "originalRequest": {
-                        "method": "PUT",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"spesialisasi\": \"Spesialis Otot dan Jaringan\"\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/update-specialization/22",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "update-specialization", "22"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:04:58 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 07:04:58 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Specialization updated successfully.\"\n}",
-                      "uid": "38431392-c429992d-c964-4413-963a-574a0fff58e1"
-                    }
-                  ],
-                  "uid": "38431392-65d9a91c-ffff-4cde-a39e-7648a02d9f78"
-                },
-                {
-                  "name": "delete",
-                  "id": "f72e4486-f787-4e64-9220-fc559152c7c1",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/delete-specialization/21",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "delete-specialization", "21"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "9a0a10fb-412c-40db-8a82-2513af5ba11e",
-                      "name": "delete-specialization",
-                      "originalRequest": {
-                        "method": "DELETE",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/delete-specialization/21",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "delete-specialization", "21"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 05:27:03 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 05:27:03 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"message\": \"Specialization deleted successfully\"\n}",
-                      "uid": "38431392-9a0a10fb-412c-40db-8a82-2513af5ba11e"
-                    }
-                  ],
-                  "uid": "38431392-f72e4486-f787-4e64-9220-fc559152c7c1"
-                }
-              ],
-              "id": "48cf6493-89a1-4e36-9e0c-0e1c191a49b1",
-              "uid": "38431392-48cf6493-89a1-4e36-9e0c-0e1c191a49b1"
-            },
-            {
-              "name": "Drug",
-              "item": [
-                {
-                  "name": "getAllDrug",
-                  "id": "02b1ef63-e222-409f-bb30-a6c2417be41f",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/drug",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "drug"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "5e8efd53-8c1a-4cf6-a85a-bc063ba963a8",
-                      "name": "drug",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/drug",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "drug"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:44:30 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:44:30 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "[\n    {\n        \"drug_id\": 1,\n        \"nama\": \"Hardana Gaman Sihombing\",\n        \"jenis\": \"Salep\",\n        \"satuan\": \"mg\"\n    },\n    {\n        \"drug_id\": 2,\n        \"nama\": \"Najwa Maryati\",\n        \"jenis\": \"Salep\",\n        \"satuan\": \"mg\"\n    },\n    {\n        \"drug_id\": 3,\n        \"nama\": \"Prabu Kuswoyo M.Farm\",\n        \"jenis\": \"Salep\",\n        \"satuan\": \"mg\"\n    },\n    {\n        \"drug_id\": 4,\n        \"nama\": \"Karsana Nugroho\",\n        \"jenis\": \"Tablet\",\n        \"satuan\": \"gram\"\n    },\n    {\n        \"drug_id\": 5,\n        \"nama\": \"Mulyono Rahman Haryanto S.Pd\",\n        \"jenis\": \"Cair\",\n        \"satuan\": \"ml\"\n    },\n    {\n        \"drug_id\": 6,\n        \"nama\": \"Lalita Hesti Wastuti\",\n        \"jenis\": \"Kapsul\",\n        \"satuan\": \"gram\"\n    },\n    {\n        \"drug_id\": 7,\n        \"nama\": \"Bambang Yono Wasita\",\n        \"jenis\": \"Kapsul\",\n        \"satuan\": \"ml\"\n    },\n    {\n        \"drug_id\": 8,\n        \"nama\": \"Najam Hardiansyah\",\n        \"jenis\": \"Cair\",\n        \"satuan\": \"ml\"\n    },\n    {\n        \"drug_id\": 9,\n        \"nama\": \"Rahayu Qori Hassanah\",\n        \"jenis\": \"Tablet\",\n        \"satuan\": \"gram\"\n    },\n    {\n        \"drug_id\": 10,\n        \"nama\": \"Karimah Mardhiyah\",\n        \"jenis\": \"Salep\",\n        \"satuan\": \"ml\"\n    },\n    {\n        \"drug_id\": 11,\n        \"nama\": \"Bala Waluyo Saefullah\",\n        \"jenis\": \"Cair\",\n        \"satuan\": \"gram\"\n    },\n    {\n        \"drug_id\": 12,\n        \"nama\": \"Gasti Padma Maryati M.TI.\",\n        \"jenis\": \"Cair\",\n        \"satuan\": \"mg\"\n    },\n    {\n        \"drug_id\": 13,\n        \"nama\": \"Gaman Haryanto\",\n        \"jenis\": \"Tablet\",\n        \"satuan\": \"gram\"\n    },\n    {\n        \"drug_id\": 14,\n        \"nama\": \"Purwa Saefullah\",\n        \"jenis\": \"Tablet\",\n        \"satuan\": \"gram\"\n    },\n    {\n        \"drug_id\": 15,\n        \"nama\": \"Teddy Hakim\",\n        \"jenis\": \"Salep\",\n        \"satuan\": \"gram\"\n    }\n]",
-                      "uid": "38431392-5e8efd53-8c1a-4cf6-a85a-bc063ba963a8"
-                    }
-                  ],
-                  "uid": "38431392-02b1ef63-e222-409f-bb30-a6c2417be41f"
-                },
-                {
-                  "name": "getDrugId",
-                  "id": "fb586834-dcca-4a8b-9947-50db4ec82889",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/drug/5",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "drug", "5"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "b0eea8cb-2fc8-4000-80d0-7d7960070cf5",
-                      "name": "getDrugById",
-                      "originalRequest": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/drug/5",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "drug", "5"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:45:48 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:45:48 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"drug_id\": 5,\n    \"nama\": \"Mulyono Rahman Haryanto S.Pd\",\n    \"jenis\": \"Cair\",\n    \"satuan\": \"ml\"\n}",
-                      "uid": "38431392-b0eea8cb-2fc8-4000-80d0-7d7960070cf5"
-                    }
-                  ],
-                  "uid": "38431392-fb586834-dcca-4a8b-9947-50db4ec82889"
-                },
-                {
-                  "name": "add",
-                  "id": "bbba7963-d7d4-48c6-93a1-6727352b63db",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"nama\": \"Paracetamol\",\r\n    \"jenis\": \"Tablet\",\r\n    \"satuan\": \"mg\"\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/add-drug",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "add-drug"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "a6fbd301-a575-45e9-ae94-8ebee9cc5b32",
-                      "name": "add-drug",
-                      "originalRequest": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"nama\": \"Paracetamol\",\r\n    \"jenis\": \"Tablet\",\r\n    \"satuan\": \"mg\"\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/add-drug",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "add-drug"]
-                        }
-                      },
-                      "status": "Created",
-                      "code": 201,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:52:05 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 09:52:05 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"nama\": \"Paracetamol\",\n    \"jenis\": \"Tablet\",\n    \"satuan\": \"mg\",\n    \"drug_id\": 17\n}",
-                      "uid": "38431392-a6fbd301-a575-45e9-ae94-8ebee9cc5b32"
-                    }
-                  ],
-                  "uid": "38431392-bbba7963-d7d4-48c6-93a1-6727352b63db"
-                },
-                {
-                  "name": "update",
-                  "id": "afb3a6a3-95cf-49c3-9c14-afdd1cb0dd27",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n    \"nama\": \"Paracetamol 100mg\",\r\n    \"jenis\": \"Tablet\",\r\n    \"satuan\": \"mg\"\r\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/update-drug/17",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "update-drug", "17"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "id": "db5909a7-3254-40b8-aa46-57240638ad96",
-                      "name": "update-drug",
-                      "originalRequest": {
-                        "method": "PUT",
-                        "header": [],
-                        "body": {
-                          "mode": "raw",
-                          "raw": "{\r\n    \"nama\": \"Paracetamol 100mg\",\r\n    \"jenis\": \"Tablet\",\r\n    \"satuan\": \"mg\"\r\n}",
-                          "options": {
-                            "raw": {
-                              "language": "json"
-                            }
-                          }
-                        },
-                        "url": {
-                          "raw": "http://127.0.0.1:8000/api/update-drug/17",
-                          "protocol": "http",
-                          "host": ["127", "0", "0", "1"],
-                          "port": "8000",
-                          "path": ["api", "update-drug", "17"]
-                        }
-                      },
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "header": [
-                        {
-                          "key": "Host",
-                          "value": "127.0.0.1:8000"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 10:22:07 GMT"
-                        },
-                        {
-                          "key": "Date",
-                          "value": "Thu, 26 Sep 2024 10:22:07 GMT"
-                        },
-                        {
-                          "key": "Connection",
-                          "value": "close"
-                        },
-                        {
-                          "key": "X-Powered-By",
-                          "value": "PHP/8.2.4"
-                        },
-                        {
-                          "key": "Cache-Control",
-                          "value": "no-cache, private"
-                        },
-                        {
-                          "key": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "key": "Access-Control-Allow-Origin",
-                          "value": "*"
-                        }
-                      ],
-                      "cookie": [],
-                      "responseTime": null,
-                      "body": "{\n    \"drug_id\": 17,\n    \"nama\": \"Paracetamol 100mg\",\n    \"jenis\": \"Tablet\",\n    \"satuan\": \"mg\"\n}",
-                      "uid": "38431392-db5909a7-3254-40b8-aa46-57240638ad96"
-                    }
-                  ],
-                  "uid": "38431392-afb3a6a3-95cf-49c3-9c14-afdd1cb0dd27"
-                },
-                {
-                  "name": "delete",
-                  "id": "5bebdead-c034-40af-b8e2-d4761939775a",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "DELETE",
-                    "header": [],
-                    "url": {
-                      "raw": "http://127.0.0.1:8000/api/delete-drug/17",
-                      "protocol": "http",
-                      "host": ["127", "0", "0", "1"],
-                      "port": "8000",
-                      "path": ["api", "delete-drug", "17"]
-                    }
-                  },
-                  "response": [],
-                  "uid": "38431392-5bebdead-c034-40af-b8e2-d4761939775a"
-                }
-              ],
-              "id": "eb4e543b-d518-496c-b97e-b7ac84bd115f",
-              "uid": "38431392-eb4e543b-d518-496c-b97e-b7ac84bd115f"
-            },
-            {
-              "name": "Medical Report",
-              "item": [
-                {
-                  "name": "add-medical-report",
-                  "id": "9655701a-f269-4de2-a9ae-9cafe07397e6",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": []
-                  },
-                  "response": [],
-                  "uid": "38431392-9655701a-f269-4de2-a9ae-9cafe07397e6"
-                }
-              ],
-              "id": "dae39086-efde-4f44-9af3-1d0933d9c6f4",
-              "uid": "38431392-dae39086-efde-4f44-9af3-1d0933d9c6f4"
-            },
-            {
-              "name": "Prescription",
-              "item": [],
-              "id": "1b4269f9-d059-49de-a869-93bea645f1f9",
-              "uid": "38431392-1b4269f9-d059-49de-a869-93bea645f1f9"
-            },
-            {
-              "name": "Appointment",
-              "item": [],
-              "id": "a0c73a14-4fb4-419a-b37c-090e660b0310",
-              "uid": "38431392-a0c73a14-4fb4-419a-b37c-090e660b0310"
+              }
             }
-          ]
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
         }
       }
-         
+    },
+    "/api/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "admintest@example.com",
+                  "password": "password"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Get User by Token",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/logout": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Logout",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/songs": {
+      "post": {
+        "tags": [
+          "Track"
+        ],
+        "summary": "Create Track",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spotify_track_id": "1irXmwdCbngOtucJNd5mSl"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Track"
+        ],
+        "summary": "Read Track",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/songs/{id}": {
+      "get": {
+        "tags": [
+          "Track"
+        ],
+        "summary": "Read Track by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Track"
+        ],
+        "summary": "Update Track",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "wkwkj"
+          },
+          {
+            "name": "artist_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "3"
+          },
+          {
+            "name": "albm_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "5"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2009"
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "124"
+          },
+          {
+            "name": "rl_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "5"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "house, indie"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "test update lagi dan lagi"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Track"
+        ],
+        "summary": "Delete Track",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "9"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/singers": {
+      "post": {
+        "tags": [
+          "Artist"
+        ],
+        "summary": "Create Artist",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spotify_artist_id": "1irXmwdCbngOtucJNd5mSl"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Artist"
+        ],
+        "summary": "Read Artist",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/singers/{id}": {
+      "get": {
+        "tags": [
+          "Artist"
+        ],
+        "summary": "Read Artist by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Artist"
+        ],
+        "summary": "Update Artist",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "nama",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "naufal"
+          },
+          {
+            "name": "bio",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "awdnjawjkd"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Artist"
+        ],
+        "summary": "Delete Artist",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/albums": {
+      "post": {
+        "tags": [
+          "Album"
+        ],
+        "summary": "Create Album",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spotify_album_id": "1irXmwdCbngOtucJNd5mSl"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Album"
+        ],
+        "summary": "Read Album",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/albums/{id}": {
+      "get": {
+        "tags": [
+          "Album"
+        ],
+        "summary": "Read Album by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "7"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Album"
+        ],
+        "summary": "Update Album",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "nama",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "naufal"
+          },
+          {
+            "name": "release_date",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2009-12-21"
+          },
+          {
+            "name": "image_url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://pbs.twimg.com/media/GYd3ozNXwAEb5my?format=jpg%26name=small"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "6"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Album"
+        ],
+        "summary": "Delete Album",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/recordlabels": {
+      "post": {
+        "tags": [
+          "Record Label"
+        ],
+        "summary": "Create Record Label",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spotify_recordlabel_id": "1irXmwdCbngOtucJNd5mSl"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Record Label"
+        ],
+        "summary": "Read Record Label",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/recordlabels/{id}": {
+      "get": {
+        "tags": [
+          "Record Label"
+        ],
+        "summary": "Read Record Label by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "5"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Record Label"
+        ],
+        "summary": "Update Record Label",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "nama",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "aoo"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "aa"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "6"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Record Label"
+        ],
+        "summary": "Delete Record Label",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "6"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/playlists": {
+      "post": {
+        "tags": [
+          "Playlist"
+        ],
+        "summary": "Create Playlist",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spotify_playlist_id": "1irXmwdCbngOtucJNd5mSl"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Playlist"
+        ],
+        "summary": "Read Playlist",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/playlists/{id}": {
+      "get": {
+        "tags": [
+          "Playlist"
+        ],
+        "summary": "Read Playlist by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Playlist"
+        ],
+        "summary": "Update Playlist",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "nama",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "naufal"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Majj"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Playlist"
+        ],
+        "summary": "Delete Playlist",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/shows": {
+      "post": {
+        "tags": [
+          "Show"
+        ],
+        "summary": "Create Show",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spotify_show_id": "1irXmwdCbngOtucJNd5mSl"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Show"
+        ],
+        "summary": "Read Show",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/shows/{id}": {
+      "get": {
+        "tags": [
+          "Show"
+        ],
+        "summary": "Read Show by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Show"
+        ],
+        "summary": "Update Show",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "nama",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "naufal"
+          },
+          {
+            "name": "publisher",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Majj"
+          },
+          {
+            "name": "image_url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://pbs.twimg.com/media/GYd3ozNXwAEb5my?format=jpg%26name=small"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "6"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Show"
+        ],
+        "summary": "Delete Show",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/episodes": {
+      "post": {
+        "tags": [
+          "Episode"
+        ],
+        "summary": "Create Episode",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spotify_episode_id": "1irXmwdCbngOtucJNd5mSl"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Episode"
+        ],
+        "summary": "Read Episode",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/episodes/{id}": {
+      "get": {
+        "tags": [
+          "Episode"
+        ],
+        "summary": "Read Episode by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Episode"
+        ],
+        "summary": "Update Episode",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "naufal"
+          },
+          {
+            "name": "podcast_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "3"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2009"
+          },
+          {
+            "name": "publisher",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Delph House"
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "1243"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "test "
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Episode"
+        ],
+        "summary": "Delete Episode",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
 }

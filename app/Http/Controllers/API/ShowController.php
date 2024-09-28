@@ -99,7 +99,8 @@ class ShowController extends Controller
         // Validasi input dari request
         $validator = Validator::make($request->all(), [
             'nama' => 'required|string|max:255', // Nama harus ada dan berupa string
-            'publisher' => 'required|date_format:Y-m-d', // Release date harus dalam format tanggal
+            'publisher' => 'required|string|max:255', // Release date harus dalam format tanggal
+            'image_url' => 'required|string|max:255', // Release date harus dalam format tanggal
         ]);
 
         // Jika validasi gagal, kembalikan pesan error
@@ -115,6 +116,7 @@ class ShowController extends Controller
         $show->update([
             'nama' => $request->get('nama'),
             'release_date' => $request->get('publisher'),
+            'image_url' => $request->get('image_url'),
         ]);
 
         // Kembalikan respons sukses beserta data show yang sudah diupdate

@@ -29,7 +29,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
+    Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);  
+  
+});
+
+
     Route::resource('/albums', \App\Http\Controllers\Api\AlbumController::class);
     Route::resource('/recordlabels', \App\Http\Controllers\Api\RecordlabelController::class);
     Route::resource('/singers', \App\Http\Controllers\Api\SingerController::class);
@@ -37,10 +41,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('/shows', \App\Http\Controllers\Api\ShowController::class);
     Route::resource('/songs', \App\Http\Controllers\Api\SongController::class);
     Route::resource('/episodes', \App\Http\Controllers\Api\EpisodeController::class);
-
-
-
-
-
-
-});

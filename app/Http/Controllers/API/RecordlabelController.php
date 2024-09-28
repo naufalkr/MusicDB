@@ -93,12 +93,12 @@ class RecordlabelController extends Controller
      * @param  \App\Models\RecordLabel  $recordLabel
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, RecordLabel $recordLabel)
+    public function update(Request $request, RecordLabel $recordlabel)
     {
         // Validasi input dari request
         $validator = Validator::make($request->all(), [
             'nama' => 'required|string|max:255', // Nama harus ada dan berupa string
-            // 'country' => 'required|string|max:255', // Country juga wajib dan berupa string
+            'country' => 'required|string|max:255', // Country juga wajib dan berupa string
         ]);
 
         // Jika validasi gagal, kembalikan pesan error
@@ -111,14 +111,14 @@ class RecordlabelController extends Controller
         }
 
         // Update data record label berdasarkan input yang sudah tervalidasi
-        $recordLabel->update([
+        $recordlabel->update([
             'nama' => $request->get('nama'),
-            // 'country' => $request->get('country'),
+            'country' => $request->get('country'),    
         ]);
 
         // Kembalikan respons sukses beserta data record label yang sudah diupdate
         return response()->json([
-            'data' => new RecordLabelResource($recordLabel),
+            'data' => new RecordLabelResource($recordlabel),
             'message' => 'Record label updated successfully',
             'success' => true
         ]);
