@@ -87,19 +87,21 @@ class RecordlabelController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified record label in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Recordlabel  $recordlabel
+     * @param  \App\Models\RecordLabel  $recordLabel
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Recordlabel $recordlabel)
+    public function update(Request $request, RecordLabel $recordLabel)
     {
-        // Validasi input Spotify Recordlabel ID
+        // Validasi input dari request
         $validator = Validator::make($request->all(), [
-            'spotify_recordlabel_id' => 'required|string',
+            'nama' => 'required|string|max:255', // Nama harus ada dan berupa string
+            // 'country' => 'required|string|max:255', // Country juga wajib dan berupa string
         ]);
 
+        // Jika validasi gagal, kembalikan pesan error
         if ($validator->fails()) {
             return response()->json([
                 'data' => [],
@@ -108,22 +110,52 @@ class RecordlabelController extends Controller
             ]);
         }
 
-        // Ambil data recordlabel dari Spotify API berdasarkan ID
-        $spotifyRecordlabel = $this->spotify->getRecordlabelById($request->spotify_recordlabel_id);
-
-        // Update data recordlabel di dalam database
-        $recordlabel->update([
-            'nama' => $spotifyRecordlabel['label'], // Nama recordlabel
-            'country' => $spotifyRecordlabel['artists'][0]['name'], // Country
-            // 'image_url' => $spotifyRecordlabel['images'][0]['url'] ?? null, // URL gambar recordlabel
+        // Update data record label berdasarkan input yang sudah tervalidasi
+        $recordLabel->update([
+            'nama' => $request->get('nama'),
+            // 'country' => $request->get('country'),
         ]);
 
+        // Kembalikan respons sukses beserta data record label yang sudah diupdate
         return response()->json([
-            'data' => new RecordlabelResource($recordlabel),
+            'data' => new RecordLabelResource($recordLabel),
             'message' => 'Record label updated successfully',
             'success' => true
         ]);
     }
+
+
+    // public function update(Request $request, Recordlabel $recordlabel)
+    // {
+    //     // Validasi input Spotify Recordlabel ID
+    //     $validator = Validator::make($request->all(), [
+    //         'spotify_recordlabel_id' => 'required|string',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'data' => [],
+    //             'message' => $validator->errors(),
+    //             'success' => false
+    //         ]);
+    //     }
+
+    //     // Ambil data recordlabel dari Spotify API berdasarkan ID
+    //     $spotifyRecordlabel = $this->spotify->getRecordlabelById($request->spotify_recordlabel_id);
+
+    //     // Update data recordlabel di dalam database
+    //     $recordlabel->update([
+    //         'nama' => $spotifyRecordlabel['label'], // Nama recordlabel
+    //         'country' => $spotifyRecordlabel['artists'][0]['name'], // Country
+    //         // 'image_url' => $spotifyRecordlabel['images'][0]['url'] ?? null, // URL gambar recordlabel
+    //     ]);
+
+    //     return response()->json([
+    //         'data' => new RecordlabelResource($recordlabel),
+    //         'message' => 'Record label updated successfully',
+    //         'success' => true
+    //     ]);
+    // }
 
     /**
      * Remove the specified resource from storage.

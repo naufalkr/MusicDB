@@ -86,20 +86,23 @@ class AlbumController extends Controller
         ]);
     }
 
+
     /**
-     * Update the specified resource in storage.
+     * Update the specified album in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Album $album
+     * @param  \App\Models\Album  $album
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Album $album)
     {
-        // Validasi input ID Album Spotify
+        // Validate the incoming request
         $validator = Validator::make($request->all(), [
-            'spotify_album_id' => 'required|string',
+            'nama' => 'required|string|max:255', // Album name is required and must be a string
+            'release_date' => 'required|date_format:Y-m-d', // Ensure the release date is in the 'Y-m-d' format
         ]);
 
+        // If validation fails, return error response
         if ($validator->fails()) {
             return response()->json([
                 'data' => [],
@@ -108,22 +111,53 @@ class AlbumController extends Controller
             ]);
         }
 
-        // Ambil data album dari Spotify API berdasarkan ID
-        $spotifyAlbum = $this->spotify->getAlbumById($request->spotify_album_id);
-
-        // Update data album di dalam database
+        // Update the album record with the validated data
         $album->update([
-            'nama' => $spotifyAlbum['name'],
-            'release_date' => $spotifyAlbum['release_date'],
-            'image_url' => $spotifyAlbum['images'][0]['url'] ?? null,
+            'nama' => $request->get('nama'),
+            'release_date' => $request->get('release_date'),
         ]);
 
+        // Return success response with the updated album
         return response()->json([
             'data' => new AlbumResource($album),
             'message' => 'Album updated successfully',
             'success' => true
         ]);
     }
+
+
+
+    // public function update(Request $request, Album $album)
+    // {
+    //     // Validasi input ID Album Spotify
+    //     $validator = Validator::make($request->all(), [
+    //         'spotify_album_id' => 'required|string',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'data' => [],
+    //             'message' => $validator->errors(),
+    //             'success' => false
+    //         ]);
+    //     }
+
+    //     // Ambil data album dari Spotify API berdasarkan ID
+    //     $spotifyAlbum = $this->spotify->getAlbumById($request->spotify_album_id);
+
+    //     // Update data album di dalam database
+    //     $album->update([
+    //         'nama' => $spotifyAlbum['name'],
+    //         'release_date' => $spotifyAlbum['release_date'],
+    //         'image_url' => $spotifyAlbum['images'][0]['url'] ?? null,
+    //     ]);
+
+    //     return response()->json([
+    //         'data' => new AlbumResource($album),
+    //         'message' => 'Album updated successfully',
+    //         'success' => true
+    //     ]);
+    // }
 
     /**
      * Remove the specified resource from storage.

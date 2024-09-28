@@ -85,20 +85,23 @@ class PlaylistController extends Controller
         ]);
     }
 
+
     /**
-     * Update the specified resource in storage.
+     * Update the specified playlist in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Playlist $playlist
+     * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Playlist $playlist)
     {
-        // Validasi input ID Playlist Spotify
+        // Validasi input dari request
         $validator = Validator::make($request->all(), [
-            'spotify_playlist_id' => 'required|string',
+            'nama' => 'required|string|max:255', // Nama harus ada dan berupa string
+            'description' => 'required|string|max:255', // Release date harus dalam format tanggal
         ]);
 
+        // Jika validasi gagal, kembalikan pesan error
         if ($validator->fails()) {
             return response()->json([
                 'data' => [],
@@ -107,21 +110,52 @@ class PlaylistController extends Controller
             ]);
         }
 
-        // Ambil data playlist dari Spotify API berdasarkan ID
-        $spotifyPlaylist = $this->spotify->getPlaylistById($request->spotify_playlist_id);
-
-        // Update data playlist di dalam database
+        // Update data playlist berdasarkan input yang sudah tervalidasi
         $playlist->update([
-            'nama' => $spotifyPlaylist['name'],
-            'release_date' => $spotifyPlaylist['description'],  // Assuming this is the correct mapping
+            'nama' => $request->get('nama'),
+            'release_date' => $request->get('description'),
         ]);
 
+        // Kembalikan respons sukses beserta data playlist yang sudah diupdate
         return response()->json([
             'data' => new PlaylistResource($playlist),
             'message' => 'Playlist updated successfully',
             'success' => true
         ]);
     }
+
+
+
+    // public function update(Request $request, Playlist $playlist)
+    // {
+    //     // Validasi input ID Playlist Spotify
+    //     $validator = Validator::make($request->all(), [
+    //         'spotify_playlist_id' => 'required|string',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'data' => [],
+    //             'message' => $validator->errors(),
+    //             'success' => false
+    //         ]);
+    //     }
+
+    //     // Ambil data playlist dari Spotify API berdasarkan ID
+    //     $spotifyPlaylist = $this->spotify->getPlaylistById($request->spotify_playlist_id);
+
+    //     // Update data playlist di dalam database
+    //     $playlist->update([
+    //         'nama' => $spotifyPlaylist['name'],
+    //         'release_date' => $spotifyPlaylist['description'],  // Assuming this is the correct mapping
+    //     ]);
+
+    //     return response()->json([
+    //         'data' => new PlaylistResource($playlist),
+    //         'message' => 'Playlist updated successfully',
+    //         'success' => true
+    //     ]);
+    // }
 
     /**
      * Remove the specified resource from storage.

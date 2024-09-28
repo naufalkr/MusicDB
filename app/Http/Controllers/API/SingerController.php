@@ -89,16 +89,18 @@ class SingerController extends Controller
      * Update the specified singer in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Singer $singer
+     * @param  \App\Models\Singer  $singer
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Singer $singer)
     {
-        // Validate the input Spotify Artist ID
+        // Validate the incoming request
         $validator = Validator::make($request->all(), [
-            'spotify_artist_id' => 'required|string',
+            'nama' => 'required|string|max:255',
+            'bio' => 'nullable|string', // Optional bio
         ]);
 
+        // If validation fails, return error response
         if ($validator->fails()) {
             return response()->json([
                 'data' => [],
@@ -107,21 +109,51 @@ class SingerController extends Controller
             ]);
         }
 
-        // Fetch singer data from Spotify API by ID
-        $spotifyArtist = $this->spotify->getArtistById($request->spotify_artist_id);
-
-        // Update the singer in the database
+        // Update the singer record with the validated data
         $singer->update([
-            'nama' => $spotifyArtist['name'],
-            'bio' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info',
+            'nama' => $request->get('nama'),
+            'bio' => $request->get('bio'),
         ]);
 
+        // Return success response with the updated singer
         return response()->json([
             'data' => new SingerResource($singer),
-            'message' => 'Singer updated successfully.',
+            'message' => 'Singer updated successfully',
             'success' => true
         ]);
     }
+
+
+    // public function update(Request $request, Singer $singer)
+    // {
+    //     // Validate the input Spotify Artist ID
+    //     $validator = Validator::make($request->all(), [
+    //         'spotify_artist_id' => 'required|string',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'data' => [],
+    //             'message' => $validator->errors(),
+    //             'success' => false
+    //         ]);
+    //     }
+
+    //     // Fetch singer data from Spotify API by ID
+    //     $spotifyArtist = $this->spotify->getArtistById($request->spotify_artist_id);
+
+    //     // Update the singer in the database
+    //     $singer->update([
+    //         'nama' => $spotifyArtist['name'],
+    //         'bio' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info',
+    //     ]);
+
+    //     return response()->json([
+    //         'data' => new SingerResource($singer),
+    //         'message' => 'Singer updated successfully.',
+    //         'success' => true
+    //     ]);
+    // }
 
     /**
      * Remove the specified singer from storage.

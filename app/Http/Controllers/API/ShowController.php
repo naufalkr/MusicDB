@@ -86,20 +86,23 @@ class ShowController extends Controller
         ]);
     }
 
+
     /**
-     * Update the specified resource in storage.
+     * Update the specified show in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Show $show
+     * @param  \App\Models\Show  $show
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Show $show)
     {
-        // Validasi input ID Show Spotify
+        // Validasi input dari request
         $validator = Validator::make($request->all(), [
-            'spotify_show_id' => 'required|string',
+            'nama' => 'required|string|max:255', // Nama harus ada dan berupa string
+            'publisher' => 'required|date_format:Y-m-d', // Release date harus dalam format tanggal
         ]);
 
+        // Jika validasi gagal, kembalikan pesan error
         if ($validator->fails()) {
             return response()->json([
                 'data' => [],
@@ -108,22 +111,51 @@ class ShowController extends Controller
             ]);
         }
 
-        // Ambil data show dari Spotify API berdasarkan ID
-        $spotifyShow = $this->spotify->getShowById($request->spotify_show_id);
-
-        // Update data show di dalam database
+        // Update data show berdasarkan input yang sudah tervalidasi
         $show->update([
-            'nama' => $spotifyShow['name'],
-            'release_date' => $spotifyShow['publisher'],
-            'image_url' => $spotifyShow['images'][0]['url'] ?? null,
+            'nama' => $request->get('nama'),
+            'release_date' => $request->get('publisher'),
         ]);
 
+        // Kembalikan respons sukses beserta data show yang sudah diupdate
         return response()->json([
             'data' => new ShowResource($show),
             'message' => 'Show updated successfully',
             'success' => true
         ]);
     }
+
+    // public function update(Request $request, Show $show)
+    // {
+    //     // Validasi input ID Show Spotify
+    //     $validator = Validator::make($request->all(), [
+    //         'spotify_show_id' => 'required|string',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'data' => [],
+    //             'message' => $validator->errors(),
+    //             'success' => false
+    //         ]);
+    //     }
+
+    //     // Ambil data show dari Spotify API berdasarkan ID
+    //     $spotifyShow = $this->spotify->getShowById($request->spotify_show_id);
+
+    //     // Update data show di dalam database
+    //     $show->update([
+    //         'nama' => $spotifyShow['name'],
+    //         'release_date' => $spotifyShow['publisher'],
+    //         'image_url' => $spotifyShow['images'][0]['url'] ?? null,
+    //     ]);
+
+    //     return response()->json([
+    //         'data' => new ShowResource($show),
+    //         'message' => 'Show updated successfully',
+    //         'success' => true
+    //     ]);
+    // }
 
     /**
      * Remove the specified resource from storage.

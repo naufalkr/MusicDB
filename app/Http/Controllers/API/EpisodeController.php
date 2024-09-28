@@ -104,6 +104,7 @@ class EpisodeController extends Controller
         ]);
     }
 
+
     /**
      * Update the specified episode in storage.
      *
@@ -113,11 +114,17 @@ class EpisodeController extends Controller
      */
     public function update(Request $request, Episode $episode)
     {
-        // Validate the request
+        // Validasi input dari request
         $validator = Validator::make($request->all(), [
-            'spotify_episode_id' => 'required|string',
+            'title' => 'required|string|max:255', // Title harus ada dan berupa string
+            'podcast_id' => 'required|exists:show,id', // Pastikan podcast_id ada di tabel show
+            'year' => 'nullable|digits:4', // Validasi tahun sebagai angka 4 digit
+            'publisher' => 'required|string|max:255', // Validasi format release_date
+            'duration' => 'nullable|integer', // Durasi harus berupa integer
+            'description' => 'nullable|string', // Deskripsi optional
         ]);
 
+        // Jika validasi gagal, kembalikan pesan error
         if ($validator->fails()) {
             return response()->json([
                 'data' => [],
@@ -126,27 +133,60 @@ class EpisodeController extends Controller
             ]);
         }
 
-        // Fetch updated episode data from Spotify
-        $spotifyEpisode = $this->spotifyService->getEpisodeById($request->spotify_episode_id);
-
-        // Update the episode data in the database
+        // Update data episode berdasarkan input yang sudah tervalidasi
         $episode->update([
-            'title' => $spotifyEpisode['name'],
-            // 'year' => (int) $spotifyEpisode['languages'][0],
-            // 'release_date' => $spotifyEpisode['release_date'],
-            // 'year' => $spotifyEpisode['show']['release_date'] ? date('Y', strtotime($spotifyEpisode['show']['release_date'])) : null,
-            'year' => (int) ($spotifyShow['release_date']),                        
-            'release_date' => (int) ($spotifyEpisode['publisher']),   
-            'duration' => (int) ($spotifyEpisode['duration_ms'] / 1000),
-            'description' => $spotifyEpisode['description'] ?? null,
+            'title' => $request->get('title'),
+            'podcast_id' => $request->get('podcast_id'),
+            'year' => $request->get('year'),
+            'release_date' => $request->get('publisher'),
+            'duration' => $request->get('duration'),
+            'description' => $request->get('description'),
         ]);
 
+        // Kembalikan respons sukses beserta data episode yang sudah diupdate
         return response()->json([
             'data' => new EpisodeResource($episode),
             'message' => 'Episode updated successfully',
             'success' => true
         ]);
     }
+
+    // public function update(Request $request, Episode $episode)
+    // {
+    //     // Validate the request
+    //     $validator = Validator::make($request->all(), [
+    //         'spotify_episode_id' => 'required|string',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'data' => [],
+    //             'message' => $validator->errors(),
+    //             'success' => false
+    //         ]);
+    //     }
+
+    //     // Fetch updated episode data from Spotify
+    //     $spotifyEpisode = $this->spotifyService->getEpisodeById($request->spotify_episode_id);
+
+    //     // Update the episode data in the database
+    //     $episode->update([
+    //         'title' => $spotifyEpisode['name'],
+    //         // 'year' => (int) $spotifyEpisode['languages'][0],
+    //         // 'release_date' => $spotifyEpisode['release_date'],
+    //         // 'year' => $spotifyEpisode['show']['release_date'] ? date('Y', strtotime($spotifyEpisode['show']['release_date'])) : null,
+    //         'year' => (int) ($spotifyShow['release_date']),                        
+    //         'release_date' => (int) ($spotifyEpisode['publisher']),   
+    //         'duration' => (int) ($spotifyEpisode['duration_ms'] / 1000),
+    //         'description' => $spotifyEpisode['description'] ?? null,
+    //     ]);
+
+    //     return response()->json([
+    //         'data' => new EpisodeResource($episode),
+    //         'message' => 'Episode updated successfully',
+    //         'success' => true
+    //     ]);
+    // }
 
     /**
      * Remove the specified episode from storage.
