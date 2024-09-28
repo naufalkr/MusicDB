@@ -1,3 +1,7 @@
+@extends('layout.base')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,6 +113,8 @@
             #dark-mode svg:not(:root){
                 fill: #e7e7e7;
             }
+
+            
         </style>
     @endif
 </head>
@@ -162,3 +168,5 @@
 </script>
 </body>
 </html>
+
+@endsection

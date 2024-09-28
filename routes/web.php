@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/api/docs', function () {
     return redirect('/api/documentation');
-});
+})->name('api-page');
 
 
 

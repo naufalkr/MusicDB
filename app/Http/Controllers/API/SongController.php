@@ -187,7 +187,7 @@ public function update(Request $request, Song $song)
         'rl_id' => $request->get('rl_id'),
         'year' => $request->get('year'),
         'duration' => $request->get('duration'),
-        'category' => $request->get('genre'),
+        'category' => $request->get('category'),
         'description' => $request->get('description'),
         // 'slug' => Str::slug($request->get('title'))
     ]);
