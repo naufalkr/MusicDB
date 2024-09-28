@@ -24,7 +24,7 @@
                     <th>Title</th>
                     <th>Show</th>
                     <th>Year</th>                    
-                    <th>Release date</th>
+                    <th>Publisher</th>
                     <th>Duration</th>
                 </tr>
             </thead>

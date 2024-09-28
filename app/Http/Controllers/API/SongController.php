@@ -63,27 +63,50 @@ class SongController extends Controller
         $spotify_artist_id = $spotifyTrack['artists'][0]['id'];
         $spotify_recordlabel_id = $spotifyTrack['album']['id']; // Adjust if needed
 
-        // Fetch additional data for the album, artist, and record label
         $spotifyAlbum = $this->spotifyService->getAlbumById($spotify_album_id);
         $spotifyArtist = $this->spotifyService->getArtistById($spotify_artist_id);
         $spotifyRecordlabel = $this->spotifyService->getRecordlabelById($spotify_recordlabel_id);
 
-        // Check if the album, artist, and record label already exist, or create them
+        // $album = Album::firstOrCreate(
+        //     ['nama' => $spotifyAlbum['name']],
+        //     ['release_date' => $spotifyAlbum['release_date']], 
+        //     ['image_url' => $spotifyAlbum['images'][0]['url'] ?? null] 
+        // );
         $album = Album::firstOrCreate(
-            ['nama' => $spotifyAlbum['name']],
-            ['release_date' => $spotifyAlbum['release_date']], 
-            ['image_url' => $spotifyAlbum['images'][0]['url'] ?? null] 
+            ['nama' => $spotifyAlbum['name']], 
+            [
+                'release_date' => $spotifyAlbum['release_date'],
+                'image_url' => $spotifyAlbum['images'][0]['url'] ?? null
+            ]
         );
 
+        // $artist = Singer::firstOrCreate(
+        //     ['nama' => $spotifyArtist['name']],
+        //     ['bio' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info']
+        // );
+
+               
         $artist = Singer::firstOrCreate(
-            ['nama' => $spotifyArtist['name']],
-            ['bio' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info']
+            ['nama' => $spotifyArtist['name']], // Check by artist name
+            [
+                // 'id' => $spotify_artist_id, // Set the ID
+                'bio' => $spotifyArtist['genres'] ? implode(', ', $spotifyArtist['genres']) : 'No genre info'
+            ]
         );
+
+        // $recordlabel = Recordlabel::firstOrCreate(
+        //     ['nama' => $spotifyRecordlabel['label']],
+        //     ['country' => $spotifyRecordlabel['total_tracks'] ?? null]
+        // );
 
         $recordlabel = Recordlabel::firstOrCreate(
-            ['nama' => $spotifyRecordlabel['label']],
-            ['country' => $spotifyRecordlabel['total_tracks'] ?? null]
+            ['nama' => $spotifyRecordlabel['label']], // Check by record label name
+            [
+                // 'id' => $spotify_recordlabel_id, // Set the ID
+                'country' => $spotifyRecordlabel['total_tracks'] ?? null, // Adjust as needed
+            ]
         );
+    
 
         // Create the song
         $song = Song::create([

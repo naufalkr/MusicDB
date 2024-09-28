@@ -52,7 +52,7 @@
                         <th>Duration</th>
                         <th>Record Label</th>
                         <th>Genre</th>
-                        <th>Description</th>
+                        <th>Popularity</th>
                         @role('admin')                        
                         <th>Action</th>
                         @endrole

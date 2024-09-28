@@ -48,7 +48,7 @@
                         <th>Title</th>
                         <th>Show</th>
                         <th>Year</th>
-                        <th>Release Date</th>
+                        <th>Publisher</th>
                         <th>Duration</th>
                         <th>Description</th>
                         @role('admin')                        

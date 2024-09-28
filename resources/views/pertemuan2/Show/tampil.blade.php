@@ -46,7 +46,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Release Date</th>
+                        <th>Publisher</th>
                         @role('admin')
                         <th>Action</th>
                         @endrole
@@ -57,6 +57,8 @@
                         <tr class="show-row" data-id="{{ $data_show->id }}">
                             <td>{{ ($show->currentPage() - 1) * $show->perPage() + $key + 1 }}</td>
                             <td class="show-name">
+                                <img src="{{ $data_show->image_url }}" alt="{{ $data_show->image_url }}" class="img-thumbnail" style=" height: auto;">
+                                
                                 <a href="{{ route('crud-show.show', $data_show->id) }}">{{ $data_show->nama }}</a>
                                 <!-- Ikon play yang akan muncul saat hover -->
                                 <span class="play-icon" style="display: none;">
@@ -121,6 +123,11 @@
         .show-name {
             position: relative;
         }
+
+        .img-thumbnail {
+        width: 1.4cm;
+        height: 1.4cm;
+    }
     </style>
 @endpush
 

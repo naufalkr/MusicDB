@@ -12,7 +12,7 @@
     </div>
 
     <!-- Display List of Songs -->
-    <h3>Songs by {{ $recordlabel->nama }}</h3>
+    <h3>Songs from {{ $recordlabel->nama }}</h3>
 
     @if($songs->isEmpty())
         <p>No songs available for this recordlabel.</p>
@@ -22,6 +22,7 @@
                 <tr>
                     <th>No</th>
                     <th>Title</th>
+                    <th>Artist</th>
                     <th>Album</th>
                     <th>Year</th>
                     <th>Duration</th>
@@ -42,6 +43,7 @@
                             <i class="fas fa-play-circle"></i>
                         </span>
                     </td>
+                    <td>{{ $song->artist->nama }}</td>
                     <td>{{ $song->albm->nama }}</td>
                     <td>{{ $song->year }}</td>
                     <td>
@@ -52,9 +54,10 @@
                         {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }}
                     </td>
                     <td>
-                        @foreach ($song->genres as $genre)
+                        <!-- @foreach ($song->genres as $genre)
                             <span class="badge badge-primary">{{ $genre->nama }}</span>
-                        @endforeach
+                        @endforeach -->
+                        {{ $song->category }}
                     </td>
                 </tr>
                 @endforeach

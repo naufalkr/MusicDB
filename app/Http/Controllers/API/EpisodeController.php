@@ -73,10 +73,13 @@ class EpisodeController extends Controller
         $episode = Episode::create([
             'title' => $spotifyEpisode['name'],
             'podcast_id' => $show->id,
-            'year' => (int) $spotifyEpisode['languages'][0],  // Adjusted if applicable
-            'release_date' => $spotifyEpisode['release_date'],
+            // 'year' => (int) $spotifyEpisode['languages'][0],  // Adjusted if applicable
+            // 'release_date' => $spotifyEpisode['release_date'],
+            'year' => (int) ($spotifyEpisode['release_date']),                        
+            'release_date' => ($spotifyShow['publisher']),
             'duration' => (int) ($spotifyEpisode['duration_ms'] / 1000),
             'description' => $spotifyEpisode['description'] ?? null,
+                           
         ]);
 
         return response()->json([
@@ -129,8 +132,11 @@ class EpisodeController extends Controller
         // Update the episode data in the database
         $episode->update([
             'title' => $spotifyEpisode['name'],
-            'year' => (int) $spotifyEpisode['languages'][0],
-            'release_date' => $spotifyEpisode['release_date'],
+            // 'year' => (int) $spotifyEpisode['languages'][0],
+            // 'release_date' => $spotifyEpisode['release_date'],
+            // 'year' => $spotifyEpisode['show']['release_date'] ? date('Y', strtotime($spotifyEpisode['show']['release_date'])) : null,
+            'year' => (int) ($spotifyShow['release_date']),                        
+            'release_date' => (int) ($spotifyEpisode['publisher']),   
             'duration' => (int) ($spotifyEpisode['duration_ms'] / 1000),
             'description' => $spotifyEpisode['description'] ?? null,
         ]);

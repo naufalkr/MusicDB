@@ -76,7 +76,7 @@
             </div>
 
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">Popularity</label>
                 <p id="description">{{ $data['song']->description }}</p>
             </div>
 

@@ -23,8 +23,10 @@
                     <th>No</th>
                     <th>Title</th>
                     <th>Album</th>
+                    <th>Record Label</th>
                     <th>Year</th>
                     <th>Duration</th>
+
                     <th>Genre</th>
                 </tr>
             </thead>
@@ -43,6 +45,7 @@
                         </span>
                     </td>
                     <td>{{ $song->albm->nama }}</td>
+                    <td>{{ $song->rl->nama }}</td>                    
                     <td>{{ $song->year }}</td>
                     <td>
                         @php
@@ -52,9 +55,10 @@
                         {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }}
                     </td>
                     <td>
-                        @foreach ($song->genres as $genre)
+                        <!-- @foreach ($song->genres as $genre)
                             <span class="badge badge-primary">{{ $genre->nama }}</span>
-                        @endforeach
+                        @endforeach -->
+                        {{ $song->category }}
                     </td>
                 </tr>
                 @endforeach

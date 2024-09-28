@@ -11,7 +11,7 @@ class Show extends Model
 
     protected $table = 'show';
 
-    protected $fillable = ['nama', 'release_date'];
+    protected $fillable = ['nama', 'release_date', 'image_url'];
 
     public function episodes()
     {

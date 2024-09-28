@@ -47,8 +47,6 @@ class SongController extends Controller
     //     $request->validate([
     //         'title' => 'required|string',
     //         'artist_id' => 'required|exists:singer,id',
-    //         // 'album' => 'required|string',
-    //         'albm_id' => 'required|exists:album,id',
     //         'year' => 'nullable|integer',
     //         'duration' => 'nullable|integer',
     //         // 'music_company' => 'required|string',
@@ -60,9 +58,7 @@ class SongController extends Controller
     
     //     $song = Song::create([
     //         'title' => $request->input('title'),
-    //         'artist_id' => $request->input('artist_id'),
-    //         // 'album' => $request->input('album'),
-    //         'albm_id' => $request->input('albm_id'),            
+    //         'artist_id' => $request->input('artist_id'),         
     //         'year' => $request->input('year'),
     //         'duration' => $request->input('duration'),
     //         // 'music_company' => $request->input('music_company'),            
@@ -90,17 +86,14 @@ class SongController extends Controller
         $spotify_album_id = $spotifyTrack['album']['id'];
         $spotify_artist_id = $spotifyTrack['artists'][0]['id'];
         $spotify_recordlabel_id = $spotifyTrack['album']['id']; // Adjust if needed
-    
-        // Fetch additional data for the album and artist
+ 
         $spotifyAlbum = $this->spotifyService->getAlbumById($spotify_album_id);
         $spotifyArtist = $this->spotifyService->getArtistById($spotify_artist_id);
         $spotifyRecordlabel = $this->spotifyService->getRecordlabelById($spotify_recordlabel_id);
     
-        // Check if the album already exists by name
         $album = Album::firstOrCreate(
-            ['nama' => $spotifyAlbum['name']], // Check by album name
+            ['nama' => $spotifyAlbum['name']], 
             [
-                // 'id' => $spotify_album_id, // Set the ID
                 'release_date' => $spotifyAlbum['release_date'],
                 'image_url' => $spotifyAlbum['images'][0]['url'] ?? null
             ]

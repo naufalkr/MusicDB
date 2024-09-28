@@ -19,11 +19,11 @@ class SongResource extends JsonResource
             'title' => $this->title,
             'artist' => new SingerResource($this->artist),  // Relasi ke tabel singer
             'album' => new AlbumResource($this->albm),     // Relasi ke tabel album
-            'record_label' => new RecordLabelResource($this->rl), // Relasi ke tabel recordlabel
             'year' => $this->year,
             'duration' => $this->duration,
-            'category' => $this->category,
-            'description' => $this->description,
+            'record_label' => new RecordLabelResource($this->rl), // Relasi ke tabel recordlabel
+            'genre' => $this->category,
+            'popularity' => $this->description,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

@@ -89,7 +89,7 @@
     <div class="container">
         <img src="https://i.pinimg.com/564x/55/46/c0/5546c0128307873a4ffc590fda7eac16.jpg" alt="MusicDB Logo" class="logo">
         <h1 class="welcome-title">Welcome to MusicDB</h1>
-        <p class="description">Search musics, albums, and more from your favorite musicians.</p>
+        <p class="description">Explore your favorite music, podcasts, and more – all in one place.</p>
         <button class="btn">Get Started</button>
         <div class="auth-links">
             <a href="/login">Log In</a> |

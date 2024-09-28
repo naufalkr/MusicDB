@@ -46,7 +46,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Country</th>
+                        <!-- <th>Country</th> -->
                         @role('admin')
                         <th>Action</th>
                         @endrole
@@ -63,7 +63,7 @@
                                     <i class="fas fa-play-circle"></i>
                                 </span>
                             </td>
-                            <td>{{ Str::limit($data_recordlabel->country, 30, '...') }}</td>
+                            <!-- <td>{{ Str::limit($data_recordlabel->country, 30, '...') }}</td> -->
                             @role('admin')
                             <td class="d-flex">
                                 <a href="{{ route('crud-recordlabel.edit', $data_recordlabel->id) }}"

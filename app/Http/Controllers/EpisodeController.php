@@ -72,8 +72,8 @@ class EpisodeController extends Controller
             'title' => $spotifyEpisode['name'],
             'podcast_id' => $show->id,
             // 'year' => $spotifyEpisode['show']['release_date'] ? date('Y', strtotime($spotifyEpisode['show']['release_date'])) : null,
-            'year' => (int) ($spotifyEpisode['languages']),                        
-            'release_date' => (int) ($spotifyEpisode['language']),            
+            'year' => (int) ($spotifyEpisode['release_date']),                        
+            'release_date' => ($spotifyShow['publisher']),            
             'duration' => (int) ($spotifyEpisode['duration_ms'] / 1000),
             'description' => $spotifyEpisode['description'] ?? null,
         ]);

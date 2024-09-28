@@ -33,7 +33,7 @@
                 <th>Year</th>
                 <th>Duration</th>
                 <th>Record Label</th>
-                <th>Genres</th>
+                <th>Genre</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -59,9 +59,10 @@
                     </td>
                     <td>{{ $song->rl->nama }}</td>
                     <td>
-                        @foreach ($song->genres as $genre)
+                        <!-- @foreach ($song->genres as $genre)
                             <span class="badge badge-primary">{{ $genre->nama }}</span>
-                        @endforeach
+                        @endforeach -->
+                        {{ $song->category }}
                     </td>
                     <td class="">
                         <form class="border-0" action="{{ route('crud-playlist.removeSong', [$playlist->id, $song->id]) }}" method="POST" style="display:inline-block;">

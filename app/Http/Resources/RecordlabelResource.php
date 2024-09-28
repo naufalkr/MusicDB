@@ -18,7 +18,7 @@ class RecordlabelResource extends JsonResource
             'id' => $this->id,
             'nama' => $this->nama,
             // 'content' => $this->content,
-            'country' => $this->country,
+            // 'country' => $this->country,
             // 'image_url' => $this->image_url,
             // 'status' => $this->status,
             'created_at' => $this->created_at,

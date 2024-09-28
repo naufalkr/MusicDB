@@ -7,6 +7,7 @@
 <div class="card p-3">
     <!-- Display Album Details -->
     <div class="mb-4">
+        <img src="{{ $album->image_url }}" alt="{{ $album->image_url }}" class="img-thumbnail" style=" height: auto;">
         <h2>{{ $album->nama }}</h2>
         <p><strong>Release date:</strong> {{ $album->release_date }}</p>
     </div>
@@ -22,7 +23,8 @@
                 <tr>
                     <th>No</th>
                     <th>Title</th>
-                    <th>Album</th>
+                    <th>Artist</th>
+                    <th>Record Label</th>
                     <th>Year</th>
                     <th>Duration</th>
                     <th>Genre</th>
@@ -33,7 +35,6 @@
                 <tr class="song-row" data-id="{{ $song->id }}">
                     <td>{{ $index + 1 }}</td>
                     <td class="song-title">
-                        <img src="{{ $song->albm->image_url }}" alt="{{ $song->albm->nama }}" class="img-thumbnail" style="width: 50px; height: auto;">
                         <a href="{{ route('crud-song.show', $song->id) }}">
                             {{ Str::limit($song->title, 20, '...') }}
                         </a>
@@ -42,7 +43,8 @@
                             <i class="fas fa-play-circle"></i>
                         </span>
                     </td>
-                    <td>{{ $song->albm->nama }}</td>
+                    <td>{{ $song->artist->nama }}</td>
+                    <td>{{ $song->rl->nama }}</td>
                     <td>{{ $song->year }}</td>
                     <td>
                         @php
@@ -52,9 +54,7 @@
                         {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }}
                     </td>
                     <td>
-                        @foreach ($song->genres as $genre)
-                            <span class="badge badge-primary">{{ $genre->nama }}</span>
-                        @endforeach
+                        <span class="badge badge-primary">{{ $song->category }}</span>                        
                     </td>
                 </tr>
                 @endforeach
@@ -93,6 +93,10 @@
 
     .song-title {
         position: relative;
+    }
+    .img-thumbnail {
+        width: 4cm;
+        height: 4cm;
     }
 </style>
 @endpush

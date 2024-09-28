@@ -18,7 +18,7 @@ class PlaylistResource extends JsonResource
             'id' => $this->id,
             'nama' => $this->nama,
             // 'content' => $this->content,
-            'release_date' => $this->release_date,
+            'description' => $this->release_date,
             // 'image_url' => $this->image_url,
             // 'status' => $this->status,
             'created_at' => $this->created_at,
