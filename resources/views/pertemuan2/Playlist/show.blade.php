@@ -6,6 +6,12 @@
 
 <div class="card p-3">
     <h1>{{ $playlist->nama }}</h1>
+    <!-- Display playlist image if exists -->
+    @if($playlist->image_path)
+        <img src="{{ Storage::url($playlist->image_path) }}" alt="Playlist Image"  style="border: none;" class="img-thumbnail">                                    
+    @else
+        No Image
+    @endif
     <p>Description: {{ $playlist->release_date }}</p>
 
     <form action="{{ route('crud-playlist.addSong', $playlist->id) }}" method="POST">
@@ -29,7 +35,7 @@
                 <th>No</th>
                 <th>Title</th>
                 <th>Artist</th>
-                <th>Album</th>
+                <th>Album</th>                
                 <th>Year</th>
                 <th>Duration</th>
                 <th>Record Label</th>
@@ -109,6 +115,11 @@
     .artist-link:hover {
         text-decoration: underline; /* Tambahkan underline saat hover */
         color: #28a745; /* Ubah warna saat hover */
+    }
+    
+    .img-thumbnail {
+            width: 5cm;
+            height: 5cm;
     }
 
 </style>

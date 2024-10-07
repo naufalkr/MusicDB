@@ -153,7 +153,7 @@ class SongController extends Controller
  * Update the specified resource in storage.
  *
  * @param  \Illuminate\Http\Request  $request
- * @param  \App\Models\Song  $song
+ * @param  \App\Models\Song  song$
  * @return \Illuminate\Http\JsonResponse
  */
 public function update(Request $request, Song $song)

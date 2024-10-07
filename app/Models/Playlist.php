@@ -11,7 +11,8 @@ class Playlist extends Model
 
     protected $table = 'playlist';
 
-    protected $fillable = ['nama', 'release_date'];
+    protected $fillable = ['nama', 'release_date', 'image_path'];
+    
 
     public function songs()
     {

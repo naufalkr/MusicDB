@@ -90,36 +90,80 @@ class PlaylistController extends Controller
     }
 
 
+    // public function submit(Request $request)
+    // {
+    //     // $data['playlist'] = $playlist;
+    //     $playlist = new Playlist();
+
+    //     $playlist->nama = $request->nama;
+    //     $playlist->release_date = $request->release_date;
+    //     $playlist->save();
+
+    //     return redirect()->route('crud-playlist.tampil');
+    // }
+
     public function submit(Request $request)
     {
-        // $data['playlist'] = $playlist;
+        // Validate the form input, including the image field
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'release_date' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Ensure image is valid
+        ]);
+        
+        // Create a new Playlist
         $playlist = new Playlist();
-
         $playlist->nama = $request->nama;
         $playlist->release_date = $request->release_date;
+
+        // If an image is uploaded, store it in storage and save the file path
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/playlist_images'); // Save image to storage
+            $playlist->image_path = $imagePath; // Save the image path to the database
+        }
+
+        // Save the playlist
         $playlist->save();
 
-        return redirect()->route('crud-playlist.tampil');
+        return redirect()->route('crud-playlist.tampil')->with('success', 'Playlist added successfully!');
     }
-
+  
     public function submitadmin(Request $request)
     {
-        // Validasi input Spotify Playlist ID
+        // Validate the Spotify Playlist ID
         $request->validate([
             'spotify_playlist_id' => 'required|string',
         ]);
-
-        // Ambil data playlist dari Spotify API berdasarkan ID
+    
+        // Get the playlist data from the Spotify API based on the ID
         $spotifyPlaylist = $this->spotify->getPlaylistById($request->spotify_playlist_id);
-
-        // Simpan data playlist ke dalam database
+    
+        // Create a new Playlist instance
         $playlist = new Playlist();
-        $playlist->nama = $spotifyPlaylist['name']; // Nama playlist
-        $playlist->release_date = $spotifyPlaylist['description']; // Tanggal rilis
-        // $playlist->image_url = $spotifyPlaylist['images'][0]['url'] ?? null; // URL gambar playlist
+        $playlist->nama = $spotifyPlaylist['name']; // Playlist name
+        $playlist->release_date = $spotifyPlaylist['description']; // Release date
+    
+        // Check if an image URL exists
+        if (isset($spotifyPlaylist['images'][0]['url'])) {
+            $imageUrl = $spotifyPlaylist['images'][0]['url'];
+    
+            // Download the image and store it in the public storage
+            $imageContents = file_get_contents($imageUrl); // Get image content
+    
+            // Generate a unique name for the image
+            $imageName = uniqid() . '.jpg'; // You can also use other extensions based on the image type
+    
+            // Store the image in storage
+            \Storage::put('public/playlist_images/' . $imageName, $imageContents);
+    
+            // Save the path to the database
+            $playlist->image_path = 'public/playlist_images/' . $imageName;
+        }
+    
+        // Save the playlist to the database
         $playlist->save();
-
-        return redirect()->route('crud-playlist.tampil');
+    
+        return redirect()->route('crud-playlist.tampil')->with('success', 'Playlist added successfully!');
     }
 
     public function edit($id)
@@ -130,18 +174,53 @@ class PlaylistController extends Controller
 
     }
 
-    public function update(Request $request, $id)
-    {
-        // $data['playlist'] = $playlist;
-        $playlist = Playlist::find($id);
+    // public function update(Request $request, $id)
+    // {
+    //     // $data['playlist'] = $playlist;
+    //     $playlist = Playlist::find($id);
 
-        $playlist->nama = $request->nama;
-        $playlist->release_date = $request->release_date;
-        $playlist->update();
+    //     $playlist->nama = $request->nama;
+    //     $playlist->release_date = $request->release_date;
+    //     $playlist->update();
 
-        return redirect()->route('crud-playlist.tampil');
-    }
+    //     return redirect()->route('crud-playlist.tampil');
+    // }
     
+    public function update(Request $request, $id)
+{
+    // Validate the input fields, including the image
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'release_date' => 'required|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Ensure image is valid
+    ]);
+
+    // Find the playlist by its ID
+    $playlist = Playlist::findOrFail($id);
+
+    // Update playlist fields
+    $playlist->nama = $request->nama;
+    $playlist->release_date = $request->release_date;
+
+    // Check if a new image is uploaded
+    if ($request->hasFile('image')) {
+        // If the playlist already has an image, delete the old one
+        if ($playlist->image_path) {
+            \Storage::delete($playlist->image_path);
+        }
+
+        // Store the new image
+        $imagePath = $request->file('image')->store('public/playlist_images');
+        $playlist->image_path = $imagePath; // Save the new image path to the database
+    }
+
+    // Save the updated playlist
+    $playlist->save();
+
+    return redirect()->route('crud-playlist.tampil')->with('success', 'Playlist updated successfully!');
+}
+
+
     public function delete($id)
     {
         // $data['playlist'] = $playlist;

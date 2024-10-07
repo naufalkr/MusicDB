@@ -4,24 +4,29 @@
 
 @section('content')
 
-<form action="{{ route('crud-playlist.submit') }}" method = "post">
+<form action="{{ route('crud-playlist.submit') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="nama">Name</label>
-        <input type="text" class="form-control @error('playlist') is-invalid @enderror" id="nama"
-            name="nama" required>
-            @error('playlist')
+        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" required>
+        @error('nama')
         <strong>{{ $message }}</strong>
-        </span>
         @enderror
+
         <label for="release_date">Description</label>
-        <input type="text" class="form-control @error('playlist') is-invalid @enderror" id="release_date"
-            name="release_date" required>
-            @error('playlist')
+        <input type="text" class="form-control @error('release_date') is-invalid @enderror" id="release_date" name="release_date" required>
+        @error('release_date')
         <strong>{{ $message }}</strong>
-        </span>
         @enderror
-        <button id="submitBtn" type="submit" class="btn btn-primary">Add Playlist</button>
+
+        <!-- Image Upload Field -->
+        <label for="image">Playlist Image</label>
+        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+        @error('image')
+        <strong>{{ $message }}</strong>
+        @enderror
+
+        <button id="submitBtn" type="submit" class="btn btn-primary mt-3">Add Playlist</button>
     </div>
 </form>
 

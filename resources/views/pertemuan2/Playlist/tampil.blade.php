@@ -54,9 +54,7 @@
                         <th>#</th>  
                         <th>Name</th>
                         <th>Description</th>
-                        @role('user')
                         <th>Action</th>
-                        @endrole
                     </tr>
                 </thead>
                 <tbody>
@@ -64,14 +62,15 @@
                         <tr class="playlist-row" data-id="{{ $data_playlist->id }}">
                             <td>{{ ($playlist->currentPage() - 1) * $playlist->perPage() + $key + 1 }}</td>
                             <td class="playlist-name">
+                                <!-- Display playlist image if exists -->
+                                @if($data_playlist->image_path)
+                                    <img src="{{ Storage::url($data_playlist->image_path) }}" alt="Playlist Image"  style="border: none;" class="img-thumbnail">                                    
+                                @else
+                                    No Image
+                                @endif
                                 <a href="{{ route('crud-playlist.show', $data_playlist->id) }}">{{ $data_playlist->nama }}</a>
-                                <!-- Ikon play yang akan muncul saat hover -->
-                                <span class="play-icon" style="display: none;">
-                                    <i class="fas fa-play-circle"></i>
-                                </span>
                             </td>
-                            <td>{{ Str::limit($data_playlist->release_date, 30, '...') }}</td>
-                            @role('user')
+                            <td>{{ Str::limit($data_playlist->release_date, 200, '...') }}</td>
                             <td class="d-flex">
                                 <a href="{{ route('crud-playlist.edit', $data_playlist->id) }}"
                                 class="btn btn-primary btn-sm mr-2">Edit</a>
@@ -80,11 +79,10 @@
                                     <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                             </td>
-                            @endrole
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="text-center">No records found</td>
+                            <td colspan="5" class="text-center">No records found</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -127,6 +125,11 @@
         /* Mengatur posisi play-icon dan name */
         .playlist-name {
             position: relative;
+        }
+
+        .img-thumbnail {
+            width: 1.4cm;
+            height: 1.4cm;
         }
     </style>
 @endpush

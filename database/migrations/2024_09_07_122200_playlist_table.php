@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('release_date');
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
