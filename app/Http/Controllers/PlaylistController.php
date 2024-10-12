@@ -162,7 +162,7 @@ class PlaylistController extends Controller
     
         // Save the playlist to the database
         $playlist->save();
-    
+
         return redirect()->route('crud-playlist.tampil')->with('success', 'Playlist added successfully!');
     }
 
