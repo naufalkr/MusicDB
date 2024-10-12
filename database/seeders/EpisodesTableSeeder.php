@@ -20,9 +20,29 @@ class EpisodesTableSeeder extends Seeder
     {
         // Daftar Spotify Episode ID yang ingin Anda tambahkan
         $spotifyEpisodeIds = [
-            '6tvmDNeUPl2vO00vbK2viA',
-            '5biepeD3eUeZGn76fC6d5x',
-            '7bqv8dhiXpo3YYV5fZrdDK', // Tambahkan ID lainnya sesuai kebutuhan
+            // '6tvmDNeUPl2vO00vbK2viA',
+            // '5biepeD3eUeZGn76fC6d5x',
+            // '7bqv8dhiXpo3YYV5fZrdDK', 
+            '46deyZlBRfOvcSzT9NO10r',
+            '4SgmT9ppqzPs70go6p1wWi',
+            '5pC8KcAn0UcCa1VZ8hQkN9', 
+            '5T5nd4LNIwry6r3xxE3e8j',
+            '3NSZFXwP3DF1OZKucpDFZK',
+            '2UUqPLyLFBjHcaOE75i3cs', 
+            '06PnBaAA89FU8C8IGBBu7L',
+            '1aId1wEkAnRwZiE2IrjyvX',
+            '2ktrxl3umBaSOOtcIFvnUm', 
+            '3dY7Qu5YGpSmOkZUmyN3hE',
+            '2uAJX8j4llVc3ZOJZsrDZ3',
+            '5JppZmezjt3yggRXKy4S1m', 
+            '67dQ2LlrY05ojmUpyC0zy5',
+            '2XEHzU3AjDemMgk6rdmEfn',
+            '0zqZo2ogsgpb4k6QvgvPK0',            
+            '4UfbpEokRax7zGFYk256ay',
+            '3mDwtXiOEyr7etNEbudLDb', 
+            '5qPe6lQmByARK2IaigJVkN',
+            '2d60qSgNyoZt1vdSuPXJjg',
+            '4ripSPuKowSNicnQgunYWZ', 
         ];
 
         foreach ($spotifyEpisodeIds as $episodeId) {

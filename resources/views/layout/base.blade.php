@@ -62,10 +62,10 @@
         {{-- <x-menu-item title="Tambah episode" icon="fas fa-plus-circle" :href="route('crud-episode.create')" :active="request()->routeIs('crud-episode.create')">
         </x-menu-item> --}}
         
-        
+        @role('admin')
         <x-menu-item title="REST API" icon="fas fa-list" :href="route('api-page')" :active="request()->routeIs('api-page')">
         </x-menu-item>
-
+        @endrole
         <!-- <x-menu-item title="Album" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">
         </x-menu-item> -->
         <!-- <x-menu-item title="Record Label" icon="fas fa-list" :href="route('temp')" :active="request()->routeIs('temp')">

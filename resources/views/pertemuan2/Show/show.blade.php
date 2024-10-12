@@ -22,9 +22,8 @@
                 <tr>
                     <th>No</th>
                     <th>Title</th>
-                    <th>Show</th>
-                    <th>Year</th>                    
-                    <th>Publisher</th>
+                    <th>Show</th>                 
+                    <th>Release Date</th>
                     <th>Duration</th>
                 </tr>
             </thead>
@@ -35,7 +34,7 @@
                     <td class="episode-title">
                         <img src="{{ $episode->podcast->image_url }}" alt="{{ $episode->podcast->nama }}" class="img-thumbnail" style="width: 50px; height: auto;">
                         <a href="{{ route('crud-episode.show', $episode->id) }}">
-                            {{ Str::limit($episode->title, 20, '...') }}
+                            {{ Str::limit($episode->title, 100, '...') }}
                         </a>
                         <!-- Play icon that appears on hover -->
                         <span class="play-icon" style="display: none;">
@@ -43,7 +42,6 @@
                         </span>
                     </td>
                     <td>{{ $episode->podcast->nama }}</td>
-                    <td>{{ $episode->year }}</td>
                     <td>{{ $episode->release_date }}</td>                    
                     <td>
                         @php

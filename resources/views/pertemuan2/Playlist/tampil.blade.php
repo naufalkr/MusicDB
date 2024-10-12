@@ -54,7 +54,11 @@
                         <th>#</th>  
                         <th>Name</th>
                         <th>Description</th>
+                        @role('user')
+
+                        
                         <th>Action</th>
+                        @endrole
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +75,9 @@
                                 <a href="{{ route('crud-playlist.show', $data_playlist->id) }}">{{ $data_playlist->nama }}</a>
                             </td>
                             <td>{{ Str::limit($data_playlist->release_date, 200, '...') }}</td>
+                            @role('user')
+
+                            
                             <td class="d-flex">
                                 <a href="{{ route('crud-playlist.edit', $data_playlist->id) }}"
                                 class="btn btn-primary btn-sm mr-2">Edit</a>
@@ -79,6 +86,7 @@
                                     <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                             </td>
+                            @endrole
                         </tr>
                     @empty
                         <tr>

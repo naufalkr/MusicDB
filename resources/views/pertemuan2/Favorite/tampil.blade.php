@@ -32,9 +32,13 @@
                 <div class="ml-2">
                     @role('user')
                     <a href="{{ route('crud-favorite.tambah') }}" class="text-white">
-                        <button class="btn btn-success">
-                            Add Favorite
-                        </button>
+                    @role('admin')
+
+                    
+                    <button class="btn btn-success">
+                        Add Favorite
+                    </button>
+                    @endrole
                     </a>
                     @endrole
                 </div>
@@ -47,7 +51,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Description</th>
-                        @role('user')
+                        @role('admin')
                         <th>Action</th>
                         @endrole
                     </tr>
@@ -64,7 +68,7 @@
                                 </span>
                             </td>
                             <td>{{ Str::limit($data_favorite->release_date, 30, '...') }}</td>
-                            @role('user')
+                            @role('admin')
                             <td class="d-flex">
                                 <a href="{{ route('crud-favorite.edit', $data_favorite->id) }}"
                                 class="btn btn-primary btn-sm mr-2">Edit</a>

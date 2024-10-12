@@ -47,8 +47,7 @@
                         <th>#</th>
                         <th>Title</th>
                         <th>Show</th>
-                        <th>Year</th>
-                        <th>Publisher</th>
+                        <th>Release Date</th>
                         <th>Duration</th>
                         <th>Description</th>
                         @role('admin')                        
@@ -74,7 +73,6 @@
                             </td>
                             <td><a href="{{ route('crud-show.show', $b->podcast->id) }}" class="show-link">{{ $b->podcast->nama }}</a></td>
                           
-                            <td>{{ $b->year }}</td>
                             <td>{{ $b->release_date }}</td>
                             
                             <td>
