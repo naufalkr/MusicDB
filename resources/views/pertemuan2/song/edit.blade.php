@@ -11,7 +11,7 @@
         <div class="card-body">
             <form id="updateForm" action="{{ route('crud-song.update', $data['song']->id) }}" method="POST">
                 @csrf
-                @method('PUT') <!-- Menandakan bahwa ini adalah request untuk update -->
+                @method('PUT')
 
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -41,8 +41,7 @@
                         <div class="form-group">
                             <label for="album">Album</label>
                             <input type="text" class="form-control @error('album') is-invalid @enderror"
-                                id="album" name="album" value="{{ old('album', $data['song']->albm->nama) }}"
-                                required>
+                                id="album" name="album" value="{{ old('album', $data['song']->albm->nama) }}" required>
                             @error('album')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -81,51 +80,15 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="recordlabel">Record Label</label>
-                            <input type="text" class="form-control @error('recordlabel') is-invalid @enderror" id="recordlabel"
-                                name="recordlabel" value="{{ old('recordlabel', $data['song']->rl->nama) }}" required>
-                            @error('recordlabel')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="genre">Genre</label>
-                            <select class="selectpicker w-100 @error('genre') is-invalid @enderror" id="genre"
-                                name="genre[]" multiple>
-                                @foreach ($data['genre'] as $k)
-                                    <option value="{{ $k->id }}"
-                                        {{ in_array($k->id, old('genre', $data['song-genre'])) ? 'selected' : '' }}>
-                                        {{ $k->nama }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('genre')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    {{-- <div class="col-md-6">
-                        <!-- <div class="form-group">
-                            <label for="genre">Genre</label>
-                            <input type="text" class="form-control @error('genre') is-invalid @enderror"
-                                id="genre" name="genre" value="{{ old('genre', $data['song']->genre) }}">
-                            @error('genre')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div> -->
-                    </div> --}}
+                <div class="form-group">
+                    <label for="recordlabel">Record Label</label>
+                    <input type="text" class="form-control @error('recordlabel') is-invalid @enderror" id="recordlabel"
+                        name="recordlabel" value="{{ old('recordlabel', $data['song']->rl->nama) }}" required>
+                    @error('recordlabel')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
@@ -148,7 +111,6 @@
                     @enderror
                 </div>
 
-
             </form>
             <button id="submitBtn" type="submit" class="btn btn-primary">Update Track</button>
             <a href="{{ route('crud-song.index') }}" class="btn btn-warning">Kembali ke Daftar Track</a>
@@ -164,13 +126,17 @@
         </div>
     </div>
 @endsection
-@push('scripts')
-    <script src="/js/bootstrap-select.min.js"></script>
-@endpush
+
 @push('scripts')
     <script>
         document.getElementById('submitBtn').addEventListener('click', function() {
             document.getElementById('updateForm').submit();
+        });
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: "Pilih",
+                allowClear: true
+            });
         });
     </script>
 @endpush

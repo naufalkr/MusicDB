@@ -12,6 +12,7 @@ use App\Models\Singer;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\SpotifyService;
+use Illuminate\Support\Facades\Validator;
 
 class SongController extends Controller
 {
@@ -143,19 +144,44 @@ class SongController extends Controller
     public function edit(Song $song) 
     {
         $data['song'] = $song;
-        $data['song-genre'] = $song->genres->pluck('id')->toArray();
-        $data['genre'] = Genre::all();
         return view('pertemuan2.song.edit', compact('data'));
     }
     
-    public function update(UpdateSongRequest $request, Song $song)
+    public function update(Request $request, Song $song)
     {
-        $validatedData = $request->validated();
-        unset($validatedData['genre']);
-        $song->update($validatedData);
-        $song->genres()->sync($request->input('genre'));
-        return redirect()->route('crud-song.index', $song->id)->with('success', 'song "'.$song->title.'" sukses diubah');
+        // Validasi data yang diterima
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:155',
+            'artist' => 'required|string|max:255', // Nama artist sebagai string
+            'album' => 'required|string|max:255', // Nama album sebagai string
+            'year' => 'nullable|digits:4', // Tahun harus 4 digit
+            'duration' => 'nullable|integer', // Durasi sebagai integer
+            'recordlabel' => 'required|string|max:255', // Nama record label sebagai string
+            'category' => 'nullable|string', // Kategori bersifat opsional
+            'description' => 'nullable|string' // Deskripsi bersifat opsional
+        ]);
+    
+        // Jika validasi gagal, kembalikan pesan error
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        // Update data song dengan data yang telah divalidasi
+        $song->update([
+            'title' => $request->get('title'),
+            'artist' => $request->get('artist'),
+            'album' => $request->get('album'),
+            'year' => $request->get('year'),
+            'duration' => $request->get('duration'),
+            'recordlabel' => $request->get('recordlabel'),
+            'category' => $request->get('category'),
+            'description' => $request->get('description'),
+        ]);
+    
+        // Redirect dengan pesan sukses
+        return redirect()->route('crud-song.index')->with('success', 'Song "' . $song->title . '" sukses diubah');
     }
+    
 
     public function destroy(Song $song)
     {
